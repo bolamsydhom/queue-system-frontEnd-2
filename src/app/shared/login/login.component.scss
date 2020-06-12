@@ -52,12 +52,12 @@ $baby-blue:#3FB0AC;
 .lower-bk{
     position: fixed;
     top: 35%;
-    left: -25%;
+    left: -27%;
     background-image: url('../../../../src/assets/employee-images/circle.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 50%;
+    width: 55%;
     height: 120%;
 }
 .login{
@@ -104,8 +104,9 @@ $baby-blue:#3FB0AC;
      
     }
     .submit-btn{
-        // position: relative;
-        // top: 5%;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
         display: inline-block;
         background-image: url("../../../../src/assets/ticket/emptyarrow.png");
         background-position: center;
@@ -113,11 +114,45 @@ $baby-blue:#3FB0AC;
         background-size: cover;
         width: 37px;
         height: 40px;
-        //argin-top: 5%;
         margin-left: 5%;
     }
-}
+    .final-btn{
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        display: inline-block;
+        background-image: url("../../../../src/assets/ticket/finalarrow.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 37px;
+        height: 40px;
+        margin-left: 5%;
+    }
+    .submit-btn-error{
+        border: none;
+        background-color: transparent;
+        display: inline-block;
+        background-image: url("../../../../src/assets/ticket/redarrow.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 37px;
+        height: 40px;
+        margin-left: 5%;
+    }
+   .submit-btn, .final-btn, .submit-btn  :focus{
+    outline: 0;
+   }
 
+   .btn-container :focus{
+    outline: 0;
+   }
+}
+.matError{
+    font-size: 13px;
+    margin-top: -18px;
+}
 .full-width{
     width: 80%;
 }
@@ -134,6 +169,7 @@ $baby-blue:#3FB0AC;
         font-size: 12px;
     }
     &__route{
+        cursor: pointer;
         font-size: 15px;
         color: $teal;
         font-weight: bold;

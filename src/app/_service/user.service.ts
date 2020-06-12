@@ -16,4 +16,15 @@ export class User {
         console.log(user)
         return this.http.post(`${this.url}user/register`, user);
     }
+
+
+    emailLogin(email) {
+
+        return this.http.post(`${this.url}user/email`, { email })
+    }
+
+    Login(user) {
+
+        return this.http.post(`${this.url}user/login`, user)
+    }
 }

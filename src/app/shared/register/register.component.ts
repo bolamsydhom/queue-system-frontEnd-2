@@ -135,7 +135,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmitAccountDetails(formData) {
-
+    console.log(formData)
     // const userObject = {
 
     let userObject: UserModel = {
@@ -143,15 +143,28 @@ export class RegisterComponent implements OnInit {
       lastName: formData.lastname,
       email: formData.email,
       password: formData.matching_passwords.password,
+      repeatedPassword: formData.matching_passwords.confirm_password,
       phoneNumber: formData.country_phone.phone
-
     }
     this.user.register(userObject)
       .subscribe(
         (response) => {
-          console.log('user registerd')
+          const loginUser = {
+            email: userObject.email,
+            password: userObject.password
+          }
+          this.user.Login(loginUser).subscribe(
+            (response) => {
+              this.router.navigate(['./userlocation']);
+            },
+            (error) => {
+
+            }
+          )
+
         },
         (error) => {
+          console.log(error)
           console.log('error')
         }
       );
