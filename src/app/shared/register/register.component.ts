@@ -114,14 +114,14 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(10),
         Validators.minLength(3),
 
-        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
+        // Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
         Validators.required
       ])),
       lastname: new FormControl('', Validators.compose([
         UsernameValidator.validUsername,
         Validators.maxLength(10),
         Validators.minLength(3),
-        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
+        // Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
         Validators.required
       ])),
       email: new FormControl('', Validators.compose([
