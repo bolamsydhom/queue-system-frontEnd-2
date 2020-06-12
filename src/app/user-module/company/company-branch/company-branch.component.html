@@ -1,7 +1,7 @@
 <app-user-header></app-user-header>
 <div class="circle">
   <div routerLink="/userlocation" class="pageNo medium">01</div>
-  <div routerLink="/companylisting" class="pageNo dark">02</div>
+  <div [routerLink]="['/companylisting/',cityId]" class="pageNo dark">02</div>
   <div class="pageNo mainPage">03</div>
   <div class="pageNo light disabled">04</div>
 </div>

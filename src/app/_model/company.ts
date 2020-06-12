@@ -1,8 +1,10 @@
+import {City} from './../_model/city'
 export interface Company{
     id:number;
     name:string;
-    description:string;
     imgUrl:string;
-    ///arrOfServices-arrOfCityId-arrOfBranches
-
+    locations:string[];
+    services;
+    createdAt;
+    updatedAt;
 }

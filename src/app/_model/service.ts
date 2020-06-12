@@ -1,5 +1,5 @@
 export interface Service {
-  serviceId: number;
+  serviceId;
   serviceName: string;
   departmentId:number;
 }

@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: '', component: LandingPageComponent },
   {path:'userlocation',component:UserLocationComponent},
-  {path:'companylisting', component:ComapanyListingComponent},
+  {path:'companylisting/:cityId', component:ComapanyListingComponent},
   {path:'companyBranch/:companyId',component:CompanyBranchComponent},
   {path:'companyServices/:branchId',component:CompanyServicesComponent},
   { path: 'ticket', component: UserTicketComponent },

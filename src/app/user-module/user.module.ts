@@ -17,6 +17,7 @@ import { BranchService } from '../_service/branch.service';
 import { CompanyServicesComponent } from './company/company-services/company-services.component';
 import { CompanyBranchComponent } from './company/company-branch/company-branch.component';
 import { UserTicketComponent } from './user-ticket/user-ticket.component';
+import { TicketService } from '../_service/ticket.service';
 
 
 
@@ -28,7 +29,7 @@ import { UserTicketComponent } from './user-ticket/user-ticket.component';
     MaterialModule,
     RouterModule
   ],
-  providers: [CitiesService,AreaService,BranchService],
+  providers: [CitiesService,AreaService,BranchService,TicketService],
   exports: [ MaterialModule],
   declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent]
 })

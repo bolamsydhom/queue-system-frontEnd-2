@@ -2,8 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { CitiesService } from './../../_service/cities.service';
 import { AreaService } from './../../_service/area.service';
+import { User } from './../../_service/user.service';
 import { Router } from '@angular/router';
 import { City } from './../../_model/city';
+import { TicketService } from 'src/app/_service/ticket.service';
 
 @Component({
   selector: 'app-user-location',
@@ -20,11 +22,13 @@ export class UserLocationComponent implements OnInit {
   area = '';
   imgSrc = '../../../assets/images/arrow1.png';
   c;
+  cityIdURL;
   @ViewChild('nextScreen') arrow: ElementRef;
 
   constructor(
     private CitiesService: CitiesService,
     private AreaService: AreaService,
+    private ticketService:TicketService,
     private router: Router
   ) {}
 
@@ -35,24 +39,24 @@ export class UserLocationComponent implements OnInit {
   }
   ngDoCheck() {
     if (this.cityNameSelectedByInput !== '') {
-    
       let city = this.c.filter(c => c.name === this.cityNameSelectedByInput);
       this.arrAreaOfCity = this.AreaService.getById(city[0].id);
       this.imgSrc = '../../../assets/images/arrow2.png';
       this.arrow.nativeElement.style.cursor = 'pointer';
     }
-
   }
 
   onSearchChange(srchValue: string, btn): void {
     let searchRes;
     this.isNew =
-      this.cities.filter(c => c.cityName === this.cityNameSelectedByInput).length >
-      0
+      this.cities.filter(c => c.cityName === this.cityNameSelectedByInput)
+        .length > 0
         ? false
         : true;
     if ((srchValue !== '' && !this.isChecked) || this.isNew) {
-      searchRes = this.c.filter(city => city.name.includes(srchValue));
+      searchRes = this.c.filter(city =>
+        city.name.toLowerCase().includes(srchValue)
+      );
       this.cities = searchRes;
     } else {
       this.cities = [];
@@ -70,13 +74,19 @@ export class UserLocationComponent implements OnInit {
     }
   }
   onSelectByInput(city) {
+    this.cityIdURL=city.id;
     this.cityNameSelectedByInput = city.name;
+    this.ticketService.postUserData('city', city);
+    console.log(this.cityIdURL)
+    this.ticketService.postUserData('cityId', this.cityIdURL);
     this.isChecked = true;
     this.cities = [];
   }
 
-  onSelectByDropdown(city, btn) {
-    this.area = city.name;
+  onSelectByDropdown(area, btn) {
+    this.ticketService.postUserData('areaId', area.id);
+    this.ticketService.postUserData('area', area);
+    this.area = area.name;
     btn.innerHTML = this.area;
     btn.style.background = '#173E43';
     btn.style.color = 'white';
@@ -87,7 +97,7 @@ export class UserLocationComponent implements OnInit {
   }
   onclick() {
     if (this.cityNameSelectedByInput !== '') {
-      this.router.navigate(['/companylisting']);
+      this.router.navigate(['/companylisting',this.cityIdURL]);
     }
   }
 }
