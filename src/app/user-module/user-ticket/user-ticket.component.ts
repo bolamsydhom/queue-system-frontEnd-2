@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-user-ticket',
   templateUrl: './user-ticket.component.html',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserTicketComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn = true
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.isUserLoggedIn()
+  }
+
+  isUserLoggedIn() {
+
+    localStorage.getItem('token') ? this.isLoggedIn = true : this.isLoggedIn = false;
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['./login'])
+  }
+  navigateToLogin() {
+    this.router.navigate(['./register'])
+
   }
 
 }
