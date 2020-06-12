@@ -3,6 +3,7 @@ export interface UserModel {
     lastName: string,
     email: string,
     password: string,
+    repeatedPassword?: string,
     phoneNumber: string
 
 }
