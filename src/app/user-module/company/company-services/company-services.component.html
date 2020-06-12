@@ -1,8 +1,8 @@
 <app-user-header></app-user-header>
 <div class="circle">
   <div class="pageNo light">01</div>
-  <div class="pageNo medium">02</div>
-  <div class="pageNo dark">03</div>
+  <div [routerLink]="['/companylisting/',cityId]" class="pageNo medium">02</div>
+  <div [routerLink]="['/companylisting/',companyId]" class="pageNo dark">03</div>
   <div class="pageNo mainPage">04</div>
 </div>
 <div class="selectService">
@@ -10,11 +10,11 @@
   <p class="selectYourService">Select your service</p>
   <div class="center">
     <div class="services">
-      <div class="service" *ngFor="let service of services">
+      <div (click)="selectService()"class="service" *ngFor="let service of services">
         {{ service.serviceName }}
       </div>
     </div>
-    <div class="arrowDiv"><img class="arrow" [src]="imgSrc" /></div>
+    <div #nextScreen class="arrowDiv" (click)="goToTicketOrLogin()"><img class="arrow" [src]="imgSrc" /></div>
   </div>
   <div class="footer">
     <img class="circleImg" src="../../../../assets/images/Group 10@2x.png" />

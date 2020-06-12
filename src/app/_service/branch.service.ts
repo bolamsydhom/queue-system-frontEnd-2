@@ -8,7 +8,7 @@ export class BranchService {
       end: 15,
       services: [{ serviceId: 1, serviceName: 'a', departmentId: 1 },
       { serviceId: 2, serviceName: 'b', departmentId: 1 },{ serviceId: 3, serviceName: 'c', departmentId: 1 },{ serviceId: 4, serviceName: 'fgh', departmentId: 1 }],
-      companyId: 1
+      companyId: '5ee3627284fd0b3aacab6eb9'
     },
     {
       branchId: 2,
@@ -16,7 +16,7 @@ export class BranchService {
       start: 8,
       end: 14,
       services: [{ serviceId: 2, serviceName: 'b', departmentId: 1 }],
-      companyId: 1
+      companyId: '5ee3627284fd0b3aacab6eb9'
     },
     {
       branchId: 3,
@@ -24,7 +24,7 @@ export class BranchService {
       start: 10,
       end: 20,
       services: [{ serviceId: 3, serviceName: 'c', departmentId: 1 }],
-      companyId: 1
+      companyId: '5ee3627284fd0b3aacab6eb9'
     },
     {
       branchId: 4,
@@ -32,7 +32,7 @@ export class BranchService {
       start: 9,
       end: 15,
       services: [{ serviceId: 4, serviceName: 'a', departmentId: 1 }],
-      companyId: 2
+      companyId: '5ee3627284fd0b3aacab6eb9'
     },
     {
       branchId: 5,
@@ -40,39 +40,39 @@ export class BranchService {
       start: 9,
       end: 15,
       services: [{ serviceId: 5, serviceName: 'b', departmentId: 1 }],
-      companyId: 2
+      companyId: '5ee3636884fd0b3aacab6eba'
     },
     {
       branchId: 6,
-      branchName: 'fghj',
+      branchName: 'Shbeen',
       start: 9,
       end: 15,
       services: [{ serviceId: 6, serviceName: 'c', departmentId: 1 }],
-      companyId: 2
+      companyId: '5ee3636884fd0b3aacab6eba'
     },
     {
       branchId: 7,
-      branchName: 'rtyu',
+      branchName: 'Reda',
       start: 9,
       end: 15,
       services: [{ serviceId: 7, serviceName: 'a', departmentId: 1 }],
-      companyId: 3
+      companyId: '5ee3636884fd0b3aacab6eba'
     },
     {
       branchId: 8,
-      branchName: 'dcvbn',
+      branchName: 'Ebrahim Salama',
       start: 9,
       end: 15,
       services: [{ serviceId: 8, serviceName: 'b', departmentId: 1 }],
-      companyId: 3
+      companyId: '5ee3648d84fd0b3aacab6ebc'
     },
     {
       branchId: 9,
-      branchName: 'rtyu',
+      branchName: 'EL-Sab3a',
       start: 9,
       end: 15,
       services: [{ serviceId: 9, serviceName: 'c', departmentId: 1 }],
-      companyId: 3
+      companyId: '5ee3648d84fd0b3aacab6ebc'
     },
     {
       branchId: 10,
@@ -80,12 +80,10 @@ export class BranchService {
       start: 9,
       end: 15,
       services: [{ serviceId: 10, serviceName: 'd', departmentId: 1 }],
-      companyId: 3
+      companyId: '5ee3648d84fd0b3aacab6ebc'
     }
   ];
-  // getAllBranches() {
-  //   return this.branches;
-  // }
+ 
   getBranchByID(id: number) {
     return this.branches.filter(b => b.branchId === id);
   }
