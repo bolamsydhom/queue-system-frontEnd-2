@@ -106,11 +106,15 @@ mat-icon {
   display: grid;
   grid-gap: 0.0001rem 0.6rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
   justify-content: space-around;
   // display: block;
   margin-left: auto;
   margin-right: auto;
   overflow: auto;
+  grid-auto-flow: dense;
+  list-style: none;
+ // max-width: 800px;
 
   .containerr {
     // display: inline-block;
@@ -157,7 +161,7 @@ mat-icon {
         position: absolute;
         display: flex;
         flex-wrap: wrap;
-        color: #173E43;
+        color: #173e43;
         width: 60%;
         top: 30%;
         left: 10%;
@@ -214,7 +218,7 @@ mat-icon {
   background: transparent;
 }
 
-@media (max-width:1024px) {
+@media (max-width: 1024px) {
   .circle {
     //margin-top: 30%;
     display: flex;
@@ -222,12 +226,18 @@ mat-icon {
     position: fixed;
     left: 20%;
     bottom: 50%;
+    z-index: 1;
+
     .pageNo {
       margin-right: 1rem;
     }
   }
-  .centralize{
+  .centralize {
     margin-top: 4%;
+  }
+  .listingContainer{
+    margin-left: 0;
+  margin-right: 0;
   }
 }
 
@@ -239,12 +249,18 @@ mat-icon {
     position: fixed;
     left: 20%;
     bottom: 35%;
+    z-index: 1;
+
     .pageNo {
       margin-right: 1rem;
     }
   }
-  .centralize{
+  .centralize {
     margin-top: 4%;
+  }
+  .listingContainer{
+    margin-left: 0;
+  margin-right: 0;
   }
 }
 @media (max-width: 414px) {
@@ -254,13 +270,20 @@ mat-icon {
     //background-color: red;
     position: fixed;
     left: 30%;
-    bottom: 18%;
+    bottom: 20%;
+    z-index: 1;
+
     .pageNo {
       margin-right: 1rem;
     }
   }
-  .centralize{
+  .centralize {
     margin-top: 4%;
+  }
+  .listingContainer{
+    display: block;
+    margin-left: 0;
+  margin-right: 0;
   }
 }
 @media (max-width: 375px) {
@@ -270,13 +293,20 @@ mat-icon {
     //background-color: red;
     position: fixed;
     left: 30%;
-    bottom: 10%;
+    bottom: 20%;
+    z-index: 1;
+
     .pageNo {
       margin-right: 1rem;
     }
   }
-  .centralize{
+  .centralize {
     margin-top: 4%;
+  }
+  .listingContainer{
+    display: block;
+    margin-left: 0;
+  margin-right: 0;
   }
 }
 
@@ -288,11 +318,16 @@ mat-icon {
     position: fixed;
     left: 30%;
     bottom: 10%;
+    z-index: 1;
     .pageNo {
       margin-right: 1rem;
     }
   }
-  .centralize{
+  .centralize {
     margin-top: 4%;
+  }
+  .listingContainer{
+    margin-left: 0;
+  margin-right: 0;
   }
 }

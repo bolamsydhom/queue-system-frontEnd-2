@@ -83,7 +83,7 @@ export class ComapanyListingComponent implements OnInit {
   onImageClick(id:number){
   // alert(id)
    this.companyimgId=id;
-   this.router.navigate(['/companybranch',this.companyimgId])
+   this.router.navigate(['/companyBranch',this.companyimgId])
 
   }
 
