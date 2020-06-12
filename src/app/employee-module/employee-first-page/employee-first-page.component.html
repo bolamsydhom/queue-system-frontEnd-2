@@ -1,0 +1,67 @@
+<div class="container">
+    <section class="row">
+        <div class="background">
+            <div class="number">33</div>
+        </div>
+        <div class="service">
+            <div class="service__time">
+                <div class="text"> service time </div>
+                <span *ngFor="let entry of entries">
+
+                    <div *ngIf="getElapsedTime(entry) as elapsed" class="timer">
+                        {{elapsed.hours}} : {{elapsed.minutes}} : {{elapsed.seconds}}
+                    </div>
+                </span>
+            </div>
+
+            <div class="service__customers">
+                <div class="text"> waiting customers</div>
+                <div class="timer">3</div>
+            </div>
+            <!-- <div class="service__details">
+                <div class="text">Customer details: </div>
+                <div class="timer"> ID: 50021</div>
+            </div> -->
+
+        </div>
+
+        <div class="assets">
+            <div>
+                <span class="imgSize1">
+                    <img src="../../assets/employee-images/@.png">
+                </span>
+                <span class="text-secondry">Office</span>
+            </div>
+            <div class="p-6 text-primary">|</div>
+            <div>
+                <span class="imgSize1">
+                    <img src="../../assets/employee-images/zzz.png">
+                </span>
+                <span class="text-secondry">Break</span>
+            </div>
+            <div>
+                <span class="text-primary p-6">Welcome, Hamada</span>
+                <span class="imgSize2 ">
+
+                    <img src="../../assets/employee-images/off.png">
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+    <section class="row2">
+        <div class="prev" [ngClass]="{'opacity' : isUserVerified===false}">
+            <div class="prev__icon"></div>
+            <span class="prev__text">change service</span>
+        </div>
+        <div class="security">
+            <span class="security__text"> security code </span>
+            <input class="p-6" #securityCode type="string" (keyup)="OnSecurityCodeCheck(securityCode.value)">
+        </div>
+        <div class="next" [ngClass]="{'opacity' : isUserVerified===false}">
+            <div class="next__icon"></div>
+            <span class="prev__text">Next</span>
+        </div>
+    </section>
+</div>

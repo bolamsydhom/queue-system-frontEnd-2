@@ -1,0 +1,236 @@
+.circle {
+  position: absolute;
+  top: 40%;
+  left: 15%;
+}
+.pageNo {
+  background-color: #3fb0ac;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  text-align: center;
+  color: #ffffff;
+  font: 18px;
+  line-height: 31px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.mainPage {
+  margin-left: -11px;
+  width: 52px;
+  height: 52px;
+  line-height: 52px;
+  font-size: 24px;
+  opacity: 100%;
+  box-shadow: -1px 1px 4px grey;
+}
+.dark {
+  opacity: 75%;
+}
+
+.medium {
+  opacity: 50%;
+}
+
+.light {
+  opacity: 25%;
+}
+
+.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.mapImage {
+  position: fixed;
+  z-index: -1;
+  top: 10rem;
+  right: 1rem;
+
+  img {
+    width: 28rem;
+    height: 28rem;
+  }
+}
+.selectaCity {
+  top: 50%;
+  left: 35%;
+  position: fixed;
+  width: 30%;
+  height: 5%;
+}
+
+.input {
+  display: inline-block;
+  width: 55%;
+  height: 100%;
+}
+
+.locationInput {
+  border: none;
+  font-size: 20px;
+  border-bottom: #dddfd4 solid 1px;
+  height: 100%;
+  padding: 1px 1px 2px 5px;
+  width: 100%;
+}
+.locationInput:hover {
+  cursor: pointer;
+}
+.locationInput:focus {
+  outline: none;
+}
+.searchResult {
+  border: #dddfd4 solid 1px;
+  position: fixed;
+  width: 16.5%;
+  top: 51.4%;
+  margin-top: 28px;
+}
+.list {
+  margin: 0 20px 0 -30px;
+}
+
+.itemRes {
+  list-style: none;
+  padding: 10px;
+  height: 3%;
+  border-bottom: #dddfd4 solid 1px;
+}
+.itemRes:hover {
+  cursor: pointer;
+  color: #3fb0ac;
+}
+
+.dropbtn {
+  font-size: 20px;
+  height: 100%;
+  width: 100%;
+  color: rgb(80, 78, 78);
+  border: none;
+  cursor: pointer;
+  box-sizing: content-box;
+}
+
+.dropbtn:focus {
+  outline: none;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #3fb0ac;
+}
+
+.dropdown {
+  display: inline-block;
+  background-color: #ddd;
+  width: 30%;
+  height: 100%;
+  margin-right: 7%;
+}
+
+.dropdown-div {
+  display: none;
+  font-size: 16px;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-ul {
+  list-style: none;
+  margin: 0 0 0 -40px;
+}
+.dropdown-item {
+  height: 25%;
+}
+.dropdown-item:hover {
+  color: #3fb0ac;
+  background-color: #ddd;
+}
+
+.open {
+  display: block;
+}
+
+.arrow {
+  position: absolute;
+  cursor: not-allowed;
+  margin-top: -1px;
+}
+@media (max-width: 1024px) {
+  .mapImage {
+    display: none;
+  }
+  .circle {
+    width: 21%;
+    left: 39.5%;
+    top: 80%;
+  }
+  .pageNo {
+    display: inline-block;
+    margin-left: 2%;
+  }
+
+  .selectaCity {
+    height: 3%;
+    left: 15%;
+    width: 70%;
+  }
+  .dropbtn {
+    font-size: 20px;
+  }
+  .searchResult {
+    width: 39%;
+    margin-top: 2.5%;
+  }
+}
+@media (max-width: 426px) {
+  .circle {
+    width: 38%;
+    left: 31%;
+  }
+  .selectaCity {
+    left: 3%;
+    width: 99%;
+  }
+  .input {
+    width: 50%;
+  }
+  .dropbtn {
+    font-size: 18px;
+  }
+  .arrow {
+    margin-top: -5px;
+  }
+}
+@media (max-width: 414px) {
+  .circle {
+    width: 45%;
+    left: 27.5%;
+  }
+  .searchResult {
+    width: 50%;
+    margin-top: 3.5%;
+  }
+  .arrow {
+    margin-top: -5px;
+  }
+}
+@media(max-width:375px){
+  .searchResult{margin-top: 3%;}
+  .arrow{
+    margin-top:-5px ;
+  }
+}
+@media (max-width: 320px) {
+  .circle {
+    width: 50%;
+    left: 25%;
+  }
+  .searchResult{
+    margin-top: 3.5%;
+  }
+}

@@ -1,0 +1,64 @@
+<app-user-header></app-user-header>
+<div class="container">
+  <section class="row">
+    <div class=" col-auto centralize">
+      <form class="example-form align-items-center  ">
+        <mat-form-field class="example-full-width col-auto">
+          <input type="text"
+                 matInput
+                 placeholder="Search"
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto"
+                 ngModel
+                 name="companyName"
+                 (input)="onInput($event)">
+          <mat-icon matSuffix>search</mat-icon>
+          <mat-autocomplete #auto="matAutocomplete"
+                            [displayWith]="displayFn">
+            <mat-option *ngFor="let company of companyOptions | async"
+                        [value]="company"
+                        #selectedValue
+                        (click)="onSelect()">
+              {{company.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <img [src]="imgSrc"
+             #nextScreen
+             (click)="onSubmit()"
+             class="imgButton">
+      </form>
+      <!-- Page Number circles -->
+      <div class="circle ">
+        <div class="pageNo dark"
+             routerLink="/userlocation">01</div>
+        <!-- [routerLink]="['/companybranch']" -->
+        <!-- routerLink="/companybranch" -->
+        <div class="pageNo mainPage">02</div>
+        <div class="pageNo disabled ">03</div>
+        <div class="pageNo disabled">04</div>
+      </div>
+    </div>
+
+    <!-- company Listing -->
+
+
+    <div class="listingContainer col-auto">
+      <div *ngFor="let company of companies"
+           class="containerr"
+           (click)="onImageClick(company.id)">
+        <img [src]="company.imgUrl"
+             class="qoute">
+        <div class="overlay">
+          <div class="text">
+            <div>
+              <h2>{{company.name}}</h2>
+              <p>{{company.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,196 @@
+.remaining-space {
+    flex: 0.4 0.4 auto;
+  }
+  .line {
+    width: 0.1rem;
+    height: 1rem;
+    background-color: #23615f;
+    margin: 0 10px;
+  }
+  .toolbar {
+    background-color: transparent;
+  }
+mat-toolbar {
+    padding-top: 2rem;
+  }
+ ////////////////////////////////////////////////////////////////////////////
+
+ $primary :#173E43;
+$secondry: #3FB0AC;
+.section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.background{
+    display: flex;
+    position:fixed;
+    top: 90px;
+    right: auto;
+    left: auto;
+    
+    background-image: url("../../../../src/assets/employee-images/circle.png");
+    z-index: 0;
+    width: 400px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .logo{
+        background-image: url("../../../../src/assets/ticket/logo.png");
+        position: absolute;
+        width: 306px;
+        height: 220px;
+        z-index: 2;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-size: 40px;
+        top:105px;
+       //left:110px;
+       //left: auto;
+        right: auto;
+        left: 25%;
+
+        .title{
+            position: absolute;
+            z-index: 3;
+            font-size: 14px;
+            color: $primary;
+            font-weight: bold;
+            top: 30px;
+            left: 20%;
+        //    left: 55px;
+        }
+        .number{
+            position: absolute;
+            z-index: 3;
+            font-size: 40px;
+            top:85px;
+             left:25.5%;
+            color: $secondry;
+            font-weight: bold;
+        }
+    }
+
+    .info{
+        position: absolute;
+        top:335px;
+        // left: 120px;
+        left: 25%;
+        z-index: 4;
+        text-align: center;
+        font-weight: bold;
+
+        &__securityCode{
+            margin-bottom: 10px;
+            font-size: 18px;
+
+           .title{
+                color: $primary;
+                margin-right: 5px;
+           }
+           .number{
+                color: $secondry;
+           }
+        }
+        &__branch{
+            margin-bottom: 10px;
+            font-size: 14px;
+            .title{
+                color: $primary;
+            }
+            .address{
+                color: $secondry;
+            }
+        }
+        &__waiting{
+            margin-bottom: 10px;
+            font-size: 14px;
+
+            .title{
+                color: $primary;
+            }
+            .number{
+                color: red;
+            }
+        }
+        &__date{
+            font-size: 14px;
+            color: $secondry;
+            //margin-bottom: 5px;
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// .circle{
+//     //margin-top: 60%;
+//     position: fixed;
+//     top: 50%;
+//     left: 10%;
+//     .pageNo{
+//         background-color: #3FB0AC;
+//         width: 31px;
+//         height: 31px;
+//         border-radius: 50%;
+//         text-align: center;
+//         color:#ffffff;
+//         font:  18px;
+//         line-height: 31px; 
+//         margin-top: 20px;
+//         cursor: pointer;
+       
+        
+
+//     }
+//     .mainPage{
+//         margin-left:-11px;
+//         width: 52px;
+//         height: 52px; 
+//         line-height: 52px; 
+//         font-size: 24px;
+//         opacity:100%;
+//         box-shadow:-1px 1px 4px grey;
+        
+//     }
+
+//     .dark{
+//         opacity: 75%;
+//         &:hover{
+//             margin-left:-11px;
+//            width: 52px;
+//            height: 52px; 
+//            line-height: 52px; 
+//            font-size: 24px;
+//             box-shadow:-1px 1px 4px grey;
+//           }
+//     }
+
+
+//     .medium{
+//         background-color: gray;
+//         opacity: 50%;
+//     }
+
+//     .light{
+//         background-color: gray;
+//         opacity: 25%;
+//         }
+    
+// }
+
+///////////////////////////////////////////////////////////////////////////////////
+@media (max-width: 768px) {
+    .logoCover {
+      margin-left: -40rem;
+    margin-top: -510px;
+  
+    }
+  }
+
+  @media (max-width: 320px){
+      .section{
+          margin-left: 90px;
+      }
+  }

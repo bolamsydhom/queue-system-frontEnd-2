@@ -1,0 +1,58 @@
+<!-- header -->
+<app-user-header></app-user-header>
+
+<!-- slider -->
+
+<div class="circle">
+  <div class="pageNo mainPage">01</div>
+  <div class="pageNo dark disabled">02</div>
+  <div class="pageNo medium disabled">03</div>
+  <div class="pageNo light disabled">04</div>
+</div>
+
+<!-- location page -->
+<div class="mapImage">
+  <img src="../../../assets/images/MapImage.png" />
+</div>
+
+
+  <div class="selectaCity">
+    <div class="input">
+      <input
+        #SearchInput
+        class="locationInput"
+        placeholder="Location"
+        type="text"
+        (input)="onSearchChange($event.target.value, btn)"
+        [value]="cityNameSelectedByInput"
+      />
+
+      <div *ngIf="cities.length !== 0" class="searchResult">
+        <ul *ngFor="let city of cities" class="list">
+          <li class="itemRes" (click)="onSelectByInput(city)">
+            {{ city.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button #btn (click)="toggleOpen()" class="dropbtn">Select Area</button>
+      <div [ngClass]="{ open: dropdownIsOpen }" class="dropdown-div open">
+        <ul class="dropdown-ul">
+          <li
+            class="dropdown-item"
+            *ngFor="let area of arrAreaOfCity"
+            (click)="onSelectByDropdown(area, btn)"
+          >
+            {{ area.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <a #nextScreen (click)="onclick()" class="arrow"
+      ><img [src]="imgSrc" alt=""
+    /></a>
+  </div>
+

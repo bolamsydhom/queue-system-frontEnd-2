@@ -1,0 +1,64 @@
+.logoCover {
+  position: absolute;
+  margin-top: -460px;
+  margin-left: -525px;
+  z-index: -1;
+}
+
+.txt {
+  color: #23615f;
+  font-size: 18px;
+}
+.line {
+  width: 0.1rem;
+  height: 1rem;
+  background-color: #23615f;
+  margin: 0 10px;
+}
+.remaining-space {
+  flex: 0.4 0.4 auto;
+}
+
+.toolbar {
+  background-color: transparent;
+}
+
+.logo {
+  flex: 0.1 0.1 auto;
+}
+mat-toolbar {
+  padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .logoCover {
+    margin-left: -40rem;
+    margin-top: -510px;
+  }
+}
+@media (max-width: 414px) {
+  .logoImg {
+    width: 85px;
+  }
+}
+@media (max-width: 360px) {
+  .logoImg {
+    width: 80px;
+  }
+  @media (max-width: 320px) {
+    .logoImg {
+      width: 80px;
+    }
+
+    .txt {
+      font-size: 16px;
+    }
+  }
+
+
+}
+
+mat-toolbar {
+  padding-top: 2rem;
+}
+

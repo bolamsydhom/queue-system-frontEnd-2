@@ -1,0 +1,33 @@
+<app-user-header></app-user-header>
+<div class="circle">
+  <div routerLink="/userlocation" class="pageNo medium">01</div>
+  <div routerLink="/companylisting" class="pageNo dark">02</div>
+  <div class="pageNo mainPage">03</div>
+  <div class="pageNo light disabled">04</div>
+</div>
+<div class="selectBranch">
+  <img class="companyImg" src="../../../../assets/images/vodafone.jpg" />
+  <p class="selectYourBranch">Select your branch</p>
+  <table class="branches">
+    <thead>
+      <tr id="table-header">
+        <th class="first">Brach</th>
+        <th class="second">Start</th>
+        <th class="third">End</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let branch of branches" (click)="onClickBranch(branch.branchId)" class="branch">
+        <td>{{ branch.branchName }}</td>
+        <td>{{ branch.start }}:00:00</td>
+        <td>{{ branch.end }}:30:00</td>
+        <td><span class="badge badge-pill badge-warning">recommended</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <img class="circleImg" src="../../../../assets/images/Group 10@2x.png" />
+  </div>
+</div>
