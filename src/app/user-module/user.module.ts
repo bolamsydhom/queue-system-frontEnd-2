@@ -17,7 +17,11 @@ import { BranchService } from '../_service/branch.service';
 import { CompanyServicesComponent } from './company/company-services/company-services.component';
 import { CompanyBranchComponent } from './company/company-branch/company-branch.component';
 import { UserTicketComponent } from './user-ticket/user-ticket.component';
+import { WarningComponent } from './alerts/warning/warning.component';
+import { InfoAlertComponent } from './alerts/info-alert/info-alert.component';
+import { ServeUserComponent } from './alerts/serve-user/serve-user.component';
 import { TicketService } from '../_service/ticket.service';
+
 
 
 
@@ -31,6 +35,6 @@ import { TicketService } from '../_service/ticket.service';
   ],
   providers: [CitiesService,AreaService,BranchService,TicketService],
   exports: [ MaterialModule],
-  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent]
+  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent, WarningComponent, InfoAlertComponent, ServeUserComponent]
 })
 export class UserModule { }

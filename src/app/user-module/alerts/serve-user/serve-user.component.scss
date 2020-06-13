@@ -1,0 +1,157 @@
+$grey :#707070;
+$primary: #173E43;
+$watermilon:#F13026;
+$secondry: #3FB0AC;
+
+.background{
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: .1);
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:0.3px $grey solid;
+    width: 25%;
+    height: 60%;
+    position: absolute;
+
+    &__bk{
+        background-image: url('../../../../assets/ticket/break.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width:41%;
+        height: 38%;
+    }
+    &__data{
+        padding-right: 20px;
+        padding-left: 20px;
+        position: relative;
+        // top: -17%;
+        margin-top: 5%;
+        text-align: center;
+        color: $primary;
+
+        &__title{
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 7%;
+        }
+
+        &__body{
+            font-weight: 200;
+            font-size: 15px;
+            
+            font-weight: lighter;
+            span{
+                color: red;
+            }
+        }
+        &__date{
+            color: $secondry;
+            font-size: 13px;
+        }
+        &__ques{
+            font-size:13px ;
+            .verb{
+                color: red;
+                font-weight: bold;
+            }
+            .ques{
+                color: $primary;
+            }
+           
+        }
+
+    }
+
+       
+
+    &__buttons{
+       
+        //position: relative;
+        padding-right: 20px;
+        padding-left: 20px;
+        
+       
+        .common{
+            color:white;
+            font-size: 11px;
+            border: none;
+            margin-top: 30px;
+            width: 150px;
+            height: 26px;
+
+            // margin-bottom: 5%;
+            //height: 70%;
+            
+
+        }
+        .ok{
+            margin-right: 2%;
+            background-color: $primary;
+     
+        }
+        
+    }
+}
+
+
+.close{
+  color: black;
+  font-weight: bolder;
+  font-size: 17px;
+  cursor: pointer;
+  top:22%;
+  right: 39%;
+    position: absolute;
+}
+.logo{
+    position: absolute;
+    background-image: url('../../../../assets/ticket/small-logo.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 2%;
+    height: 3.2%;
+    top: 37%;
+    //left: 60%;
+}
+
+@media (max-width:320px ){
+    
+    .card{
+        width: 80%;
+        height:75%;
+
+        &__bk{
+            width: 56%;
+            height: 38%;
+        }
+        &__data{
+            margin-top: 3%;
+        }
+        &__buttons{
+            .ok{
+                margin-top: 0;
+            }
+            margin-top: 10%;
+        }
+    }
+
+    .close{
+        top: 15%;
+        right: 18%;
+    }
+    .logo{
+        width: 9%;
+    }
+}
