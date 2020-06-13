@@ -10,18 +10,20 @@ import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { CompanyService } from './_service/company.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AdminModule } from './admin-module/admin.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    MaterialModule,
+  MaterialModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     UserModule,
     EmployeeModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminModule
 
   ],
   providers: [CompanyService, HttpClientModule],
