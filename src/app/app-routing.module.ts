@@ -9,6 +9,9 @@ import {UserLocationComponent} from './user-module/user-location/user-location.c
 import { CompanyServicesComponent } from './user-module/company/company-services/company-services.component';
 import { CompanyBranchComponent } from './user-module/company/company-branch/company-branch.component';
 import { UserTicketComponent } from './user-module/user-ticket/user-ticket.component';
+import { AdminModule } from './admin-module/admin.module';
+import { adminRoutes} from './admin-module/admin-routing.module'
+import { AdminComponent } from './admin-module/admin/admin.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,6 +24,7 @@ const routes: Routes = [
   {path:'companyBranch/:companyId',component:CompanyBranchComponent},
   {path:'companyServices/:branchId',component:CompanyServicesComponent},
   { path: 'ticket', component: UserTicketComponent },
+  {path:'admin',component:AdminComponent, children: adminRoutes }
 
 ];
 

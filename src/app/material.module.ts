@@ -12,7 +12,14 @@ import { MatDatepickerToggle } from '@angular/material/datepicker'
 
 import { MatAutocompleteModule, } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatStepperModule } from '@angular/material/stepper';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -29,8 +36,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
-    MatCheckboxModule
-
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatTreeModule,
+    MatGridListModule,
+    MatStepperModule,
+    MatTableModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatListModule
 
   ],
   exports: [
@@ -43,7 +57,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatTreeModule,
+    MatGridListModule,
+    MatStepperModule,
+    MatTableModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatListModule
 
 
   ]
