@@ -78,17 +78,14 @@ span{
       //z-index: ;
       width: 500px;
 height:500px;
-//background-color: red;
-// position: absolute;
-// top: -74.581543px;
-// left: 702px;
+
 margin-top: -8.2rem;
   }
 
 table {
     z-index: 1;
     width: 70%;
-//margin-top: -4.2rem;
+margin-top: -4.2rem;
 
   }
   .red{
@@ -124,4 +121,15 @@ tbody tr:hover {
   //margin-left: 8%;
 background-color: red;
 }
+
+.historyList{
+  overflow: auto;
+  width: auto;
+  height: 150px;
+  margin-top: -2rem;
+}::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
   

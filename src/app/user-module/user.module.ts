@@ -37,7 +37,7 @@ import { ProfileHeaderComponent } from './user-profile/profile-header/profile-he
   ],
   providers: [CitiesService,AreaService,BranchService,TicketService],
   exports: [ MaterialModule],
-  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent, WarningComponent, InfoAlertComponent, ServeUserComponent, ProfileHeaderComponent]
+  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent, WarningComponent, InfoAlertComponent, ServeUserComponent, ProfileHeaderComponent,HistoryComponent]
 
 })
 export class UserModule { }
