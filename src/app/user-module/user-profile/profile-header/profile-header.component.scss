@@ -1,0 +1,29 @@
+
+  .toolbar {
+    background-color: transparent;
+  }
+  
+  .logo {
+    flex: 0.1 0.1 auto;
+  }
+  mat-toolbar {
+    padding-top: 2rem;
+  }
+  @media (max-width: 414px) {
+    .logoImg {
+      width: 85px;
+    }
+  }
+  @media (max-width: 360px) {
+    .logoImg {
+      width: 80px;
+    }
+    @media (max-width: 320px) {
+      .logoImg {
+        width: 80px;
+      }
+  
+    }
+  }
+
+  

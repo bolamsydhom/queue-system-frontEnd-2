@@ -9,6 +9,7 @@ import {UserLocationComponent} from './user-module/user-location/user-location.c
 import { CompanyServicesComponent } from './user-module/company/company-services/company-services.component';
 import { CompanyBranchComponent } from './user-module/company/company-branch/company-branch.component';
 import { UserTicketComponent } from './user-module/user-ticket/user-ticket.component';
+import { HistoryComponent } from './user-module/user-profile/history/history.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'companyBranch/:companyId',component:CompanyBranchComponent},
   {path:'companyServices/:branchId',component:CompanyServicesComponent},
   { path: 'ticket', component: UserTicketComponent },
+  { path: 'profile/history', component: HistoryComponent },
 
 ];
 

@@ -18,6 +18,8 @@ import { CompanyServicesComponent } from './company/company-services/company-ser
 import { CompanyBranchComponent } from './company/company-branch/company-branch.component';
 import { UserTicketComponent } from './user-ticket/user-ticket.component';
 import { TicketService } from '../_service/ticket.service';
+import { HistoryComponent } from './user-profile/history/history.component';
+import { ProfileHeaderComponent } from './user-profile/profile-header/profile-header.component';
 
 
 
@@ -31,6 +33,6 @@ import { TicketService } from '../_service/ticket.service';
   ],
   providers: [CitiesService,AreaService,BranchService,TicketService],
   exports: [ MaterialModule],
-  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent]
+  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent, HistoryComponent, ProfileHeaderComponent]
 })
 export class UserModule { }

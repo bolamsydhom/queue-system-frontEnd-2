@@ -1,0 +1,69 @@
+<app-profile-header></app-profile-header>
+
+
+<div class="historyPageContainer  row">
+  <!-- sidebar -->
+  <div class="sidebarContainer col-4">
+      <h1 class="title">User Profile</h1>
+  
+      <div class="sidebar">
+        <a routerLink="/profile/history"><span class="material-icons">location_searching </span>Location</a>
+        <a><span class="material-icons">history</span>History</a>
+        <a><span class="material-icons">settings</span>Setting</a>
+        <a class="Logout"><span class="material-icons">power_settings_new</span>Logout</a>
+      </div>
+    </div>
+
+  <!-- ///////////////////////// -->
+
+  <div class="HistoryTable col-8">
+    <img
+      src="../../../assets/images/Group 50.png"
+      class="imgCover"
+      alt=""
+      loading="lazy"
+    />
+    <table class="branches">
+      <thead>
+        <tr id="table-header">
+          <th class="first">Brach</th>
+          <th class="second">Start</th>
+          <th class="third">End</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="branch">
+          <td>dfcgvbh</td>
+          <td>fghjk</td>
+          <td>esrdfgh</td>
+          <td>
+            <span class="material-icons" (click)="test()">
+              delete_forever
+            </span>
+          </td>
+        </tr>
+        <tr class="branch">
+          <td>dfcgvbh</td>
+          <td>fghjk</td>
+          <td>esrdfgh</td>
+          <td>
+            <span class="material-icons" (click)="test()">
+              delete_forever
+            </span>
+          </td>
+        </tr>
+        <tr class="branch">
+          <td>dfcgvbh</td>
+          <td>fghjk</td>
+          <td>esrdfgh</td>
+          <td>
+            <span class="material-icons" (click)="test()">
+              delete_forever
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

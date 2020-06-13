@@ -8,7 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select'
-import { MatDatepickerToggle } from '@angular/material/datepicker'
+import { MatDatepickerToggle } from '@angular/material/datepicker';
+import {MatTableModule} from '@angular/material/table';
 
 import { MatAutocompleteModule, } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTableModule
 
 
   ],
@@ -43,7 +45,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTableModule
 
 
   ]
