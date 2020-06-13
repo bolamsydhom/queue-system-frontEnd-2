@@ -5,10 +5,15 @@ import { RegisterBranchComponent } from './admin/register-branch/register-branch
 
 
 export const adminRoutes: Routes = [
-  { path: 'register-branch', component: RegisterBranchComponent },
+  {
+    path: 'admin', component: AdminComponent, children: [
+      { path: 'register-branch', component: RegisterBranchComponent },
+
+    ]
+  },
 ];
 @NgModule({
-  imports: [RouterModule.forChild(adminRoutes)],
-exports: [RouterModule]
+  imports: [RouterModule.forRoot(adminRoutes)],
+  exports: [RouterModule]
 })
 export class AdminRoutingModule { }
