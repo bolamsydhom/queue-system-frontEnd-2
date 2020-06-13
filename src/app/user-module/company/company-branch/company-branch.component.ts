@@ -10,31 +10,36 @@ import { TicketService } from 'src/app/_service/ticket.service';
   styleUrls: ['./company-branch.component.scss']
 })
 export class CompanyBranchComponent implements OnInit {
-  branches: {}[] = [];
-  CompanyId;
+  branches;
   branch;
   cityId;
+  dayOfweek:number;
+  companyImagyUrl;
 
   constructor(
-    private BranchService: BranchService,
-    private route: ActivatedRoute,
+    private branchService: BranchService,
     private router: Router,
-    private ticketService:TicketService
+    private ticketService: TicketService
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.CompanyId = params['companyId'];
+    this.cityId = this.ticketService.getId('city');
+    // this.route.params.subscribe(params => {
+    //   this.CompanyId = params['companyId'];
+    //   console.log(this.CompanyId)
+    // });
+    let c = this.ticketService.get('company');
+    this.companyImagyUrl=c.imgUrl;
+
+    this.branchService.getById(this.cityId).subscribe(data => {
+      this.branches = data;
+      const day = new Date();
+      this.dayOfweek = day.getDay();
     });
-    this.cityId = this.ticketService.getCityID();
-    this.ticketService.postUserData("companyId",this.CompanyId)
-    this.branches = this.BranchService.getBranchesByCompanyId(this.CompanyId);
   }
 
-  onClickBranch(branchId) {
-    this.branch = this.BranchService.getBranchByID(branchId);
-    this.ticketService.postUserData('branchId', branchId);
-    this.ticketService.postUserData('branchId', this.branch);
-    this.router.navigate(['/companyServices', branchId]);
+  onClickBranch(branch) {
+    this.ticketService.postToTicket('branch', branch);
+    this.router.navigate(['/companyServices', branch._id]);
   }
 }

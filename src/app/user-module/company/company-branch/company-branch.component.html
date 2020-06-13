@@ -1,12 +1,12 @@
 <app-user-header></app-user-header>
 <div class="circle">
   <div routerLink="/userlocation" class="pageNo medium">01</div>
-  <div [routerLink]="['/companylisting/',cityId]" class="pageNo dark">02</div>
+  <div [routerLink]="['/companylisting/', cityId]" class="pageNo dark">02</div>
   <div class="pageNo mainPage">03</div>
   <div class="pageNo light disabled">04</div>
 </div>
 <div class="selectBranch">
-  <img class="companyImg" src="../../../../assets/images/vodafone.jpg" />
+  <img class="companyImg" [src]="companyImagyUrl"/>
   <p class="selectYourBranch">Select your branch</p>
   <table class="branches">
     <thead>
@@ -18,10 +18,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let branch of branches" (click)="onClickBranch(branch.branchId)" class="branch">
+      <tr
+        *ngFor="let branch of branches"
+        (click)="onClickBranch(branch)"
+        class="branch"
+      >
         <td>{{ branch.branchName }}</td>
-        <td>{{ branch.start }}:00:00</td>
-        <td>{{ branch.end }}:30:00</td>
+        <td>{{ branch.workingDays[dayOfweek].openShift }}</td>
+        <td>{{ branch.workingDays[dayOfweek].endShift }}</td>
         <td><span class="badge badge-pill badge-warning">recommended</span></td>
       </tr>
     </tbody>

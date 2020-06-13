@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BranchService } from 'src/app/_service/branch.service';
 import { User } from 'src/app/_service/user.service';
 import { TicketService } from 'src/app/_service/ticket.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-company-services',
   templateUrl: './company-services.component.html',
@@ -10,36 +11,51 @@ import { TicketService } from 'src/app/_service/ticket.service';
 })
 export class CompanyServicesComponent implements OnInit {
   imgSrc = '../../../assets/images/arrow1.png';
-  branchId;
+  companyImagyUrl;
+  // branchId;
   cityId;
   companyId;
-  services: {}[] = [];
+  services;
+  selectServiceArr=[];
+
   @ViewChild('nextScreen') arrow: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private BranchService: BranchService,
-    private ticketService:TicketService
+    private ticketService: TicketService
   ) {}
 
   ngOnInit(): void {
-    this.cityId = this.ticketService.getCityID();
-    console.log(this.cityId)
-    this.companyId = this.ticketService.getCompanyId();
-    console.log(this.companyId)
+    let c = this.ticketService.get('company');
+    this.companyId = c._id;
+    this.companyImagyUrl = c.imgUrl;
 
-    this.route.params.subscribe(params => {
-      this.branchId = params['branchId'];
-    });
-    console.log(this.branchId);
-    // this.services = this.BranchService.getServicesByBranchId(this.branchId);
+    let city = this.ticketService.get('city');
+    this.cityId = city._id;
+
+    let branch = this.ticketService.get('branch');
+    this.services = branch.services;
+
+    // this.route.params.subscribe(params => {
+    //   this.branchId = params['branchId'];
+
+    // });
   }
-  goToTicketOrLogin(){
-    
+  goToTicketOrLogin() {
+  if(this.selectServiceArr.length!=0){
+    if(localStorage.getItem['token']){
+      this.router.navigate(['/ticket']);
+    }
+    else  this.router.navigate(['/login']);
   }
-  selectService(){
+  }
+  selectService(service) {
+    this.selectServiceArr.push(service);
+
     this.imgSrc = '../../../assets/images/arrow2.png';
-      this.arrow.nativeElement.style.cursor = 'pointer';
+    this.arrow.nativeElement.style.cursor = 'pointer';
+    this.ticketService.postToTicket('services', this.selectServiceArr);
   }
 }

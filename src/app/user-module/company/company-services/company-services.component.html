@@ -2,16 +2,16 @@
 <div class="circle">
   <div class="pageNo light">01</div>
   <div [routerLink]="['/companylisting/',cityId]" class="pageNo medium">02</div>
-  <div [routerLink]="['/companylisting/',companyId]" class="pageNo dark">03</div>
+  <div [routerLink]="['/companyBranch/',companyId]" class="pageNo dark">03</div>
   <div class="pageNo mainPage">04</div>
 </div>
 <div class="selectService">
-  <img class="companyImg" src="../../../../assets/images/vodafone.jpg" />
+  <img class="companyImg" [src]="companyImagyUrl" />
   <p class="selectYourService">Select your service</p>
   <div class="center">
     <div class="services">
-      <div (click)="selectService()"class="service" *ngFor="let service of services">
-        {{ service.serviceName }}
+      <div (click)="selectService(service)"class="service" *ngFor="let service of services">
+        {{ service.name }}
       </div>
     </div>
     <div #nextScreen class="arrowDiv" (click)="goToTicketOrLogin()"><img class="arrow" [src]="imgSrc" /></div>
