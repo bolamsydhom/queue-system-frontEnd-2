@@ -46,7 +46,7 @@
     <div class="listingContainer col-auto">
       <div *ngFor="let company of companies"
            class="containerr"
-           (click)="onImageClick(company.id)">
+           (click)="onImageClick(company)">
         <img [src]="company.imgUrl"
              class="qoute">
         <div class="overlay">
