@@ -14,7 +14,7 @@
         <form [formGroup]="emailForm" novalidate (ngSubmit)="onEmailLogin(emailForm.value)">
 
           <mat-form-field class="full-width m-r">
-            <input matInput placeholder="Email" #email formControlName="email" required>
+            <input matInput placeholder="Email" #email formControlName="email" required (keyup)="onInputChange()">
 
             <mat-error *ngFor="let validation of account_validation_messages.email">
               <mat-error class="error-message"

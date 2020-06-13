@@ -84,20 +84,37 @@ export class LoginComponent implements OnInit {
     this.loginData.password = password.password;
     this.userServices.Login(this.loginData).subscribe(
       (response) => {
+        const isAdmin = response['person'].isAdmin;
+        const isEmployee = response['person'].isEmployee;
 
         localStorage.setItem('token', response['token']);
         localStorage.setItem('person', response['person']);
-        this.router.navigate(['userlocation']);
-        // localStorage.setItem()
 
+        //Routes based on role 
+        if (!isAdmin && !isEmployee) {
+          this.router.navigate(['userlocation']);
+        }
+        if (!isAdmin && isEmployee) {
+          this.router.navigate(['employee']);
+        }
+        if (isAdmin && !isEmployee) {
+          this.router.navigate(['admin'])
+        }
       },
-      (error) => { }
+      (error) => {
+
+      }
     )
   }
 
 
   goToRegister() {
     this.router.navigate(['./login']);
+  }
+
+  onInputChange() {
+
+    this.backendError === true ? this.backendError = false : '';
   }
 
 }

@@ -189,7 +189,7 @@ $secondry: #3FB0AC;
     }
   }
 
-  @media (max-width: 320px){
+  @media (min-width: 320px){
       .section{
           margin-left: 90px;
       }

@@ -10,10 +10,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select'
 import { MatDatepickerToggle } from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
-
 import { MatAutocompleteModule, } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -31,7 +35,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatToolbarModule,
     MatCheckboxModule,
-    MatTableModule
+    MatSidenavModule,
+    MatTreeModule,
+    MatGridListModule,
+    MatStepperModule,
+    MatTableModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatListModule
 
 
   ],
@@ -46,7 +57,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatToolbarModule,
     MatCheckboxModule,
-    MatTableModule
+    MatSidenavModule,
+    MatTreeModule,
+    MatGridListModule,
+    MatStepperModule,
+    MatTableModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatListModule
+
 
 
   ]
