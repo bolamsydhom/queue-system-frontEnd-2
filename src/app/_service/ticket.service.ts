@@ -1,43 +1,25 @@
-  export class TicketService{
-  
-   // object:{
-  //   user,
-  //   city}
-  city;
-  cityId;
-  area;
-  areaId;
-  company;
-  companyId;
-  branch;
-  branchId;
-  service;
-  serv
-  // function(type,value){
-  //   this.objec[type]=value}
-  postUserData(key: string, value) {
-    switch (key) {
-      case 'city':
-        this.city = value;
-        break;
-      case 'cityId':
-        this.cityId = value;
-        break;
-      case 'area':
-        this.area = value;
-        break;
-      case 'areaId':
-        this.areaId = value;
-        break;
-      default:
-      // code block
+import { tick } from '@angular/core/testing';
+import { browser } from 'protractor';
+
+export class TicketService {
+  ticket = {
+    city: {},
+    area: {},
+    company: {},
+    branch: {},
+    services: {}
+  };
+  postToTicket(type, value) {
+    this.ticket[type] = value;
+    if (type === 'services') {
+      localStorage.setItem('hasTicket', 'true');
     }
   }
 
-  getCityID(){
-    return this.cityId;
+  getId(type: string) {
+    return this.ticket[type]._id;
   }
-  getCompanyId(){
-    return this.companyId;
+  get(type: string) {
+    return this.ticket[type];
   }
 }

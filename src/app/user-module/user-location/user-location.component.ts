@@ -76,16 +76,14 @@ export class UserLocationComponent implements OnInit {
   onSelectByInput(city) {
     this.cityIdURL=city.id;
     this.cityNameSelectedByInput = city.name;
-    this.ticketService.postUserData('city', city);
-    console.log(this.cityIdURL)
-    this.ticketService.postUserData('cityId', this.cityIdURL);
+    this.ticketService.postToTicket('city',city)
+   
     this.isChecked = true;
     this.cities = [];
   }
 
   onSelectByDropdown(area, btn) {
-    this.ticketService.postUserData('areaId', area.id);
-    this.ticketService.postUserData('area', area);
+    this.ticketService.postToTicket('area',area)
     this.area = area.name;
     btn.innerHTML = this.area;
     btn.style.background = '#173E43';
