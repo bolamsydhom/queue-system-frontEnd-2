@@ -1,0 +1,127 @@
+// .sidebarContainer{
+// margin: 6%;
+
+// }
+
+.title{
+   font-size: 35px;
+   color: #23615F;
+   cursor: default;
+}
+.roeitem{
+    display: inline;
+}
+
+.sidebar {
+    //width: 200px;
+    //position: fixed;
+    height: 100%;
+    overflow: hidden;
+
+    .Logout{
+color:#3FB0AC ;
+font-size: 30px;
+margin-top: 50%;
+    }
+  }
+  
+
+  .sidebar a {
+   display: block;
+    //padding: 16px;
+    text-decoration: none;
+    color: #23615F;
+    font-size: 30px ;
+    margin-top: 40px;
+    cursor: pointer;
+
+   
+  }
+
+span{
+    margin-right: 20px;
+}
+  
+
+  .sidebar a:hover:not(.active) {
+   // background-color: #555;
+    //color: white;
+    font-size:35px;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+
+
+  .imgCover{
+      //z-index: ;
+      width: 500px;
+height:500px;
+//background-color: red;
+// position: absolute;
+// top: -74.581543px;
+// left: 702px;
+margin-top: -8.2rem;
+  }
+
+table {
+    z-index: 1;
+    width: 70%;
+//margin-top: -4.2rem;
+
+  }
+  .red{
+      background-color: red;
+  }
+
+  /////////////////@extend
+  .branch {
+    height: 50px;
+    color: #dddfd4;
+    font-size: 14px;
+  }
+
+  th{
+    color:#173E43;
+    cursor: default;
+   
+  }
+  td{
+    cursor: pointer;
+    color:#707070;
+    span{
+      color: #173E43;
+    }
+  }
+tbody tr:hover {
+  background-color: #6cc7c4;
+}
+
+///////@extendgridding
+.historyPageContainer{
+  //margin-top: 5%;
+  //margin-left: 8%;
+background-color: red;
+}
+  
