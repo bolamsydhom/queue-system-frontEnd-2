@@ -1,0 +1,207 @@
+
+.historyPageContainer{
+    width: 80vw;
+    margin-top: 5%;
+    margin-left: 15%;
+    
+    }
+    .title{
+       font-size: 35px;
+       color: #23615F;
+       cursor: default;
+    }
+    .roeitem{
+        display: inline;
+    }
+    
+    .sidebar {
+        //width: 200px;
+        //position: fixed;
+        height: 100%;
+        overflow: hidden;
+    
+        .Logout{
+    color:#3FB0AC ;
+    font-size: 30px;
+    margin-top: 50%;
+        }
+      }
+      
+    
+      .sidebar a {
+       display: block;
+        //padding: 16px;
+        text-decoration: none;
+        color: #23615F;
+        font-size: 30px ;
+        margin-top: 40px;
+        cursor: pointer;
+    
+       
+      }
+    
+    span{
+        margin-right: 20px;
+    }
+      
+    .active{
+      font-size:35px;
+      text-shadow: 2px 2px 2px #707070 ;
+    }
+      .sidebar a:hover:not(.active) span {
+        font-size:35px;
+      }
+      
+      div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: 1000px;
+      }
+      
+      @media screen and (max-width: 700px) {
+        .sidebar {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        .sidebar a {float: left;}
+        div.content {margin-left: 0;}
+      }
+      
+      @media screen and (max-width: 400px) {
+        .sidebar a {
+          text-align: center;
+          float: none;
+        }
+      }
+    
+    
+    
+      .imgCover{
+          //z-index: ;
+          width: 500px;
+    height:500px;
+    margin-left: -4rem;
+    margin-top: -11rem;
+      }
+      .imgprofile{
+        // margin-left: -20rem;
+        margin-top: -8rem;
+        width: 160px; 
+      }
+      .userinfo{
+        //background-color: indigo;
+        display: inherit;
+      }
+      .name{
+        color: #23615F;
+        font-size: 35px;
+      }
+      .address{
+        margin-top: 5px;
+        color: #707070;
+        font-size: 18;
+      }
+    
+    
+     .pla{
+    //background-color: hotpink;
+    display: inline-block;
+    margin-left: -20rem;
+        margin-top: -9rem;
+    //display:inline-flex;
+      }
+      //////
+    table {
+        z-index: 1;
+        width: 70%;
+        //position: fixed;
+       // top: -2rem;
+    margin-top: -5.2rem;
+    //background-color: red;
+    
+      }
+    
+      /////////////////@extend
+      .service {
+        height: 50px;
+        color: #dddfd4;
+        font-size: 14px;
+      }
+    
+      th{
+        color:#173E43;
+        cursor: default;
+        font-size: 18px;
+       
+      }
+      td{
+        cursor: pointer;
+        font-size: 20px;
+        color:#707070;
+        span{
+          color: #173E43;
+        }
+      }
+    tbody tr:hover {
+      background-color: #6cc7c4;
+    }
+    
+    ///////@extendgridding
+    .historyPageContainer{
+      //margin-top: 5%;
+      //margin-left: 8%;
+    //background-color: red;
+    }
+    
+    // .historyList{
+    //   overflow: auto;
+    //   width: auto;
+    //   height: 200px;
+    //   margin-top: -2rem;
+     
+    // }::-webkit-scrollbar {
+    //   width: 0px;
+    //   background: transparent;
+    // }
+    
+      
+    //  thead th { position: sticky;
+    //    top: 0; 
+    //    height: 100px; 
+    //    //background-color: sandybrown;
+    //   }
+     //thead tr:first-child th { position: sticky; top: 0; }
+.LocationList{
+   overflow: auto;
+     // width: auto;
+      height: 500px;
+      margin-top: -5rem;
+     // background-color: sienna;
+     
+    }::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+     ///////////////////////
+     .grid-container {
+        display: grid;
+        grid-template-columns: 200px 500px auto;
+        //grid-gap: 5px;
+       // background-color: #2196F3;
+      }
+      
+      .grid-container > div {
+        //background-color:#7070701a ;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 18px;
+      }
+.address{
+    color: #173E43;
+    font-size: 18px;
+}
+.paragraph{
+   color:  #707070;
+   font-size: 12px;
+}

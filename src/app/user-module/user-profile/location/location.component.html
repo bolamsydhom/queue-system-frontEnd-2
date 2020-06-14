@@ -6,10 +6,10 @@
     <h1 class="title">User Profile</h1>
 
     <div class="sidebar">
-      <a routerLink="/profile/location"
+      <a routerLink="/profile/location" class="active"
         ><span class="material-icons">location_searching </span>Location</a
       >
-      <a routerLink="/profile/history" class="active"
+      <a routerLink="/profile/history"
         ><span class="material-icons">history</span>History</a
       >
       <a routerLink="/login"
@@ -24,14 +24,13 @@
   <!-- ///////////////////////// -->
 
   <div class="HistoryTable col-8">
-  
-      <img
-        src="../../../assets/images/Group 50.png"
-        class="imgCover"
-        alt=""
-        loading="lazy"
-      />
-      <div class="pla">
+    <img
+      src="../../../assets/images/Group 50.png"
+      class="imgCover"
+      alt=""
+      loading="lazy"
+    />
+    <div class="pla">
       <img
         src="../../../assets/images/getty_522854574_360091.png"
         class="imgprofile"
@@ -39,13 +38,33 @@
         loading="lazy"
       />
       <div class="userinfo">
-      <div class="name">Emmi John</div>
-      <div class="address">Egypt,cairo</div>
+        <div class="name">Emmi John</div>
+        <div class="address">Egypt,cairo</div>
+      </div>
     </div>
-    </div>
-    
-    <div class="historyList">
-      <table>
+
+    <div class="LocationList">
+      <div class="grid-container row">
+        <div class="address ">Address Name</div>
+        <div class="paragraph ">Home</div>
+        <div class="itemx ">1</div>
+        <div class="address ">Address</div>
+        <div class="paragraph ">plaplaplapala</div>
+      </div>  <div class="grid-container row">
+        <div class="address ">Address Name</div>
+        <div class="paragraph ">Home</div>
+        <div class="itemx ">1</div>
+        <div class="address ">Address</div>
+        <div class="paragraph ">plaplaplapala</div>
+      </div>  <div class="grid-container row">
+        <div class="address ">Address Name</div>
+        <div class="paragraph ">Home</div>
+        <div class="itemx ">1</div>
+        <div class="address ">Address</div>
+        <div class="paragraph ">plaplaplapala</div>
+      </div>
+
+      <!-- <table>
         <thead>
           <tr id="table-header">
             <th class="first">Service</th>
@@ -89,7 +108,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
   </div>
 </div>
