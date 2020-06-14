@@ -1,8 +1,10 @@
-// .sidebarContainer{
-// margin: 6%;
 
-// }
+.historyPageContainer{
+width: 80vw;
+margin-top: 5%;
+margin-left: 15%;
 
+}
 .title{
    font-size: 35px;
    color: #23615F;
@@ -42,10 +44,11 @@ span{
     margin-right: 20px;
 }
   
-
-  .sidebar a:hover:not(.active) {
-   // background-color: #555;
-    //color: white;
+.active{
+  font-size:35px;
+  text-shadow: 2px 2px 2px #707070 ;
+}
+  .sidebar a:hover:not(.active) span {
     font-size:35px;
   }
   
@@ -78,22 +81,49 @@ span{
       //z-index: ;
       width: 500px;
 height:500px;
-
-margin-top: -8.2rem;
+margin-left: -4rem;
+margin-top: -11rem;
+  }
+  .imgprofile{
+    // margin-left: -20rem;
+    margin-top: -8rem;
+    width: 160px; 
+  }
+  .userinfo{
+    //background-color: indigo;
+    display: inherit;
+  }
+  .name{
+    color: #23615F;
+    font-size: 35px;
+  }
+  .address{
+    margin-top: 5px;
+    color: #707070;
+    font-size: 18;
   }
 
+
+ .pla{
+//background-color: hotpink;
+display: inline-block;
+margin-left: -20rem;
+    margin-top: -9rem;
+//display:inline-flex;
+  }
+  //////
 table {
     z-index: 1;
     width: 70%;
-margin-top: -4.2rem;
+    //position: fixed;
+   // top: -2rem;
+margin-top: -5.2rem;
+//background-color: red;
 
-  }
-  .red{
-      background-color: red;
   }
 
   /////////////////@extend
-  .branch {
+  .service {
     height: 50px;
     color: #dddfd4;
     font-size: 14px;
@@ -102,10 +132,12 @@ margin-top: -4.2rem;
   th{
     color:#173E43;
     cursor: default;
+    font-size: 18px;
    
   }
   td{
     cursor: pointer;
+    font-size: 20px;
     color:#707070;
     span{
       color: #173E43;
@@ -119,17 +151,24 @@ tbody tr:hover {
 .historyPageContainer{
   //margin-top: 5%;
   //margin-left: 8%;
-background-color: red;
+//background-color: red;
 }
 
-.historyList{
-  overflow: auto;
-  width: auto;
-  height: 150px;
-  margin-top: -2rem;
-}::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
+// .historyList{
+//   overflow: auto;
+//   width: auto;
+//   height: 200px;
+//   margin-top: -2rem;
+ 
+// }::-webkit-scrollbar {
+//   width: 0px;
+//   background: transparent;
+// }
 
   
+//  thead th { position: sticky;
+//    top: 0; 
+//    height: 100px; 
+//    //background-color: sandybrown;
+//   }
+ //thead tr:first-child th { position: sticky; top: 0; }

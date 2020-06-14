@@ -11,6 +11,7 @@ import { CompanyBranchComponent } from './user-module/company/company-branch/com
 import { UserTicketComponent } from './user-module/user-ticket/user-ticket.component';
 
 import { HistoryComponent } from './user-module/user-profile/history/history.component';
+import { LocationComponent } from './user-module/user-profile/location/location.component';
 
 import { AdminModule } from './admin-module/admin.module';
 import { adminRoutes } from './admin-module/admin-routing.module'
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'companyServices/:branchId', component: CompanyServicesComponent },
   { path: 'ticket', component: UserTicketComponent },
   { path: 'profile/history', component: HistoryComponent },
+  { path: 'profile/location', component: LocationComponent },
   { path: 'warning', component: WarningComponent },
   { path: 'info-alert', component: InfoAlertComponent },
   { path: 'serve-user', component: ServeUserComponent }

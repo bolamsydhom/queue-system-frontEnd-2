@@ -23,6 +23,7 @@ import { ServeUserComponent } from './alerts/serve-user/serve-user.component';
 import { TicketService } from '../_service/ticket.service';
 import { HistoryComponent } from './user-profile/history/history.component';
 import { ProfileHeaderComponent } from './user-profile/profile-header/profile-header.component';
+import { LocationComponent } from './user-profile/location/location.component';
 
 
 
@@ -37,7 +38,7 @@ import { ProfileHeaderComponent } from './user-profile/profile-header/profile-he
   ],
   providers: [CitiesService,AreaService,BranchService,TicketService],
   exports: [ MaterialModule],
-  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent, WarningComponent, InfoAlertComponent, ServeUserComponent, ProfileHeaderComponent,HistoryComponent]
+  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent, WarningComponent, InfoAlertComponent, ServeUserComponent, ProfileHeaderComponent,HistoryComponent, LocationComponent]
 
 })
 export class UserModule { }
