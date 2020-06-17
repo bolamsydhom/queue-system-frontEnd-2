@@ -10,11 +10,21 @@
   <p class="selectYourService">Select your service</p>
   <div class="center">
     <div class="services">
-      <div (click)="selectService(service)"class="service" *ngFor="let service of services">
+      <!-- <div (click)="selectService(service)"class="service" *ngFor="let service of services">
         {{ service.name }}
-      </div>
+      </div> -->
+
+      <mat-chip-list>
+         <mat-chip *ngFor="let service of services"
+         (click)="selectService(service)" [selected]="service==ServiceSelected? true : false">{{ service.name }} </mat-chip>
+      </mat-chip-list>
+
     </div>
-    <div #nextScreen class="arrowDiv" (click)="goToTicketOrLogin()"><img class="arrow" [src]="imgSrc" /></div>
+    <div #nextScreen
+         class="arrowDiv"
+        [ngClass]="{'disabled': !ServiceSelected ? true: false, 'arr': ServiceSelected ? true : false}"
+         (click)="goToTicketOrLogin()"><img class="arrow"
+           [src]="imgSrc" /></div>
   </div>
   <div class="footer">
     <img class="circleImg" src="../../../../assets/images/Group 10@2x.png" />

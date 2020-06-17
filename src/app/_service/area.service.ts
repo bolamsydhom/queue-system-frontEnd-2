@@ -8,11 +8,11 @@ export class AreaService {
   url = 'https://queue-sys-backend.herokuapp.com';
 
     Areas:Area[] = [];
-  
+
     getAreasByCityId(cityId) {
       return this.http.get(`${this.url}/city/area/${cityId}`)
     }
 
   }
 
-}
+

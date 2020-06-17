@@ -18,7 +18,7 @@ export class CompanyServicesComponent implements OnInit {
   companyId;
   services;
 
-  ServiceSelected = {};
+  ServiceSelected = null;
 
 
   @ViewChild('nextScreen') arrow: ElementRef;
@@ -68,7 +68,7 @@ export class CompanyServicesComponent implements OnInit {
 
     this.ServiceSelected = service;
     this.imgSrc = '../../../assets/images/arrow2.png';
-    this.arrow.nativeElement.style.cursor = 'pointer';
+    // this.arrow.nativeElement.style.cursor = 'pointer';
     this.ticketService.postToTicket('services', this.ServiceSelected);
     this.ticketService.postToTicketIds('service', this.ServiceSelected);
 

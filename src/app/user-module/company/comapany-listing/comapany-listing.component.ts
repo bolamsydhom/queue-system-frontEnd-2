@@ -103,7 +103,7 @@ export class ComapanyListingComponent implements OnInit {
     this.ticketService.postToTicketIds('companyId', company._id);
 
     this.companyimgId = company._id;
-    this.ticketService.postIdToTicket('companyId', this.companyimgId);
+    // this.ticketService.postIdToTicket('companyId', this.companyimgId);
     this.router.navigate(['/companyBranch', this.companyimgId]);
   }
 }

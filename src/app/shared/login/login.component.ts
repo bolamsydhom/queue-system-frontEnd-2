@@ -97,7 +97,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userId', response['person']._id);
 
         this.spinnerEnabled = false;
-        //Routes based on role 
+        //Routes based on role
         if (!isAdmin && !isEmployee) {
           this.router.navigate(['userlocation']);
         }
@@ -116,7 +116,7 @@ export class LoginComponent implements OnInit {
 
 
   goToRegister() {
-    this.router.navigate(['./login']);
+    this.router.navigate(['/login']);
   }
 
   onInputChange() {

@@ -34,11 +34,11 @@ export class BranchService {
   //   );
   // }
 
-  getBranchesByCityIdAndCompanyIdAndAreaId(cityId,companyId,areaId) {
-    return this.http.get(
-      `${this.url}/branch/recommendedBranchs?cityid=${cityId}&companyid=${companyId}&areaid=${areaId}`
-    );
-  }
+  // getBranchesByCityIdAndCompanyIdAndAreaId(cityId,companyId,areaId) {
+  //   return this.http.get(
+  //     `${this.url}/branch/recommendedBranchs?cityid=${cityId}&companyid=${companyId}&areaid=${areaId}`
+  //   );
+  // }
 
   // getBranchesByCompanyId(companyId: number) {
   //   return this.branches.filter(b => b.companyId === companyId);

@@ -26,12 +26,7 @@
         <td>{{ branch.branchName }}</td>
         <td>{{ branch.workingDays[dayOfweek].openShift }}</td>
         <td>{{ branch.workingDays[dayOfweek].endShift }}</td>
-        <ng-template
-          *ngIf="areaId !== undefined && branchRecommended.areaId === areaId"
-          ><span class="badge badge-pill badge-warning"
-            >recommended</span
-          ></ng-template
-        >
+        <td><span class="badge badge-pill badge-warning">recommended</span></td>
       </tr>
     </tbody>
   </table>

@@ -153,6 +153,11 @@ export class RegisterComponent implements OnInit {
           this.user.Login(loginUser).subscribe(
             (response) => {
               this.spinnerEnabled = false;
+
+              localStorage.setItem('token', response['token']);
+              localStorage.setItem('person', JSON.stringify(response['person']))
+              localStorage.setItem('userId', response['person']._id);
+
               this.router.navigate(['./userlocation']);
             },
             (error) => {

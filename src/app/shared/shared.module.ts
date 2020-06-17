@@ -7,6 +7,7 @@ import { MaterialModule } from '../material.module';
 import { User } from '../_service/user.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -19,7 +20,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     SpinnerComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [User, HttpClientModule, HttpClient]
 })
