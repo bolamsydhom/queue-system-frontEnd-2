@@ -13,11 +13,12 @@ export class CompanyBranchComponent implements OnInit {
   branches;
   branch;
   cityId;
-  companyId;
+
   dayOfweek: number;
   companyImagyUrl;
-  areaId = '';
-  branchRecommended;
+  companyId;
+  area;
+
 
   constructor(
     private branchService: BranchService,
@@ -34,36 +35,44 @@ export class CompanyBranchComponent implements OnInit {
     let c = this.ticketService.get('company');
     this.companyImagyUrl = c.imgUrl;
 
-    this.areaId = this.ticketService.getId('area');
-    console.log(this.areaId);
 
-    if (this.areaId != undefined) {
+    this.area = this.ticketService.get('area');
+
+    if (Object.keys(this.area).length) {
+
       this.branchService
         .getBranchesByCityIdAndCompanyIdAndAreaId(
           this.cityId,
           this.companyId,
-          this.areaId
+
+          this.area._id
         )
         .subscribe(data => {
-          this.branchRecommended = data;
-          console.log('aaaaaaaaaaaaa');
-          console.log(this.branchRecommended);
+          console.log('areaaa');
+          console.log(data);
+          this.branches = data;
+          const day = new Date();
+          this.dayOfweek = day.getDay();
+        });
+    } else {
+      this.branchService
+        .getBranchesByCityIdAndCompanyId(this.cityId, this.companyId)
+        .subscribe(data => {
+          console.log('withoutArea');
+          console.log(data);
+          this.branches = data;
+          const day = new Date();
+          this.dayOfweek = day.getDay();
         });
     }
 
-    this.branchService
-      .getBranchesByCityIdAndCompanyId(this.cityId, this.companyId)
-      .subscribe(data => {
-        console.log(data);
-        this.branches = data;
-        const day = new Date();
-        this.dayOfweek = day.getDay();
-      });
   }
 
   onClickBranch(branch) {
     this.ticketService.postToTicket('branch', branch);
-    this.ticketService.postIdToTicket('branchId', branch._id);
+
+    this.ticketService.postToTicketIds('branchId', branch._id);
+
     this.router.navigate(['/companyServices', branch._id]);
   }
 }

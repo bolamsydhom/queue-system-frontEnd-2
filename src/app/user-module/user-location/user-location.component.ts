@@ -70,7 +70,9 @@ export class UserLocationComponent implements OnInit {
     this.cityIdURL = city.id;
     this.cityNameSelectedByInput = city.name;
     this.ticketService.postToTicket('city', city);
-    this.ticketService.postIdToTicket('cityId', this.cityIdURL);
+
+    this.ticketService.postToTicketIds('cityId', city._id);
+
     this.isChecked = true;
     this.cities = [];
     this.AreaService.getAreasByCityId(this.cityIdURL).subscribe(data => {
@@ -82,7 +84,7 @@ export class UserLocationComponent implements OnInit {
 
   onSelectByDropdown(area, btn) {
     this.ticketService.postToTicket('area', area);
-    this.ticketService.postIdToTicket('areaId', area._id);
+
     this.area = area.name;
     btn.innerHTML = this.area;
     btn.style.background = '#173E43';

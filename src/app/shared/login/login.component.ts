@@ -93,7 +93,8 @@ export class LoginComponent implements OnInit {
         const isEmployee = response['person'].isEmployee;
 
         localStorage.setItem('token', response['token']);
-        localStorage.setItem('person', response['person']);
+        localStorage.setItem('person', JSON.stringify(response['person']))
+        localStorage.setItem('userId', response['person']._id);
 
         this.spinnerEnabled = false;
         //Routes based on role 

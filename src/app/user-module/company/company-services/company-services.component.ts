@@ -4,6 +4,8 @@ import { BranchService } from 'src/app/_service/branch.service';
 import { User } from 'src/app/_service/user.service';
 import { TicketService } from 'src/app/_service/ticket.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Service } from './../../../_model/service';
+import { error } from 'console';
 @Component({
   selector: 'app-company-services',
   templateUrl: './company-services.component.html',
@@ -15,7 +17,9 @@ export class CompanyServicesComponent implements OnInit {
   cityId;
   companyId;
   services;
-  serviceSelected = {};
+
+  ServiceSelected = {};
+
 
   @ViewChild('nextScreen') arrow: ElementRef;
 
@@ -38,18 +42,35 @@ export class CompanyServicesComponent implements OnInit {
     this.services = branch.services;
   }
   goToTicketOrLogin() {
-    if (Object.keys(this.serviceSelected).length != 0) {
-      if (localStorage.getItem['token']) {
+
+    if (Object.keys(this.ServiceSelected).length) {
+      if (localStorage.getItem('token')) {
+        this.ticketService.postToTicketIds(
+          'userId',
+          localStorage.getItem('userId')
+        );
+        this.ticketService.postToTicket('user', localStorage.getItem('person'));
+
+        this.ticketService.goToTicket().subscribe(response => {
+          console.log(response);
+          let data = response['customers'];
+          console.log(data);
+          this.ticketService.postToTicket('securityCode', data[0].securityCode);
+          this.ticketService.postToTicket('createdAt', response['createdAt']);
+          this.ticketService.postToTicket('queueNumber', data[0].queueNumber);
+        });
+
         this.router.navigate(['/ticket']);
       } else this.router.navigate(['/login']);
     }
   }
   selectService(service) {
-    this.serviceSelected = service;
+
+    this.ServiceSelected = service;
     this.imgSrc = '../../../assets/images/arrow2.png';
     this.arrow.nativeElement.style.cursor = 'pointer';
-    this.ticketService.postToTicket('services', this.serviceSelected);
+    this.ticketService.postToTicket('services', this.ServiceSelected);
+    this.ticketService.postToTicketIds('service', this.ServiceSelected);
 
-    this.ticketService.postIdToTicket('serviceId',service._id);
   }
 }
