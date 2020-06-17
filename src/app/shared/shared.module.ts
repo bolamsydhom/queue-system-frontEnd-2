@@ -6,6 +6,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MaterialModule } from '../material.module';
 import { User } from '../_service/user.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -14,7 +15,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    LandingPageComponent],
+    LandingPageComponent,
+    SpinnerComponent],
   imports: [
     CommonModule,
     MaterialModule

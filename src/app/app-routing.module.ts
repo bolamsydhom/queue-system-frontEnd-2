@@ -12,6 +12,7 @@ import { UserTicketComponent } from './user-module/user-ticket/user-ticket.compo
 import { WarningComponent } from './user-module/alerts/warning/warning.component';
 import { InfoAlertComponent } from './user-module/alerts/info-alert/info-alert.component';
 import { ServeUserComponent } from './user-module/alerts/serve-user/serve-user.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,14 +20,15 @@ const routes: Routes = [
   { path: 'employee', component: EmployeeFirstPageComponent },
   { path: '', component: LandingPageComponent },
   { path: '', component: LandingPageComponent },
-  {path:'userlocation',component:UserLocationComponent},
-  {path:'companylisting/:cityId', component:ComapanyListingComponent},
-  {path:'companyBranch/:companyId',component:CompanyBranchComponent},
-  {path:'companyServices/:branchId',component:CompanyServicesComponent},
+  { path: 'userlocation', component: UserLocationComponent },
+  { path: 'companylisting/:cityId', component: ComapanyListingComponent },
+  { path: 'companyBranch/:companyId', component: CompanyBranchComponent },
+  { path: 'companyServices/:branchId', component: CompanyServicesComponent },
   { path: 'ticket', component: UserTicketComponent },
   { path: 'warning', component: WarningComponent },
   { path: 'info-alert', component: InfoAlertComponent },
-  { path: 'serve-user', component: ServeUserComponent }
+  { path: 'serve-user', component: ServeUserComponent },
+  { path: 'spinner', component: SpinnerComponent }
 
 ];
 

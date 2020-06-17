@@ -1,0 +1,38 @@
+$teal:#173E43;
+.blury-bk{
+    background-color: rgba($color: $teal, $alpha: 0.8);
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+
+}
+.spinner-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: transparent;
+    z-index: 12;
+   height: 100%;
+   width: 100%;
+
+    .spinner{
+      
+        background-image: url('../../../../src/assets/ticket/loadingFinal2.gif');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-clip: border-box;
+        width: 30%;
+        height: 30%;
+        
+    }
+}
+
+
+
+

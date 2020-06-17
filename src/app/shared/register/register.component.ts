@@ -20,6 +20,8 @@ import { UserModel } from 'src/app/_model/user';
 })
 export class RegisterComponent implements OnInit {
 
+  spinnerEnabled = false;
+
   userDetailsForm: FormGroup;
   accountDetailsForm: FormGroup;
 
@@ -28,12 +30,6 @@ export class RegisterComponent implements OnInit {
   country_phone_group: FormGroup;
 
   parentErrorStateMatcher = new ParentErrorStateMatcher();
-
-  // genders = [
-  //   "Male",
-  //   "Female",
-  //   "Other"
-  // ];
 
   countries = [
     new Country('EG', 'Egypt')
@@ -135,6 +131,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmitAccountDetails(formData) {
+    this.spinnerEnabled = true;
     console.log(formData)
     // const userObject = {
 
@@ -155,6 +152,7 @@ export class RegisterComponent implements OnInit {
           }
           this.user.Login(loginUser).subscribe(
             (response) => {
+              this.spinnerEnabled = false;
               this.router.navigate(['./userlocation']);
             },
             (error) => {
@@ -164,6 +162,7 @@ export class RegisterComponent implements OnInit {
 
         },
         (error) => {
+          this.spinnerEnabled = false;
           console.log(error)
           console.log('error')
         }
