@@ -12,11 +12,10 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class CompanyServicesComponent implements OnInit {
   imgSrc = '../../../assets/images/arrow1.png';
   companyImagyUrl;
-  // branchId;
   cityId;
   companyId;
   services;
-  selectServiceArr=[];
+  serviceSelected = {};
 
   @ViewChild('nextScreen') arrow: ElementRef;
 
@@ -37,25 +36,20 @@ export class CompanyServicesComponent implements OnInit {
 
     let branch = this.ticketService.get('branch');
     this.services = branch.services;
-
-    // this.route.params.subscribe(params => {
-    //   this.branchId = params['branchId'];
-
-    // });
   }
   goToTicketOrLogin() {
-  if(this.selectServiceArr.length!=0){
-    if(localStorage.getItem['token']){
-      this.router.navigate(['/ticket']);
+    if (Object.keys(this.serviceSelected).length != 0) {
+      if (localStorage.getItem['token']) {
+        this.router.navigate(['/ticket']);
+      } else this.router.navigate(['/login']);
     }
-    else  this.router.navigate(['/login']);
-  }
   }
   selectService(service) {
-    this.selectServiceArr.push(service);
-
+    this.serviceSelected = service;
     this.imgSrc = '../../../assets/images/arrow2.png';
     this.arrow.nativeElement.style.cursor = 'pointer';
-    this.ticketService.postToTicket('services', this.selectServiceArr);
+    this.ticketService.postToTicket('services', this.serviceSelected);
+
+    this.ticketService.postIdToTicket('serviceId',service._id);
   }
 }

@@ -18,7 +18,6 @@ export class CompanyService {
     return this.companies.find(p => p.id === id);
   }
   getCompaniesByCityId(cityId: string) {
-    console.log(`${this.url}/organization/city/${cityId}`);
     return this.http.get(`${this.url}/organization/city/${cityId}`);
   }
 }
