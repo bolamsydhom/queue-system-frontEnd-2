@@ -1,12 +1,143 @@
-<div class="container">
-  <div class="row">
-    <button mat-raised-button
-            color="primary">laaaaand</button>
-  </div>
-</div>
-sdcfvsd
+   <mat-toolbar color="acent"
+                style="justify-content: space-between; z-index: 5; padding: 1rem;">
+     <div style="margin-top: 0.3rem;">
+       <img (click)="revealingContent(false)"
+            src="../../../assets/images/Group 1.png"
+            alt=""
+            srcset="">
+     </div>
+     <div>
+       <a mat-button
+          class="nav-bar-link"
+          routerLink="/loigin"> Login </a>
+       <a mat-button
+          class="nav-bar-link"
+          routerLink="/signup"> Sign up </a>
+     </div>
+   </mat-toolbar>
 
-<button mat-raised-button
-        color="primary">land</button>
-<button class="btn btn-primary">rtfvcdfv</button>
-youstina nader test
+   <div *ngIf="!isClicked"
+        class="landingPage-container">
+
+     <section
+              class="main-section">
+       <video autoplay
+              playsinline
+              muted
+              loop
+              preload
+              id="vid"
+              onloadedmetadata="this.muted=true">
+         <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4#t=25">
+       </video>
+
+       <svg class="clipped-video"
+            height="100%"
+            width="100%">
+         <defs>
+           <mask id="mask"
+                 x="0"
+                 y="0"
+                 height="100%"
+                 width="100%">
+
+             <rect x="0"
+                   y="0"
+                   height="100%"
+                   width="100%" />
+
+             <text x="50%"
+                   y="50%"
+                   text-anchor="middle"
+                   fill="black"
+                   class="masked-text">
+               Tired of QUEUES Problems ?!
+             </text>
+           </mask>
+         </defs>
+
+         <rect x="0"
+               y="0"
+               height="100%"
+               width="100%" />
+
+       </svg>
+
+       <button mat-raised-button
+               class='cta-btn'
+               color="primary">Join Us Now</button>
+
+
+       <div class="scroll-trigger">
+
+         <div class="water-mark">
+           <img class="mark-img"
+                src="../../../assets/images/Group -34.png"
+                alt=""
+                srcset="">
+         </div>
+         <div class="scroller">
+           <mat-icon (click)="revealingContent(true)"> play_for_work </mat-icon>
+         </div>
+       </div>
+
+
+
+     </section>
+   </div>
+   <div  *ngIf="isClicked"
+        class="extra-container">
+
+     <section data-aos="zoom-out-up">
+       <h1 class="anim">Yo. see this?</h1>
+     </section>
+     <section>
+       <img src="../../../assets/images/Group -34.png"
+            alt="bg"
+            class="anim">
+       <h1 class="anim">Cool</h1>
+     </section>
+     <section data-aos="zoom-in-right"
+              data-aos-duration="1000">
+       <h1
+           class="anim">I know</h1>
+     </section>
+
+
+
+     <!-- <svg class='spiral'
+          viewBox="0 0 500 500">
+       <style type="text/css">
+         .st0,
+         .st1 {
+           fill: none
+         }
+
+         .st1 {
+           stroke: #000;
+           stroke-miterlimit: 10
+         }
+
+         .path-text {
+           text-transform: uppercase;
+           fill: #e6e6e6;
+         }
+
+       </style>
+       <path id="our-text"
+             class="st0"
+             d="M151.99 178.5c11.03-28.39 31.04-47.76 59.54-58.01 42.89-15.42 86.78.76 107.26 39.04 19.14 35.77 9.77 77.59-22.15 98.84-41.58 27.69-93.07 6.1-100.16-41.99-5.06-34.3 26.96-64.65 60.51-57.38 27.38 5.94 42.73 35.61 30.93 59.82-6.49 13.33-20.68 21.34-36.65 20.13-13.38-1.01-22.01-8.82-26.71-20.92-5.23-13.46-.01-27.86 12.29-34.38 9.11-4.83 18.27-4.72 26.82 1.48 7.39 5.35 10.59 14.74 8.37 23.5-2.23 8.79-11.21 15.11-20.33 14.3-8.05-.71-14.45-7.21-15.16-15.38-.61-7.06 3.56-12.96 10.58-14.96 5.84-1.66 11.65.83 14.31 6.17 2.22 4.48 1.95 8.79-1.53 12.47-3.17 3.35-7.21 4.31-11.39 2.21-4.59-2.3-5.38-6.42-4.3-11.1.37-1.18-.19-1.51-1.25-1.39-1.64 2.12-1.96 4.49-1.41 7.06 1.29 6.05 6.03 9.56 12.39 9.13 6.38-.43 11.53-5.49 12.09-11.87.75-8.59-5.33-16.09-13.92-17.17-9.41-1.18-18.88 6.03-20.12 15.43-1.11 8.45 1.57 15.52 8.43 20.64 7.32 5.46 15.39 5.9 23.63 2.31 11.23-4.89 16.69-15.48 15.02-28.67-1.51-11.98-11.93-22.74-24.1-24.88-26.25-4.62-47.8 19.94-40.47 46.14 7.95 28.42 40.25 40.22 66.51 24.29 31.52-19.12 32.08-66.7 1.28-89.04-36.13-26.22-83.43-7.18-99.12 29.57-20.26 47.44 16.04 104.35 68.92 108.02 41.48 2.88 79.32-20.66 95.11-59.18 16.18-39.45 3.88-89.18-29.46-118.92-4.16-3.71-8.5-7.23-12.75-10.84-45.5-23.5-85.5-22.5-132 0-8.69 4.69-18.53 65.33-24.5 73.5"
+             id="Layer_1" />
+       <text y="40"
+             font-size="30">
+         <textPath id="text-path"
+                   class="path-text"
+                   href="#our-text"
+                   startOffset="0">
+           yeah,let me play aain and again and again and again
+         </textPath>
+       </text>
+     </svg> -->
+
+
+   </div>

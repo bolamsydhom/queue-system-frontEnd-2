@@ -31,6 +31,7 @@ export class ComapanyListingComponent implements OnInit {
   companyimgId;
   imgSrc = '../../../assets/images/Path 34.png';
   cityId;
+  noCompanyFound = false;
 
   @ViewChild('nextScreen') arrow: ElementRef;
   @ViewChild('selectedValue') selectedValue: MatOption;
@@ -46,9 +47,17 @@ export class ComapanyListingComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.cityId = params['cityId'];
     });
-    this.copmanyService.getCompaniesByCityId(this.cityId).subscribe(data => {
+    this.copmanyService.getCompaniesByCityId(this.cityId).subscribe(
+      (data) => {
+
       this.companies = data;
-    });
+    },
+    (error) =>{
+      this.noCompanyFound = true;
+      console.log(error);
+
+    }
+    );
     this.companies = this.copmanyService.getAllCompanies();
     this.companyOptions = this.myControl.valueChanges.pipe(
       startWith(''),

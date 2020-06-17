@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+  isClicked = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    AOS.init();
+
+  }
+
+
+
+  revealingContent(state) {
+    this.isClicked = state;
+
+
+
+  }
+
+  scrolling(event) {
+    console.log(event);
+
+
   }
 
 }
