@@ -1,8 +1,8 @@
 <app-profile-header></app-profile-header>
 
-<div class="historyPageContainer row">
+<div class="historyPageContainer ">
   <!-- sidebar -->
-  <div class="sidebarContainer col-4">
+  <div class="sidebarContainer ">
     <h1 class="title">User Profile</h1>
 
     <div class="sidebar">
@@ -23,15 +23,16 @@
 
   <!-- ///////////////////////// -->
 
-  <div class="HistoryTable col-8">
-  
+  <div class="HistoryTable col-12">
+  <div class="mypic">
+    
       <img
         src="../../../assets/images/Group 50.png"
         class="imgCover"
         alt=""
         loading="lazy"
       />
-      <div class="pla">
+     
       <img
         src="../../../assets/images/getty_522854574_360091.png"
         class="imgprofile"
@@ -41,8 +42,9 @@
       <div class="userinfo">
       <div class="name">Emmi John</div>
       <div class="address">Egypt,cairo</div>
-    </div>
-    </div>
+      </div>
+
+  </div>
     
     <div class="historyList">
       <table>
@@ -56,9 +58,39 @@
         </thead>
         <tbody>
           <tr class="service">
-            <td>dfcgvbh</td>
-            <td>fghjk</td>
-            <td>esrdfgh</td>
+            <td>Etsalat, customer service</td>
+            <td>20-16-2020</td>
+            <td>02:01:14</td>
+            <td>
+              <img
+                src="../../../assets/images/Icon metro-cross.png"
+                (click)="test()"
+              />
+            </td>
+          </tr><tr class="service">
+            <td>Vodafone, Vodafone Cash</td>
+            <td>15-6-2020</td>
+            <td>09:13:44</td>
+            <td>
+              <img
+                src="../../../assets/images/Icon metro-cross.png"
+                (click)="test()"
+              />
+            </td>
+          </tr><tr class="service">
+            <td>Bank Misr ,customer service</td>
+            <td>1-1-2020</td>
+            <td>20:13:44</td>
+            <td>
+              <img
+                src="../../../assets/images/Icon metro-cross.png"
+                (click)="test()"
+              />
+            </td>
+          </tr><tr class="service">
+            <td>Orange, Orange Cash</td>
+            <td>18-12-2019</td>
+            <td>15:12:04</td>
             <td>
               <img
                 src="../../../assets/images/Icon metro-cross.png"
@@ -66,28 +98,7 @@
               />
             </td>
           </tr>
-          <tr class="service">
-            <td>dfcgvbh</td>
-            <td>fghjk</td>
-            <td>esrdfgh</td>
-            <td>
-              <img
-                src="../../../assets/images/Icon metro-cross.png"
-                (click)="test()"
-              />
-            </td>
-          </tr>
-          <tr class="service">
-            <td>dfcgvbh</td>
-            <td>fghjk</td>
-            <td>esrdfgh</td>
-            <td>
-              <img
-                src="../../../assets/images/Icon metro-cross.png"
-                (click)="test()"
-              />
-            </td>
-          </tr>
+
         </tbody>
       </table>
     </div>

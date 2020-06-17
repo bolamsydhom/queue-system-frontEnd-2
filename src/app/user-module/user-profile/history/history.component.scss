@@ -1,101 +1,196 @@
 
 .historyPageContainer{
-width: 80vw;
-margin-top: 5%;
-margin-left: 15%;
+  width: 80vw;
+  margin-top: 6rem;
+  margin-left: 16rem;
+
 
 }
 .title{
-   font-size: 35px;
+  font-size: 2rem;
+  font-weight: inherit;
    color: #23615F;
    cursor: default;
+   margin-bottom: 4rem;
 }
 .roeitem{
     display: inline;
 }
 
+///////////////////////SIDEBAR///////////////////////@extend
+
 .sidebar {
-    //width: 200px;
-    //position: fixed;
-    height: 100%;
-    overflow: hidden;
+ // height: 80vh;
+  margin: 0;
+  padding: 0;
+ // width: 20rem;
+  //background-color:rebeccapurple;
+  position: fixed;
+  height:60%;
+  //overflow: auto;
+ // background-color: skyblue;
+  //position: absolute;
+  z-index: 5;
+  .Logout{
+    color: #3FB0AC;
+   // position: fixed;
+   position: relative;
+    left: 0;
+    top: 40%;
 
-    .Logout{
-color:#3FB0AC ;
-font-size: 30px;
-margin-top: 50%;
-    }
   }
+}
+
+.sidebar a {
+  display: block;
+  color: #23615F;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 1.3rem;
+  span{
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+
+ 
+}
+ 
+.sidebar a.active {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #707070;
+
+}
+
+.sidebar a:hover:not(.active) {
+ // background-color: #173E43;
+  //color: white;
+  //font-size: 1.5rem;
+  //text-shadow: 0px 0px 9px #7070706c;
+  cursor: pointer;
+  transform: rotateX(360deg);
+  transition: 1s;
+  // font-weight: bold;
   
+}
 
-  .sidebar a {
-   display: block;
-    //padding: 16px;
-    text-decoration: none;
-    color: #23615F;
-    font-size: 30px ;
-    margin-top: 40px;
-    cursor: pointer;
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
 
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
    
   }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+  
 
-span{
-    margin-right: 20px;
+  
 }
+///////////////////////////////////////////////////
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+
+  }
+  .Logout{
+
+  }
+  .historyPageContainer{
+    width: 80vw;
+    margin-top: 6rem;
+    margin-left: 6rem;
   
-.active{
-  font-size:35px;
-  text-shadow: 2px 2px 2px #707070 ;
+  
+  }
+  .imgprofile{
+    margin-top: -15rem;
+    width: 6rem !important;
+    position: relative;
+    top:6rem !important;
+    left: -3rem !important;
+  }
+  .imgCover{
+ 
+    width: 300px !important;
+    height: 300px  !important;
+    top: -16rem !important;
+    left: -10rem !important;
+
+  }
+  table{
+    //background-color: red;
+    //position:  !important;
+    width: 100% !important;
+    top: 13rem !important;
+    left: 5rem !important; 
+  }
+  .userinfo{
+    bottom: -1rem !important;
+    left: 2rem !important;
+  
+  }
+  .historyPageContainer{
+    margin-left: 2rem !important;
+  }
+ 
+  
 }
-  .sidebar a:hover:not(.active) span {
-    font-size:35px;
-  }
-  
-  div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
-  }
-  
-  @media screen and (max-width: 700px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
-  }
-  
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
-  }
+/////////////////////////////////////////////@extend
+////////////////////////////////////////////@extend
+.HistoryTable{
 
+  /* position: relative; */
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 25rem;
+}
 
+.mypic{
+  position: relative;;
+}
 
   .imgCover{
-      //z-index: ;
+     // z-index: 0;
       width: 500px;
 height:500px;
-margin-left: -4rem;
-margin-top: -11rem;
+// margin-left: -4rem;
+// margin-top: -12rem;
+position: absolute;
+top: -19rem;
+left: 0rem;
   }
   .imgprofile{
     // margin-left: -20rem;
-    margin-top: -8rem;
+    margin-top: -15rem;
     width: 160px; 
+position: absolute;
+top: 8rem;
+    left: 11rem;
+
+
   }
   .userinfo{
     //background-color: indigo;
     display: inherit;
+    position: absolute;
+    bottom: -2rem;
+    left: 22rem;
+
+
   }
   .name{
     color: #23615F;
-    font-size: 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+
   }
   .address{
     margin-top: 5px;
@@ -103,49 +198,30 @@ margin-top: -11rem;
     font-size: 18;
   }
 
+  ////////////////TABEL///////////////////
 
- .pla{
-//background-color: hotpink;
-display: inline-block;
-margin-left: -20rem;
-    margin-top: -9rem;
-//display:inline-flex;
-  }
-  //////
-table {
-    z-index: 1;
-    width: 70%;
-    //position: fixed;
-   // top: -2rem;
-margin-top: -5.2rem;
-//background-color: red;
+  table {
+    border-collapse: collapse;
+    width: 50%;
+    border: 0px #ddd;
+    margin-top: -105px;
+    position: absolute;
+    top: 12rem;
+    left: 25rem;
 
   }
-
-  /////////////////@extend
-  .service {
-    height: 50px;
-    color: #dddfd4;
-    font-size: 14px;
-  }
-
-  th{
-    color:#173E43;
-    cursor: default;
-    font-size: 18px;
-   
+  
+  th, td {
+    text-align: left;
+    padding: .5rem;
   }
   td{
-    cursor: pointer;
-    font-size: 20px;
-    color:#707070;
-    span{
-      color: #173E43;
-    }
-  }
-tbody tr:hover {
-  background-color: #6cc7c4;
-}
+    color: #707070;
+   }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+
+
 
 ///////@extendgridding
 .historyPageContainer{
