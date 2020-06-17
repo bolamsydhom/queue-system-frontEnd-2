@@ -8,16 +8,24 @@ export class BranchService {
   url = 'https://queue-sys-backend.herokuapp.com';
   branches: Branch[] = [];
 
-  getBranchByID(id: number) {
-    return this.branches.filter(b => b.branchId === id);
+  // getBranchByID(id: number) {
+  //   return this.branches.filter(b => b.branchId === id);
+  // }
+
+  // getById(cityId) {
+  //   return this.http.get(`${this.url}/branch/city/${cityId}`);
+  // }
+
+  getBranchesByCityIdAndCompanyIdAndAreaId(cityId, companyId, areaId) {
+    return this.http
+      .get(`${this.url}/branch/recommendedBranchs?cityid=${cityId}&companyid=${companyId}&areaid=${areaId}
+   `);
   }
 
-  getById(cityId) {
-    return this.http.get(`${this.url}/branch/city/${cityId}`);
-  }
-
-  getBranchesByCompanyId(companyId: number) {
-    return this.branches.filter(b => b.companyId === companyId);
+  getBranchesByCityIdAndCompanyId(cityId, companyId) {
+    return this.http.get(
+      `${this.url}/branch/branch?cityid=${cityId}&companyid=${companyId}`
+    );
   }
   getServicesByBranchId(branchId: number) {
     let branch = this.branches.filter(b => b.branchId === branchId);

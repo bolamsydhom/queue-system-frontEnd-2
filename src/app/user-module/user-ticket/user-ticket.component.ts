@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { TicketService } from 'src/app/_service/ticket.service';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-user-ticket',
@@ -8,28 +10,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-ticket.component.scss']
 })
 export class UserTicketComponent implements OnInit {
-
   //Routing of the navbar
-  isLoggedIn = true
+  isLoggedIn = true;
+  ticket = {};
 
-
-  constructor(private router: Router) { }
+  constructor(private router: Router, private ticketService: TicketService) {}
 
   ngOnInit(): void {
-    this.isUserLoggedIn()
+    this.isUserLoggedIn();
+    this.ticket = this.ticketService.getTicket();
+    console.log(this.ticket);
   }
 
   isUserLoggedIn() {
-
-    localStorage.getItem('token') ? this.isLoggedIn = true : this.isLoggedIn = false;
+    localStorage.getItem('token')
+      ? (this.isLoggedIn = true)
+      : (this.isLoggedIn = false);
   }
 
   navigateToRegister() {
-    this.router.navigate(['./login'])
+    this.router.navigate(['./login']);
   }
   navigateToLogin() {
-    this.router.navigate(['./register'])
-
+    this.router.navigate(['./register']);
   }
-
 }
