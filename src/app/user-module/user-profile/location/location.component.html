@@ -1,15 +1,15 @@
 <app-profile-header></app-profile-header>
 
-<div class="historyPageContainer row">
+<div class="historyPageContainer ">
   <!-- sidebar -->
-  <div class="sidebarContainer col-4">
+  <div class="sidebarContainer ">
     <h1 class="title">User Profile</h1>
 
     <div class="sidebar">
       <a routerLink="/profile/location" class="active"
         ><span class="material-icons">location_searching </span>Location</a
       >
-      <a routerLink="/profile/history"
+      <a routerLink="/profile/history" 
         ><span class="material-icons">history</span>History</a
       >
       <a routerLink="/login"
@@ -23,14 +23,16 @@
 
   <!-- ///////////////////////// -->
 
-  <div class="HistoryTable col-8">
-    <img
-      src="../../../assets/images/Group 50.png"
-      class="imgCover"
-      alt=""
-      loading="lazy"
-    />
-    <div class="pla">
+  <div class="HistoryTable col-12">
+  <div class="mypic">
+    
+      <img
+        src="../../../assets/images/Group 50.png"
+        class="imgCover"
+        alt=""
+        loading="lazy"
+      />
+     
       <img
         src="../../../assets/images/getty_522854574_360091.png"
         class="imgprofile"
@@ -38,33 +40,14 @@
         loading="lazy"
       />
       <div class="userinfo">
-        <div class="name">Emmi John</div>
-        <div class="address">Egypt,cairo</div>
-      </div>
-    </div>
-
-    <div class="LocationList">
-      <div class="grid-container row">
-        <div class="address ">Address Name</div>
-        <div class="paragraph ">Home</div>
-        <div class="itemx ">1</div>
-        <div class="address ">Address</div>
-        <div class="paragraph ">plaplaplapala</div>
-      </div>  <div class="grid-container row">
-        <div class="address ">Address Name</div>
-        <div class="paragraph ">Home</div>
-        <div class="itemx ">1</div>
-        <div class="address ">Address</div>
-        <div class="paragraph ">plaplaplapala</div>
-      </div>  <div class="grid-container row">
-        <div class="address ">Address Name</div>
-        <div class="paragraph ">Home</div>
-        <div class="itemx ">1</div>
-        <div class="address ">Address</div>
-        <div class="paragraph ">plaplaplapala</div>
+      <div class="name">Emmi John</div>
+      <div class="address">Egypt,cairo</div>
       </div>
 
-      <!-- <table>
+  </div>
+    
+    <!-- <div class="historyList">
+      <table>
         <thead>
           <tr id="table-header">
             <th class="first">Service</th>
@@ -81,7 +64,18 @@
             <td>
               <img
                 src="../../../assets/images/Icon metro-cross.png"
-                (click)="test()"
+                
+              />
+            </td>
+          </tr>
+           <tr class="service">
+            <td>dfcgvbh</td>
+            <td>fghjk</td>
+            <td>esrdfgh</td>
+            <td>
+              <img
+                src="../../../assets/images/Icon metro-cross.png"
+              
               />
             </td>
           </tr>
@@ -92,7 +86,7 @@
             <td>
               <img
                 src="../../../assets/images/Icon metro-cross.png"
-                (click)="test()"
+               
               />
             </td>
           </tr>
@@ -103,12 +97,12 @@
             <td>
               <img
                 src="../../../assets/images/Icon metro-cross.png"
-                (click)="test()"
+                
               />
             </td>
           </tr>
         </tbody>
-      </table> -->
-    </div>
+      </table>
+    </div> -->
   </div>
 </div>
