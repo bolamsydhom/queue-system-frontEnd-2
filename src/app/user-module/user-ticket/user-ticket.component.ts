@@ -9,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class UserTicketComponent implements OnInit {
 
+  //Routing of the navbar
   isLoggedIn = true
+
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

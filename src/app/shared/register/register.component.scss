@@ -97,7 +97,9 @@ $baby-blue:#3FB0AC;
     }
     
  }
-
+.btn-container :focus{
+   outline: 0; 
+}
 .submit-btn{
     //position: relative;
     // top: 5%;
@@ -130,6 +132,8 @@ $baby-blue:#3FB0AC;
     border: none;
     margin-left: 5%;
 }
+
+
 
 .full-width {
     width: 83%;

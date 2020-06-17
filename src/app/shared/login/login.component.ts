@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   passwordForm: FormGroup
 
   currentInput = 'email';
+  spinnerEnabled = false;
 
   loginData = {
     email: '',
@@ -66,15 +67,18 @@ export class LoginComponent implements OnInit {
   }
 
   onEmailLogin(email) {
+    this.spinnerEnabled = true;
     this.userServices.emailLogin(email.email).subscribe(
       (data) => {
         console.log(data)
 
         this.loginData.email = email.email;
         this.currentInput = 'password';
+        this.spinnerEnabled = false;
       },
       (error) => {
         console.log(error)
+        this.spinnerEnabled = false;
         this.backendError = true
       }
     )
@@ -82,6 +86,7 @@ export class LoginComponent implements OnInit {
   }
   onLogin(password) {
     this.loginData.password = password.password;
+    this.spinnerEnabled = true;
     this.userServices.Login(this.loginData).subscribe(
       (response) => {
         const isAdmin = response['person'].isAdmin;
@@ -90,6 +95,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', response['token']);
         localStorage.setItem('person', response['person']);
 
+        this.spinnerEnabled = false;
         //Routes based on role 
         if (!isAdmin && !isEmployee) {
           this.router.navigate(['userlocation']);
