@@ -6,7 +6,7 @@
   <div class="pageNo light disabled">04</div>
 </div>
 <div class="selectBranch">
-  <img class="companyImg" [src]="companyImagyUrl"/>
+  <img class="companyImg" [src]="companyImagyUrl" />
   <p class="selectYourBranch">Select your branch</p>
   <table class="branches">
     <thead>
@@ -26,7 +26,12 @@
         <td>{{ branch.branchName }}</td>
         <td>{{ branch.workingDays[dayOfweek].openShift }}</td>
         <td>{{ branch.workingDays[dayOfweek].endShift }}</td>
-        <td><span class="badge badge-pill badge-warning">recommended</span></td>
+        <ng-template
+          *ngIf="areaId !== undefined && branchRecommended.areaId === areaId"
+          ><span class="badge badge-pill badge-warning"
+            >recommended</span
+          ></ng-template
+        >
       </tr>
     </tbody>
   </table>

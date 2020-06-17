@@ -14,11 +14,12 @@ import { error } from 'console';
 export class CompanyServicesComponent implements OnInit {
   imgSrc = '../../../assets/images/arrow1.png';
   companyImagyUrl;
-  // branchId;
   cityId;
   companyId;
   services;
+
   ServiceSelected = {};
+
 
   @ViewChild('nextScreen') arrow: ElementRef;
 
@@ -39,13 +40,9 @@ export class CompanyServicesComponent implements OnInit {
 
     let branch = this.ticketService.get('branch');
     this.services = branch.services;
-
-    // this.route.params.subscribe(params => {
-    //   this.branchId = params['branchId'];
-
-    // });
   }
   goToTicketOrLogin() {
+
     if (Object.keys(this.ServiceSelected).length) {
       if (localStorage.getItem('token')) {
         this.ticketService.postToTicketIds(
@@ -68,10 +65,12 @@ export class CompanyServicesComponent implements OnInit {
     }
   }
   selectService(service) {
+
     this.ServiceSelected = service;
     this.imgSrc = '../../../assets/images/arrow2.png';
     this.arrow.nativeElement.style.cursor = 'pointer';
     this.ticketService.postToTicket('services', this.ServiceSelected);
     this.ticketService.postToTicketIds('service', this.ServiceSelected);
+
   }
 }

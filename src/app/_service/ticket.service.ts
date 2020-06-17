@@ -28,12 +28,14 @@ export class TicketService {
     service: { _id: '', name: '' }
   };
 
+
   postToTicket(type, value) {
     this.ticket[type] = value;
     if (type === 'services') {
       localStorage.setItem('hasTicket', 'true');
     }
   }
+
 
   postToTicketIds(type, value) {
     this.ticketIds[type] = value;
@@ -42,6 +44,7 @@ export class TicketService {
   goToTicket() {
     return this.http.post(`${this.url}/queue/book`, this.ticketIds);
   }
+
 
   getId(type: string) {
     return this.ticket[type]._id;

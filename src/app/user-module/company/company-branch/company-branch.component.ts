@@ -13,10 +13,12 @@ export class CompanyBranchComponent implements OnInit {
   branches;
   branch;
   cityId;
+
   dayOfweek: number;
   companyImagyUrl;
   companyId;
   area;
+
 
   constructor(
     private branchService: BranchService,
@@ -33,13 +35,16 @@ export class CompanyBranchComponent implements OnInit {
     let c = this.ticketService.get('company');
     this.companyImagyUrl = c.imgUrl;
 
+
     this.area = this.ticketService.get('area');
 
     if (Object.keys(this.area).length) {
+
       this.branchService
         .getBranchesByCityIdAndCompanyIdAndAreaId(
           this.cityId,
           this.companyId,
+
           this.area._id
         )
         .subscribe(data => {
@@ -60,11 +65,14 @@ export class CompanyBranchComponent implements OnInit {
           this.dayOfweek = day.getDay();
         });
     }
+
   }
 
   onClickBranch(branch) {
     this.ticketService.postToTicket('branch', branch);
+
     this.ticketService.postToTicketIds('branchId', branch._id);
+
     this.router.navigate(['/companyServices', branch._id]);
   }
 }

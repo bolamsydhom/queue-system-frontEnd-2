@@ -27,6 +27,22 @@ export class BranchService {
       `${this.url}/branch/branch?cityid=${cityId}&companyid=${companyId}`
     );
   }
+
+  // getBranchesByCityIdAndCompanyId(cityId, companyId) {
+  //   return this.http.get(
+  //     `${this.url}/branch/branch?cityid=${cityId}&companyid=${companyId}`
+  //   );
+  // }
+
+  getBranchesByCityIdAndCompanyIdAndAreaId(cityId,companyId,areaId) {
+    return this.http.get(
+      `${this.url}/branch/recommendedBranchs?cityid=${cityId}&companyid=${companyId}&areaid=${areaId}`
+    );
+  }
+
+  // getBranchesByCompanyId(companyId: number) {
+  //   return this.branches.filter(b => b.companyId === companyId);
+  // }
   getServicesByBranchId(branchId: number) {
     let branch = this.branches.filter(b => b.branchId === branchId);
     return branch[0].services;

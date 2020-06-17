@@ -6,6 +6,7 @@ import { User } from './../../_service/user.service';
 import { Router } from '@angular/router';
 import { City } from './../../_model/city';
 import { TicketService } from 'src/app/_service/ticket.service';
+import { Area } from './../../_model/area';
 
 @Component({
   selector: 'app-user-location',
@@ -69,7 +70,9 @@ export class UserLocationComponent implements OnInit {
     this.cityIdURL = city.id;
     this.cityNameSelectedByInput = city.name;
     this.ticketService.postToTicket('city', city);
+
     this.ticketService.postToTicketIds('cityId', city._id);
+
     this.isChecked = true;
     this.cities = [];
     this.AreaService.getAreasByCityId(this.cityIdURL).subscribe(data => {
@@ -81,6 +84,7 @@ export class UserLocationComponent implements OnInit {
 
   onSelectByDropdown(area, btn) {
     this.ticketService.postToTicket('area', area);
+
     this.area = area.name;
     btn.innerHTML = this.area;
     btn.style.background = '#173E43';
@@ -94,5 +98,6 @@ export class UserLocationComponent implements OnInit {
     if (this.cityNameSelectedByInput !== '') {
       this.router.navigate(['/companylisting', this.cityIdURL]);
     }
+    else alert("Please Enter Your City.")
   }
 }
