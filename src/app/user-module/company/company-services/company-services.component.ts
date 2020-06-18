@@ -6,6 +6,9 @@ import { TicketService } from 'src/app/_service/ticket.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Service } from './../../../_model/service';
 import { error } from 'console';
+
+// import { MatSnackBar } from '@angular/material/snack-bar'
+
 @Component({
   selector: 'app-company-services',
   templateUrl: './company-services.component.html',
@@ -27,8 +30,9 @@ export class CompanyServicesComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private BranchService: BranchService,
-    private ticketService: TicketService
-  ) {}
+    private ticketService: TicketService,
+    // private _snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     let c = this.ticketService.get('company');
@@ -51,17 +55,25 @@ export class CompanyServicesComponent implements OnInit {
         );
         this.ticketService.postToTicket('user', localStorage.getItem('person'));
 
-        this.ticketService.goToTicket().subscribe(response => {
-          console.log(response);
-          let data = response['customers'];
-          console.log(data);
-          this.ticketService.postToTicket('securityCode', data[0].securityCode);
-          this.ticketService.postToTicket('createdAt', response['createdAt']);
-          this.ticketService.postToTicket('queueNumber', data[0].queueNumber);
-        });
+        this.ticketService.goToTicket().subscribe(
+          (response) => {
+            console.log(response);
+            let data = response['customers'];
+            console.log(data);
+            this.ticketService.postToTicket('securityCode', data[0].securityCode);
+            this.ticketService.postToTicket('createdAt', response['createdAt']);
+            this.ticketService.postToTicket('queueNumber', data[0].queueNumber);
+            this.router.navigate(['/ticket']);
+          }),
+          (error) => {
+            console.log(error['error'].message)
+          }
 
-        this.router.navigate(['/ticket']);
-      } else this.router.navigate(['/login']);
+      }
+      else this.router.navigate(['/login']);
+    }
+    else {
+
     }
   }
   selectService(service) {
@@ -73,4 +85,10 @@ export class CompanyServicesComponent implements OnInit {
     this.ticketService.postToTicketIds('service', this.ServiceSelected);
 
   }
+
+  // openSnackBar(message: string, action: string) {
+  //   this._snackBar.open(message, action, {
+  //     duration: 2000,
+  //   });
+  // }
 }
