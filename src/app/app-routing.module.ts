@@ -20,6 +20,7 @@ import { WarningComponent } from './user-module/alerts/warning/warning.component
 import { InfoAlertComponent } from './user-module/alerts/info-alert/info-alert.component';
 import { ServeUserComponent } from './user-module/alerts/serve-user/serve-user.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import{SettingComponent}from './user-module/user-profile/setting/setting.component'
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'warning', component: WarningComponent },
   { path: 'info-alert', component: InfoAlertComponent },
   { path: 'serve-user', component: ServeUserComponent },
-  { path: 'spinner', component: SpinnerComponent }
+  { path: 'spinner', component: SpinnerComponent },
+  { path: 'profile/setting', component: SettingComponent }
 
 
 ];
