@@ -109,7 +109,9 @@ export class LoginComponent implements OnInit {
         }
       },
       (error) => {
-
+        console.log(error)
+        this.spinnerEnabled = false;
+        this.backendError = true
       }
     )
   }

@@ -26,14 +26,18 @@
           </mat-form-field>
 
           <span class="btn-container">
-
+            <!-- [disabled]="email.value===''"
+               [disabled]="(
+              (emailForm.get('email').hasError('required') || emailForm.get('email').hasError('pattern')) 
+              && (emailForm.get('email').dirty || emailForm.get('email').touched))" -->
             <button type="submit" color="primary"
               [ngClass]="((emailForm.get('email').hasError('required')|| emailForm.get('email').hasError('pattern')) 
-           &&(emailForm.get('email').dirty || emailForm.get('email').touched))||backendError ? 'submit-btn-error': 'submit-btn'" [disabled]="((emailForm.get('email').hasError('required')|| emailForm.get('email').hasError('pattern')) 
-              && (emailForm.get('email').dirty || emailForm.get('email').touched))"></button>
+           &&(emailForm.get('email').dirty || emailForm.get('email').touched))||backendError ? 'submit-btn-error': 'submit-btn'" [disabled]="(email.value==='')||(
+            (emailForm.get('email').hasError('required') || emailForm.get('email').hasError('pattern')) 
+            && (emailForm.get('email').dirty || emailForm.get('email').touched))"></button>
           </span>
           <mat-error class="matError" *ngIf="backendError">
-            ay 7aga
+            Invalid Email
           </mat-error>
 
         </form>
@@ -56,11 +60,16 @@
             <button type="submit" color="primary"
               [ngClass]="(
               (passwordForm.get('password').hasError('required')|| passwordForm.get('password').hasError('pattern')|| passwordForm.get('password').hasError('minlength')) 
-              && (passwordForm.get('password').dirty || passwordForm.get('password').touched)) ? 'submit-btn-error': 'final-btn'" [disabled]="(
+              && (passwordForm.get('password').dirty || passwordForm.get('password').touched)) ? 'submit-btn-error': 'final-btn'" [disabled]=" (password.value==='') ||
+               (
                 (passwordForm.get('password').hasError('required')|| passwordForm.get('password').hasError('pattern')|| passwordForm.get('password').hasError('minlength')) 
-              && (passwordForm.get('password').dirty || passwordForm.get('password').touched))"></button>
+              && (passwordForm.get('password').dirty || passwordForm.get('password').touched)
+              )"></button>
           </span>
 
+          <mat-error class="matError" *ngIf="backendError">
+            Invalid Email or Password
+          </mat-error>
         </form>
       </span>
 

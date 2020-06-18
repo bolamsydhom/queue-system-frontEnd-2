@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { TicketService } from 'src/app/_service/ticket.service';
 import { tick } from '@angular/core/testing';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-user-ticket',
   templateUrl: './user-ticket.component.html',
@@ -14,7 +16,7 @@ export class UserTicketComponent implements OnInit {
   isLoggedIn = true;
   ticket = {};
 
-  constructor(private router: Router, private ticketService: TicketService) {}
+  constructor(private router: Router, private ticketService: TicketService) { }
 
   ngOnInit(): void {
     this.isUserLoggedIn();

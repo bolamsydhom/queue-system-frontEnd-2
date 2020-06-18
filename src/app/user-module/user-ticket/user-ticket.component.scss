@@ -1,18 +1,30 @@
-.remaining-space {
-    flex: 0.4 0.4 auto;
-  }
-  .line {
-    width: 0.1rem;
-    height: 1rem;
-    background-color: #23615f;
-    margin: 0 10px;
-  }
-  .toolbar {
-    background-color: transparent;
-  }
-mat-toolbar {
+.nav{
+       width: 100%;
+       display:flex ;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+       //margin: auto;
+}
+.nav-link{
+        cursor: pointer;
+        color: #3FB0AC;
+        font-size: 21px;
+}
+.line{
+        width: 0.1rem;
+        height: 1rem;
+        background-color: #23615f; 
+}
+.toolbar {
     padding-top: 2rem;
-  }
+    color: #23615f;
+    display:flex ;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
  ////////////////////////////////////////////////////////////////////////////
 
  $primary :#173E43;
@@ -67,7 +79,7 @@ $secondry: #3FB0AC;
             z-index: 3;
             font-size: 40px;
             top:85px;
-             left:25.5%;
+            left:27%;
             color: $secondry;
             font-weight: bold;
         }
@@ -124,61 +136,6 @@ $secondry: #3FB0AC;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// .circle{
-//     //margin-top: 60%;
-//     position: fixed;
-//     top: 50%;
-//     left: 10%;
-//     .pageNo{
-//         background-color: #3FB0AC;
-//         width: 31px;
-//         height: 31px;
-//         border-radius: 50%;
-//         text-align: center;
-//         color:#ffffff;
-//         font:  18px;
-//         line-height: 31px; 
-//         margin-top: 20px;
-//         cursor: pointer;
-       
-        
-
-//     }
-//     .mainPage{
-//         margin-left:-11px;
-//         width: 52px;
-//         height: 52px; 
-//         line-height: 52px; 
-//         font-size: 24px;
-//         opacity:100%;
-//         box-shadow:-1px 1px 4px grey;
-        
-//     }
-
-//     .dark{
-//         opacity: 75%;
-//         &:hover{
-//             margin-left:-11px;
-//            width: 52px;
-//            height: 52px; 
-//            line-height: 52px; 
-//            font-size: 24px;
-//             box-shadow:-1px 1px 4px grey;
-//           }
-//     }
-
-
-//     .medium{
-//         background-color: gray;
-//         opacity: 50%;
-//     }
-
-//     .light{
-//         background-color: gray;
-//         opacity: 25%;
-//         }
-    
-// }
 
 ///////////////////////////////////////////////////////////////////////////////////
 @media (max-width: 768px) {
@@ -189,8 +146,27 @@ $secondry: #3FB0AC;
     }
   }
 
-  @media (min-width: 320px){
-      .section{
-          margin-left: 90px;
-      }
+  @media (max-width: 320px){
+    .background{
+         width: 300px;
+         height: 300px;
+         .logo{
+            top:50px;
+            left: 17%;
+         }
+   
+    .info{
+            top: 285px;
+            left: 13%;
+         }
+     }
+      
+    .toolbar{
+        padding-top: 1rem;
+    }
+     .txt{
+         font-size: 19px;
+         text-align: center;
+     }
+    
   }
