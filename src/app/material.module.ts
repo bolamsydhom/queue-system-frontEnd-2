@@ -19,6 +19,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 
 
@@ -45,6 +47,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatChipsModule,
     MatListModule,
     // MatSnackBar
+    MatSlideToggleModule
 
 
   ],
@@ -68,6 +71,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatChipsModule,
     MatListModule,
     // MatSnackBar
+    MatSlideToggleModule
+
 
 
 
