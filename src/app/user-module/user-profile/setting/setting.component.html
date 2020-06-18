@@ -1,0 +1,154 @@
+<app-profile-header></app-profile-header>
+
+<div class="historyPageContainer">
+  <!-- sidebar -->
+  <div class="sidebarContainer">
+    <h1 class="title">User Profile</h1>
+
+    <div class="sidebar">
+      <a routerLink="/profile/location"
+        ><span class="material-icons">location_searching </span>Location</a
+      >
+      <a routerLink="/profile/history"
+        ><span class="material-icons">history</span>History</a
+      >
+      <a routerLink="/profile/setting" class="active"
+        ><span class="material-icons">settings</span>Setting</a
+      >
+      <a class="Logout" (click)="onOut()"
+        ><span class="material-icons">power_settings_new</span>Logout</a
+      >
+    </div>
+  </div>
+
+  <!-- ///////////////////////// -->
+
+  <div class="HistoryTable col-12">
+    <div class="mypic">
+      <img
+        src="../../../assets/images/Group 50.png"
+        class="imgCover"
+        alt=""
+        loading="lazy"
+      />
+
+      <img
+        src="../../../assets/images/getty_522854574_360091.png"
+        class="imgprofile"
+        alt=""
+        loading="lazy"
+      />
+      <button
+        mat-mini-fab
+        class="editIcon"
+        aria-label="Example icon button with a menu icon"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <div class="userinfo">
+        <div class="name">Emmi John</div>
+        <div class="address">Egypt,cairo</div>
+      </div>
+    </div>
+    <!-- //////////////////////// -->
+
+    <div class="example-container">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <p>
+          <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+            <mat-label>Name</mat-label>
+            <!-- <input  matInput #nameinput maxlength="12" placeholder=" your name" ngModel name="name" [(ngModel)]="test" MatFormFieldControl="test"> -->
+
+            <input
+              matInput
+              #nameinput
+              maxlength="12"
+              placeholder=" your name"
+              name="yourName"
+              type="text"
+              [(ngModel)]="yous"
+            />
+
+            <mat-hint>{{ nameinput.value?.length || 0 }}/10</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+            <mat-label>User name</mat-label>
+            <input
+              matInput
+              #userinput
+              maxlength="12"
+              placeholder="your user name"
+              ngModel
+              name="username"
+            />
+            <mat-hint>{{ userinput.value?.length || 0 }}/10</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill" class="pass">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              ngModel
+              name="password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <mat-form-field hintLabel="Max 11 number" appearance="fill">
+            <mat-label>Phone number</mat-label>
+            <input
+              matInput
+              #phoneinput
+              maxlength="11"
+              placeholder="01*********"
+              ngModel
+              name="phoneNumber"
+            />
+            <mat-hint>{{ phoneinput.value?.length || 0 }}/11</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Location</mat-label>
+            <input
+              type="text"
+              placeholder="select location"
+              aria-label="Number"
+              matInput
+              [formControl]="myControl"
+              [matAutocomplete]="auto"
+            />
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option
+                *ngFor="let option of filteredOptions | async"
+                [value]="option"
+              >
+                {{ option }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button
+            mat-raised-button
+            color="primary"
+            #save
+            class="saveBtn"
+            type="submit"
+          >
+            Save Changes
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

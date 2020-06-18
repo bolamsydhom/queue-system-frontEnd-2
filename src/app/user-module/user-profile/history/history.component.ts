@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-history',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HistoryComponent implements OnInit {
   displayedColumns: string[] = ['branch', 'Start', 'End'];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -16,4 +17,10 @@ export class HistoryComponent implements OnInit {
   test(){
     alert("delete")
   }
+  onOut(){
+    if( confirm("Are You Sure You Want To Logout ?")){
+   
+      this.router.navigate(['/']);
+    }   
+   }
 }
