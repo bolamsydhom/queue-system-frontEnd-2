@@ -1,0 +1,222 @@
+.historyPageContainer {
+  width: 80vw;
+  margin-top: 6rem;
+  margin-left: 16rem;
+}
+.title {
+  font-size: 2rem;
+  font-weight: inherit;
+  color: #23615f;
+  cursor: default;
+  margin-bottom: 4rem;
+}
+.roeitem {
+  display: inline;
+}
+
+///////////////////////SIDEBAR///////////////////////@extend
+
+.sidebar {
+  // height: 80vh;
+  margin: 0;
+  padding: 0;
+  // width: 20rem;
+  //background-color:rebeccapurple;
+  position: fixed;
+  height: 60%;
+  //overflow: auto;
+  // background-color: skyblue;
+  //position: absolute;
+  z-index: 5;
+  .Logout {
+    color: #3fb0ac;
+    // position: fixed;
+    position: relative;
+    left: 0;
+    top: 40%;
+  }
+}
+
+.sidebar a {
+  display: block;
+  color: #23615f;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 1.3rem;
+  span {
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+}
+
+.sidebar a.active {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #707070;
+}
+
+.sidebar a:hover:not(.active) {
+  cursor: pointer;
+  transform: rotateX(360deg);
+  transition: 1s;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+.editIcon {
+  display: inline-block;
+  color: #f2f2f2;
+  background-color: #3fb0ac;
+  position: absolute;
+  bottom: -2rem;
+  left: 19rem;
+  cursor: pointer;
+}
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+  .Logout {
+  }
+  .historyPageContainer {
+    width: 80vw;
+    margin-top: 6rem;
+    margin-left: 6rem;
+  }
+  .imgprofile {
+    margin-top: -15rem;
+    width: 6rem !important;
+    position: relative;
+    top: 6rem !important;
+    left: -3rem !important;
+  }
+  .imgCover {
+    width: 300px !important;
+    height: 300px !important;
+    top: -16rem !important;
+    left: -10rem !important;
+  }
+  table {
+    //background-color: red;
+    //position:  !important;
+    width: 100% !important;
+    top: 13rem !important;
+    left: 5rem !important;
+  }
+  .userinfo {
+    bottom: -1rem !important;
+    left: 2rem !important;
+  }
+  .historyPageContainer {
+    margin-left: 2rem !important;
+  }
+}
+/////////////////////////////////////////////@extend
+
+.HistoryTable {
+  /* position: relative; */
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 25rem;
+}
+
+.mypic {
+  position: relative;
+}
+
+.imgCover {
+  // z-index: 0;
+  width: 500px;
+  height: 500px;
+  // margin-left: -4rem;
+  // margin-top: -12rem;
+  position: absolute;
+  top: -19rem;
+  left: 0rem;
+}
+.imgprofile {
+  // margin-left: -20rem;
+  margin-top: -15rem;
+  width: 160px;
+  position: absolute;
+  top: 8rem;
+  left: 11rem;
+}
+.userinfo {
+  //background-color: indigo;
+  display: inherit;
+  position: absolute;
+  bottom: -2rem;
+  left: 22rem;
+}
+.name {
+  color: #23615f;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.address {
+  margin-top: 5px;
+  color: #707070;
+  font-size: 18;
+}
+
+////////////////TABEL///////////////////
+form {
+  //background-color: red;
+  position: absolute;
+  bottom: -24rem;
+  left: 22rem;
+}
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 2rem;
+}
+mat-form-field {
+  width: 20rem;
+}
+.pass {
+  button {
+    margin-left: -41px;
+  }
+}
+.saveBtn {
+  margin-left: 9rem;
+  width: 13rem;
+}
+
+// ::ng-deep {
+//   .mat-form-field .mat-form-field-flex{
+//     background-color: red;
+//   }
+// }
+//////////////////////////@extend
+@media screen and (max-width: 400px) {
+  .mat-form-field,
+  .saveBtn {
+    //background-color: red !important;
+    display: inline !important;
+
+    bottom: -10rem !important;
+    left: -8rem !important;
+  }
+  .editIcon {
+    bottom: 4rem !important;
+    left: 2.2rem !important;
+  }
+}

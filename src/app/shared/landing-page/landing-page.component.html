@@ -11,15 +11,15 @@
           class="nav-bar-link"
           routerLink="/login"> Login </a>
        <a mat-button
-          class="nav-bar-link" routerLink="/register"> Sign up </a>
+          class="nav-bar-link"
+          routerLink="/register"> Sign up </a>
      </div>
    </mat-toolbar>
 
    <div *ngIf="!isClicked"
         class="landingPage-container">
 
-     <section
-              class="main-section">
+     <section class="main-section">
        <video autoplay
               playsinline
               muted
@@ -84,26 +84,192 @@
 
      </section>
    </div>
-   <div  *ngIf="isClicked"
+   <div *ngIf="isClicked"
         class="extra-container">
 
-     <section data-aos="zoom-out-up">
-       <h1 class="anim">Yo. see this?</h1>
-     </section>
-     <section>
-       <img src="../../../assets/images/Group -34.png"
-            alt="bg"
-            class="anim">
-       <h1 class="anim">Cool</h1>
-     </section>
-     <section data-aos="zoom-in-right"
-              data-aos-duration="1000">
-       <h1
-           class="anim">I know</h1>
+     <section data-aos="zoom-out-down">
+
+       <h1 class="headline"
+           data-aos="fade-up"
+           data-aos-duration="3000">About us</h1>
+       <img class="left"
+            data-aos="zoom-in-right"
+            src="../../../assets/images/undraw_team_spirit_hrr4.svg"
+            alt=""
+            srcset="">
+       <div class="right"
+            data-aos="zoom-in-left">
+         <p> We aim to help people during <strong> COVID-19 </strong> keep their health safe from by applying social
+           distance and resume their daily basis needs as well</p>
+
+       </div>
      </section>
 
 
 
+     <section class="special"
+              data-aos="fade-up"
+              data-aos-duration="3000">
+       <!-- <h1 class="headline"
+                 data-aos="fade-up"
+                 data-aos-duration="3000">without us</h1> -->
+       <div class="banner-head">
+         <div>
+
+           <p *ngIf="!checked"
+              class="before"
+              style="display: inline-block;margin-right: 2px;"> without us</p>
+           <mat-slide-toggle class="example-margin"
+                             color="primary"
+                             [checked]="checked"
+                             (change)="toogeled()"
+                             [disabled]="disabled">
+           </mat-slide-toggle>
+           <p *ngIf="checked"
+              class="after"
+              style="display: inline-block;margin-left: 2px;"> with us</p>
+         </div>
+       </div>
+       <div class="banner-content">
+         <img data-aos="zoom-in-up"
+              [src]="src"
+              alt="bg">
+       </div>
+     </section>
+
+
+
+     <section style="margin-top: 6rem"
+              class="special"
+              data-aos="fade-up"
+              data-aos-duration="3000">
+       <h1 class="headline anim">Meet our team</h1>
+       <div class="ourteam">
+         <div class="card">
+           <div class="card__container">
+             <div class="card__container__image">
+               <img src="../../../assets/images/0 (1).jpg"
+                    alt=""
+                    srcset="">
+             </div>
+             <div class="card__container__text">
+               <h3> Manar Karam </h3>
+             </div>
+           </div>
+         </div>
+         <div class="card">
+           <div class="card__container">
+             <div class="card__container__image">
+               <img src="../../../assets/images/0 (2).jpg"
+                    alt=""
+                    srcset="">
+             </div>
+             <div class="card__container__text">
+               <h3> Youstina Lamie </h3>
+             </div>
+           </div>
+         </div>
+
+         <div class="card">
+           <div class="card__container">
+             <div class="card__container__image">
+               <img src="../../../assets/images/DSC_0239E2.jpg"
+                    alt=""
+                    srcset="">
+             </div>
+             <div class="card__container__text">
+               <h3> Bola Magdy </h3>
+             </div>
+           </div>
+         </div>
+         <div class="card">
+           <div class="card__container">
+             <div class="card__container__image">
+               <img src="../../../assets/images/0.jpg"
+                    alt=""
+                    srcset="">
+             </div>
+             <div class="card__container__text">
+               <h3> Youstina Nader </h3>
+             </div>
+           </div>
+         </div>
+         <div class="card">
+           <div class="card__container">
+             <div class="card__container__image">
+               <img src="../../../assets/images/0 (3).jpg"
+                    alt=""
+                    srcset="">
+             </div>
+             <div class="card__container__text">
+               <h3> Eslam Taha </h3>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
+
+     <section data-aos="fade-up"
+              data-aos-duration="3000">
+
+       <h1 class="headline"
+           data-aos="fade-up"
+           data-aos-duration="3000">Reach us</h1>
+
+       <iframe class="left"
+               data-aos="zoom-in-right"
+               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1716.736553459373!2d32.268705560417615!3d30.6206215522053!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f8597f0396fea7%3A0x437cb59c375c9652!2sITI%20Suez%20Canal%20Branch!5e0!3m2!1sen!2sus!4v1592572820828!5m2!1sen!2sus"
+               width="600"
+               height="450"
+               frameborder="0"
+               style="border:0;"
+               allowfullscreen=""
+               aria-hidden="false"
+               tabindex="0"></iframe>
+       <div class="right"
+            data-aos="zoom-in-left"
+            style="width: 80%;">
+         <mat-form-field appearance="fill">
+           <mat-label>your Email</mat-label>
+           <input required
+                  matInput>
+           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+         </mat-form-field>
+         <br>
+         <mat-form-field appearance="fill">
+           <mat-label>Your Name</mat-label>
+           <input matInput>
+           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+         </mat-form-field>
+         <br>
+         <mat-form-field appearance="fill">
+           <mat-label>Your Message ^_^</mat-label>
+           <textarea required
+                     matInput></textarea>
+         </mat-form-field>
+         <button mat-stroked-button
+                 color="primary">Send Email <mat-icon matSuffix>sentiment_very_satisfied</mat-icon></button>
+       </div>
+     </section>
+
+
+     <footer>
+       <div></div>
+       <div class="text">
+         Made with love by Queue team. CopyRight <mat-icon style="font-size: 0.5rem;"
+                   matSuffix>copyright</mat-icon> 2020
+       </div>
+       <div class="social">
+         <i class="fa fa-facebook-square"
+            aria-hidden="true"></i>
+         <i class="fa fa-instagram"
+            aria-hidden="true"></i>
+         <i class="fa fa-youtube-play"
+            aria-hidden="true"></i>
+
+
+       </div>
+     </footer>
      <!-- <svg class='spiral'
           viewBox="0 0 500 500">
        <style type="text/css">
