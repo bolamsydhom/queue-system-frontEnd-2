@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private userServices: User) { }
 
   ngOnInit(): void {
+    localStorage.clear()
     this.createForms()
   }
 
@@ -109,7 +110,9 @@ export class LoginComponent implements OnInit {
         }
       },
       (error) => {
-
+        console.log(error)
+        this.spinnerEnabled = false;
+        this.backendError = true
       }
     )
   }

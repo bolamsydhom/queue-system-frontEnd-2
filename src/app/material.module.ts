@@ -9,7 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select'
 import { MatDatepickerToggle } from '@angular/material/datepicker';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatAutocompleteModule, } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -18,6 +18,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 
 
@@ -42,7 +44,9 @@ import { MatListModule } from '@angular/material/list';
     MatTableModule,
     MatSelectModule,
     MatChipsModule,
-    MatListModule
+    MatListModule,
+    // MatSnackBar
+    MatSlideToggleModule
 
 
   ],
@@ -64,7 +68,10 @@ import { MatListModule } from '@angular/material/list';
     MatTableModule,
     MatSelectModule,
     MatChipsModule,
-    MatListModule
+    MatListModule,
+    // MatSnackBar
+    MatSlideToggleModule
+
 
 
 

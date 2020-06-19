@@ -1,50 +1,37 @@
 <div class="container">
-  <span *ngIf="isLoggedIn">
-    <mat-toolbar class="toolbar">
-      <!-- This fills the remaining space of the current row -->
+  <span *ngIf="isLoggedIn" class="nav">
+    <span class="toolbar">
 
-      <!-- This fills the remaining space of the current row -->
-      <span class="remaining-space"></span>
-
-      <span> <a class="nav-link txt" href="#">History </a></span>
+      <span class="nav-link txt" [routerLink]="['./history']"> History </span>
       <span class="line"></span>
-      <span> <a class="nav-link txt" href="#">My Location </a></span>
+      <span class="nav-link txt" [routerLink]="['./location']"> My Location </span>
       <span class="line"></span>
-      <span> <a class="nav-link txt" href="#">Settings </a></span>
-    </mat-toolbar>
+      <span class="nav-link txt" [routerLink]="['./settings']"> Settings </span>
+    </span>
   </span>
-  <span *ngIf="!isLoggedIn">
-    <mat-toolbar class="toolbar">
-      <!-- This fills the remaining space of the current row -->
+  <span *ngIf="!isLoggedIn" class="nav">
+    <span class="toolbar">
 
-      <!-- This fills the remaining space of the current row -->
-      <span class="remaining-space"></span>
 
-      <span>
-        <a class="nav-link txt" href="#" (click)="navigateToLogin()"
-          >Login
-        </a></span
-      >
+      <span class="nav-link txt" (click)="navigateToLogin()">
+        Login</span>
       <span class="line"></span>
-      <span>
-        <a class="nav-link txt" href="#" (click)="navigateToRegister()"
-          >Register
-        </a></span
-      >
-    </mat-toolbar>
+      <span class="nav-link txt" (click)="navigateToRegister()">
+        Register</span>
+    </span>
   </span>
 
   <section class="section">
     <span class="background">
       <div class="logo">
         <div class="title">Your Number</div>
-        <div class="number">{{ ticket["queueNumber"] }}</div>
+        <div class="number">{{ ticket["queueNumber"] }} </div>
       </div>
 
       <div class="info">
         <div class="info__securityCode">
           <span class="title">Security Code: </span>
-          <span class="number">{{ ticket["securityCode"] }}</span>
+          <span class="number">{{ ticket["securityCode"] }} </span>
         </div>
         <div class="info__branch">
           <span class="title">{{ ticket["company"].name }},</span>
@@ -52,11 +39,11 @@
         </div>
         <div class="info__waiting">
           <span class="title">You will be served within </span>
-          <span class="number"> 3 hours</span>
+          <span class="number"> {{ticket['estimatedTime']}}</span>
         </div>
         <div class="info__date">
-          <span class="date">{{ ticket["createdAt"] }}</span>
-          <!-- <span class="time">09:55:02</span> -->
+          <span class="date">{{ ticket['date'] }} </span>
+          <span class="time">{{ticket['time']}}</span>
         </div>
       </div>
     </span>

@@ -5,7 +5,7 @@ import { browser } from 'protractor';
 
 @Injectable({ providedIn: 'root' })
 export class TicketService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   url = 'https://queue-sys-backend.herokuapp.com';
 
   ticket = {
@@ -16,8 +16,10 @@ export class TicketService {
     branch: {},
     services: {},
     securityCode: '',
-    createdAt: '',
-    queueNumber:''
+    estimatedTime: '',
+    queueNumber: '',
+    time: '',
+    date: ''
   };
 
   ticketIds = {
@@ -52,7 +54,7 @@ export class TicketService {
   get(type: string) {
     return this.ticket[type];
   }
-  getTicket(){
+  getTicket() {
     return this.ticket;
   }
 }

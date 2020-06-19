@@ -1,38 +1,24 @@
 <app-user-header></app-user-header>
-<div  class="container">
-  <section *ngIf="!noCompanyFound"
-           class="row">
+<div class="container">
+  <section *ngIf="!noCompanyFound" class="row">
     <div class=" col-auto centralize">
       <form class="example-form align-items-center  ">
         <mat-form-field class="example-full-width col-auto">
-          <input type="text"
-                 matInput
-                 placeholder="Search"
-                 [formControl]="myControl"
-                 [matAutocomplete]="auto"
-                 ngModel
-                 name="companyName"
-                 (input)="onInput($event)">
+          <input type="text" matInput placeholder="Search" [formControl]="myControl" [matAutocomplete]="auto" ngModel
+            name="companyName" (input)="onInput($event)">
           <mat-icon matSuffix>search</mat-icon>
-          <mat-autocomplete #auto="matAutocomplete"
-                            [displayWith]="displayFn">
-            <mat-option *ngFor="let company of companyOptions | async"
-                        [value]="company"
-                        #selectedValue
-                        (click)="onSelect()">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let company of companyOptions | async" [value]="company" #selectedValue
+              (click)="onSelect()">
               {{company.name}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        <img [src]="imgSrc"
-             #nextScreen
-             (click)="onSubmit()"
-             class="imgButton">
+        <img [src]="imgSrc" #nextScreen (click)="onSubmit()" class="imgButton">
       </form>
       <!-- Page Number circles -->
       <div class="circle ">
-        <div class="pageNo dark"
-             routerLink="/userlocation">01</div>
+        <div class="pageNo dark" routerLink="/userlocation">01</div>
         <!-- [routerLink]="['/companybranch']" -->
         <!-- routerLink="/companybranch" -->
         <div class="pageNo mainPage">02</div>
@@ -45,11 +31,8 @@
 
 
     <div class="listingContainer col-auto">
-      <div *ngFor="let company of companies"
-           class="containerr"
-           (click)="onImageClick(company)">
-        <img [src]="company.imgUrl"
-             class="qoute">
+      <div *ngFor="let company of companies" class="containerr" (click)="onImageClick(company)">
+        <img [src]="company.imgUrl" class="qoute">
         <div class="overlay">
           <div class="text">
             <div>
@@ -80,8 +63,7 @@
 
               <p>the page you are looking for not avaible!</p>
 
-              <a routerLink="/userlocation"
-                 class="link_404">Go to Home</a>
+              <a routerLink="/userlocation" class="link_404">Go to Home</a>
             </div>
           </div>
         </div>
@@ -90,5 +72,6 @@
   </section>
 
 </div>
+<!-- <section >
 
-
+</section> -->
