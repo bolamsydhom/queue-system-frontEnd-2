@@ -23,7 +23,9 @@ export class CompanyServicesComponent implements OnInit {
 
   ServiceSelected = '';
 
+
   spinnerEnabled = false;
+
 
   @ViewChild('nextScreen') arrow: ElementRef;
 
@@ -36,17 +38,15 @@ export class CompanyServicesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let c = this.ticketService.get('company');
+    let c = JSON.parse(localStorage.getItem('company'));
     this.companyId = c._id;
     this.companyImagyUrl = c.imgUrl;
-
-    let city = this.ticketService.get('city');
-    this.cityId = city._id;
-
-    let branch = this.ticketService.get('branch');
+    this.cityId = localStorage.getItem('cityId');
+    let branch = JSON.parse(localStorage.getItem('branch'));
     this.services = branch.services;
   }
   goToTicketOrLogin() {
+
     this.spinnerEnabled = true;
 
     if (Object.keys(this.ServiceSelected).length) {
@@ -57,10 +57,12 @@ export class CompanyServicesComponent implements OnInit {
         );
         this.ticketService.postToTicket('user', localStorage.getItem('person'));
 
+
         this.ticketService.goToTicket()
           .subscribe(
             (response) => {
               this.spinnerEnabled = false;
+              localStorage.setItem('ticket', JSON.stringify(response));
               const customer = response['newCst'];
               let securityCode = customer.securityCode;
               let queueNumber = customer.queueNumber;
@@ -101,13 +103,12 @@ export class CompanyServicesComponent implements OnInit {
     // }
   }
   selectService(service) {
-
     this.ServiceSelected = service;
+    localStorage.setItem('serviceId', service._id);
     this.imgSrc = '../../../assets/images/arrow2.png';
     // this.arrow.nativeElement.style.cursor = 'pointer';
     this.ticketService.postToTicket('services', this.ServiceSelected);
     this.ticketService.postToTicketIds('service', this.ServiceSelected);
-
   }
 
   openSnackBar(message: string, action: string) {
