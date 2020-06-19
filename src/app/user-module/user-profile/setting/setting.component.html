@@ -46,54 +46,85 @@
         <mat-icon>edit</mat-icon>
       </button>
       <div class="userinfo">
-        <div class="name">Emmi John</div>
-        <div class="address">Egypt,cairo</div>
+        <div class="name">
+          {{ localStorageUserInfo.firstName }}
+          {{ localStorageUserInfo.lastName }}
+        </div>
+        <div class="address">{{ localStorageUserInfo.location }} ,Egypt</div>
       </div>
     </div>
     <!-- //////////////////////// -->
 
     <div class="example-container">
-      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <form
+        [formGroup]="accountDetailsForm"
+        (ngSubmit)="onSubmitAccountDetails(accountDetailsForm.value)"
+      >
         <p>
-          <mat-form-field hintLabel="Max 10 characters" appearance="fill">
-            <mat-label>Name</mat-label>
-            <!-- <input  matInput #nameinput maxlength="12" placeholder=" your name" ngModel name="name" [(ngModel)]="test" MatFormFieldControl="test"> -->
-
+          <mat-form-field appearance="fill">
+            <mat-label>first Name</mat-label>
             <input
               matInput
-              #nameinput
-              maxlength="12"
-              placeholder=" your name"
-              name="yourName"
-              type="text"
-              [(ngModel)]="yous"
+              maxlength="10"
+              formControlName="firstname"
+              required
             />
-
-            <mat-hint>{{ nameinput.value?.length || 0 }}/10</mat-hint>
+            <mat-error
+              *ngFor="let validation of account_validation_messages.firstname"
+            >
+              <mat-error
+                class="error-message"
+                *ngIf="
+                  accountDetailsForm
+                    .get('firstname')
+                    .hasError(validation.type) &&
+                  (accountDetailsForm.get('firstname').dirty ||
+                    accountDetailsForm.get('firstname').touched)
+                "
+              >
+                {{ validation.message }}</mat-error
+              >
+            </mat-error>
           </mat-form-field>
 
-          <mat-form-field hintLabel="Max 10 characters" appearance="fill">
-            <mat-label>User name</mat-label>
+          <mat-form-field appearance="fill">
+            <mat-label>last Name</mat-label>
             <input
               matInput
-              #userinput
-              maxlength="12"
-              placeholder="your user name"
-              ngModel
-              name="username"
+              maxlength="10"
+              formControlName="lastname"
+              required
             />
-            <mat-hint>{{ userinput.value?.length || 0 }}/10</mat-hint>
+            <mat-error
+              *ngFor="let validation of account_validation_messages.firstname"
+            >
+              <mat-error
+                class="error-message"
+                *ngIf="
+                  accountDetailsForm
+                    .get('lastname')
+                    .hasError(validation.type) &&
+                  (accountDetailsForm.get('lastname').dirty ||
+                    accountDetailsForm.get('lastname').touched)
+                "
+              >
+                {{ validation.message }}</mat-error
+              >
+            </mat-error>
           </mat-form-field>
         </p>
+
         <p>
           <mat-form-field appearance="fill" class="pass">
-            <mat-label>Password</mat-label>
+            <mat-label>Change password</mat-label>
             <input
               matInput
+              type="password"
+              placeholder="new Password"
+              required
               [type]="hide ? 'password' : 'text'"
-              ngModel
-              name="password"
             />
+
             <button
               mat-icon-button
               matSuffix
@@ -105,19 +136,17 @@
             </button>
           </mat-form-field>
 
-          <mat-form-field hintLabel="Max 11 number" appearance="fill">
-            <mat-label>Phone number</mat-label>
+          <mat-form-field appearance="fill" class="pass">
+            <mat-label>confirm password</mat-label>
             <input
               matInput
-              #phoneinput
-              maxlength="11"
-              placeholder="01*********"
-              ngModel
-              name="phoneNumber"
+              type="password"
+              formControlName="confirm_password"
+              [errorStateMatcher]="parentErrorStateMatcher"
             />
-            <mat-hint>{{ phoneinput.value?.length || 0 }}/11</mat-hint>
           </mat-form-field>
         </p>
+
         <p>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Location</mat-label>
@@ -129,12 +158,9 @@
               [formControl]="myControl"
               [matAutocomplete]="auto"
             />
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-              <mat-option
-                *ngFor="let option of filteredOptions | async"
-                [value]="option"
-              >
-                {{ option }}
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of options" [value]="option.name">
+                {{ option.name }}
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>

@@ -7,10 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerToggle } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
-import { MatAutocompleteModule, } from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTreeModule } from '@angular/material/tree';
@@ -19,9 +19,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
-
-
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [],
@@ -46,9 +44,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatChipsModule,
     MatListModule,
     // MatSnackBar
-    MatSlideToggleModule
-
-
+    MatSlideToggleModule,
+    MatExpansionModule,
   ],
   exports: [
     MatButtonModule,
@@ -70,11 +67,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatChipsModule,
     MatListModule,
     // MatSnackBar
-    MatSlideToggleModule
-
-
-
-
-  ]
+    MatSlideToggleModule,
+    MatExpansionModule,
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

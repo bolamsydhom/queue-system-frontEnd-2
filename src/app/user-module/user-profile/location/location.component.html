@@ -1,21 +1,21 @@
 <app-profile-header></app-profile-header>
 
-<div class="historyPageContainer ">
+<div class="historyPageContainer">
   <!-- sidebar -->
-  <div class="sidebarContainer ">
+  <div class="sidebarContainer">
     <h1 class="title">User Profile</h1>
 
     <div class="sidebar">
       <a routerLink="/profile/location" class="active"
         ><span class="material-icons">location_searching </span>Location</a
       >
-      <a routerLink="/profile/history" 
+      <a routerLink="/profile/history"
         ><span class="material-icons">history</span>History</a
       >
       <a routerLink="/profile/setting"
         ><span class="material-icons">settings</span>Setting</a
       >
-      <a  class="Logout" (click)="onOut()"
+      <a class="Logout" (click)="onOut()"
         ><span class="material-icons">power_settings_new</span>Logout</a
       >
     </div>
@@ -24,15 +24,14 @@
   <!-- ///////////////////////// -->
 
   <div class="HistoryTable col-12">
-  <div class="mypic">
-    
+    <div class="mypic">
       <img
         src="../../../assets/images/Group 50.png"
         class="imgCover"
         alt=""
         loading="lazy"
       />
-     
+
       <img
         src="../../../assets/images/getty_522854574_360091.png"
         class="imgprofile"
@@ -40,69 +39,85 @@
         loading="lazy"
       />
       <div class="userinfo">
-      <div class="name">Emmi John</div>
-      <div class="address">Egypt,cairo</div>
+        <div class="name">
+          {{ localStorageUserInfo.firstName }}
+          {{ localStorageUserInfo.lastName }}
+        </div>
+        <div class="address">{{ localStorageUserInfo.location }} ,Egypt</div>
       </div>
+    </div>
 
-  </div>
-    
-    <!-- <div class="historyList">
-      <table>
-        <thead>
-          <tr id="table-header">
-            <th class="first">Service</th>
-            <th class="second">date</th>
-            <th class="third">Time</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="service">
-            <td>dfcgvbh</td>
-            <td>fghjk</td>
-            <td>esrdfgh</td>
-            <td>
+    <div class="locationsList">
+      <mat-accordion #occordian>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Work
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            the ring road main building, 5 Elfardos hospital
+            <div class="iconContainer">
               <img
+                class="deleteIcon"
                 src="../../../assets/images/Icon metro-cross.png"
-                
+                (click)="onDelete(occordian)"
               />
-            </td>
-          </tr>
-           <tr class="service">
-            <td>dfcgvbh</td>
-            <td>fghjk</td>
-            <td>esrdfgh</td>
-            <td>
+              <div></div>
               <img
-                src="../../../assets/images/Icon metro-cross.png"
-              
+                class="editicon"
+                src="../../../assets/images/Icon awesome-edit.png"
               />
-            </td>
-          </tr>
-          <tr class="service">
-            <td>dfcgvbh</td>
-            <td>fghjk</td>
-            <td>esrdfgh</td>
-            <td>
+            </div>
+          </mat-panel-description>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Coffie house
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            3349 Williams Mine Road, Secaucus, NJ
+            <div class="iconContainer">
               <img
+                class="deleteIcon"
                 src="../../../assets/images/Icon metro-cross.png"
-               
+                (click)="onDelete(occordian)"
               />
-            </td>
-          </tr>
-          <tr class="service">
-            <td>dfcgvbh</td>
-            <td>fghjk</td>
-            <td>esrdfgh</td>
-            <td>
+              <div></div>
               <img
-                src="../../../assets/images/Icon metro-cross.png"
-                
+                class="editicon"
+                src="../../../assets/images/Icon awesome-edit.png"
               />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div> -->
+            </div>
+          </mat-panel-description>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Home
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            1573 Duff Avenue, SPRINGERVILLE, AZ
+            <div class="iconContainer">
+              <img
+                class="deleteIcon"
+                src="../../../assets/images/Icon metro-cross.png"
+                (click)="onDelete(occordian)"
+              />
+              <div></div>
+              <img
+                class="editicon"
+                src="../../../assets/images/Icon awesome-edit.png"
+              />
+            </div>
+          </mat-panel-description>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </div>
 </div>

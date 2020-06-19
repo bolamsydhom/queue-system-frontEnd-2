@@ -1,8 +1,8 @@
 <app-profile-header></app-profile-header>
 
-<div class="historyPageContainer ">
+<div class="historyPageContainer">
   <!-- sidebar -->
-  <div class="sidebarContainer ">
+  <div class="sidebarContainer">
     <h1 class="title">User Profile</h1>
 
     <div class="sidebar">
@@ -24,15 +24,14 @@
   <!-- ///////////////////////// -->
 
   <div class="HistoryTable col-12">
-  <div class="mypic">
-    
+    <div class="mypic">
       <img
         src="../../../assets/images/Group 50.png"
         class="imgCover"
         alt=""
         loading="lazy"
       />
-     
+
       <img
         src="../../../assets/images/getty_522854574_360091.png"
         class="imgprofile"
@@ -40,12 +39,14 @@
         loading="lazy"
       />
       <div class="userinfo">
-      <div class="name">Emmi John</div>
-      <div class="address">Egypt,cairo</div>
+        <div class="name">
+          {{ localStorageUserInfo.firstName }}
+          {{ localStorageUserInfo.lastName }}
+        </div>
+        <div class="address">{{ localStorageUserInfo.location }} ,Egypt</div>
       </div>
+    </div>
 
-  </div>
-    
     <div class="historyList">
       <table>
         <thead>
@@ -56,49 +57,18 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr class="service">
-            <td>Etsalat, customer service</td>
-            <td>20-16-2020</td>
-            <td>02:01:14</td>
+        <tbody class="service">
+          <tr *ngFor="let his of history">
+            <td>{{ his.comanyName }},  {{ his.seviceName }}</td>
+            <td>{{ his.date }}</td>
+            <td>{{ his.time }}</td>
             <td>
               <img
                 src="../../../assets/images/Icon metro-cross.png"
-                (click)="test()"
-              />
-            </td>
-          </tr><tr class="service">
-            <td>Vodafone, Vodafone Cash</td>
-            <td>15-6-2020</td>
-            <td>09:13:44</td>
-            <td>
-              <img
-                src="../../../assets/images/Icon metro-cross.png"
-                (click)="test()"
-              />
-            </td>
-          </tr><tr class="service">
-            <td>Bank Misr ,customer service</td>
-            <td>1-1-2020</td>
-            <td>20:13:44</td>
-            <td>
-              <img
-                src="../../../assets/images/Icon metro-cross.png"
-                (click)="test()"
-              />
-            </td>
-          </tr><tr class="service">
-            <td>Orange, Orange Cash</td>
-            <td>18-12-2019</td>
-            <td>15:12:04</td>
-            <td>
-              <img
-                src="../../../assets/images/Icon metro-cross.png"
-                (click)="test()"
+                (click)="onDelete(his)"
               />
             </td>
           </tr>
-
         </tbody>
       </table>
     </div>
