@@ -7,7 +7,7 @@ import AOS from 'aos';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  isClicked = true;
+  isClicked = false;
   // color: ThemePalette = 'accent';
   checked = false;
   disabled = false;

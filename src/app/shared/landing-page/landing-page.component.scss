@@ -223,7 +223,7 @@ body::-webkit-scrollbar {
 
   section {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     display: grid;
     // place-content: center;
     position: relative;
@@ -233,7 +233,7 @@ body::-webkit-scrollbar {
       "l l r r";
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 100px 0.5fr;
   }
 
   .spiral {
@@ -261,7 +261,6 @@ body::-webkit-scrollbar {
     height: 30rem;
     // border-radius: 50%;
     position: absolute;
-    clip-path: circle(30% at 50% 50%);
     // right: 10%;
     animation: popdown 0.35s ease-in-out forwards;
     filter: drop-shadow(-1px 10px 20px rgba(50, 50, 0, 0.5));
@@ -371,8 +370,7 @@ body::-webkit-scrollbar {
     grid-area: m;
     transform: scale(0.7);
     transition: all 1.4s ease-in-out;
-      animation: fade-in 0.5s ease-in-out forwards;
-
+    animation: fade-in 0.5s ease-in-out forwards;
 
     img {
       animation: fade-in 0.5s ease-in-out forwards;
@@ -388,5 +386,110 @@ body::-webkit-scrollbar {
   }
   to {
     opacity: 1;
+  }
+}
+
+.ourteam {
+  grid-area: m;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-row-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-left: 2rem;
+}
+
+.card {
+  align-self: center;
+  width: 240px;
+  border-radius: 20px;
+  height: 18rem;
+  box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.029);
+  border: 0px;
+  &__container {
+    max-height: 18rem;
+    place-content: center;
+    border-radius: 20px;
+    transition: all 0.25s ease-in-out;
+
+    &__image {
+      width: 100%;
+      height: 200px;
+      filter: drop-shadow(-1px 10px 20px rgba(50, 50, 0, 0.05));
+      transition: all 0.35s ease-in-out;
+
+      cursor: pointer;
+      img {
+        background-clip: border-box;
+        animation: popdown 0.35s ease-in-out forwards;
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        // clip-path: circle(30% at 45% 40%);
+        transition: all 0.35s ease-in-out;
+      }
+
+      &:hover {
+        transition: all 0.35s ease-in-out;
+
+        filter: drop-shadow(-1px 1px 10px rgba(50, 50, 0, 0.5));
+        img {
+          transition: all 0.35s ease-in-out;
+          animation: popup 0.35s ease-in-out forwards;
+        }
+      }
+    }
+
+    &__text {
+      padding: 0.5rem 1rem;
+      justify-self: center;
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      height: 6.5rem;
+      color: #173e43;
+      transition: all 0.25s ease-in-out;
+
+      h3 {
+        transition: all 0.15s ease-in-out;
+
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+    }
+    &:hover {
+      box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.229);
+      transform: scale(1.1);
+      transition: all 0.25s ease-in-out;
+
+      .card__container__text {
+        color: #3fb0ac;
+        transition: all 0.25s ease-in-out;
+        h3 {
+          transition: all 0.15s ease-in-out;
+
+          letter-spacing: 0.1rem;
+        }
+      }
+    }
+  }
+}
+mat-form-field{
+  width: 100%;
+}
+
+footer{
+position: sticky;
+  display: flex;
+  background-color: #173e43;
+  color: beige;
+  width: 99vw;
+  justify-content: space-evenly;
+  align-content: center;
+  height: 10vh;
+
+  .text{
+    align-self: center;
   }
 }
