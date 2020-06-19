@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private userServices: User) { }
 
   ngOnInit(): void {
+    localStorage.clear()
     this.createForms()
   }
 

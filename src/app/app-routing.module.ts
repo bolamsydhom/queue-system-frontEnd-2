@@ -23,6 +23,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import{SettingComponent}from './user-module/user-profile/setting/setting.component'
 
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -40,7 +41,9 @@ const routes: Routes = [
   { path: 'info-alert', component: InfoAlertComponent },
   { path: 'serve-user', component: ServeUserComponent },
   { path: 'spinner', component: SpinnerComponent },
+  { path: 'spinner-user', component: SpinnerComponent },
   { path: 'profile/setting', component: SettingComponent }
+
 
 
 ];
