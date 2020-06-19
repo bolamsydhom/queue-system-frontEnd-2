@@ -39,11 +39,11 @@
         </div>
         <div class="info__waiting">
           <span class="title">You will be served within </span>
-          <span class="number"> 3 hours</span>
+          <span class="number"> {{ticket['estimatedTime']}}</span>
         </div>
         <div class="info__date">
-          <span class="date">{{ ticket["createdAt"] }}</span>
-          <!-- <span class="time">09:55:02</span> -->
+          <span class="date">{{ ticket['date'] }} </span>
+          <span class="time">{{ticket['time']}}</span>
         </div>
       </div>
     </span>

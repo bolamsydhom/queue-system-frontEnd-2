@@ -25,7 +25,8 @@ import { HistoryComponent } from './user-profile/history/history.component';
 import { ProfileHeaderComponent } from './user-profile/profile-header/profile-header.component';
 import { LocationComponent } from './user-profile/location/location.component';
 
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SpinnerComponent } from './spinner/spinner.component'
 
 
 
@@ -36,9 +37,9 @@ import { LocationComponent } from './user-profile/location/location.component';
     MaterialModule,
     RouterModule
   ],
-  providers: [CitiesService,AreaService,BranchService,TicketService],
-  exports: [ MaterialModule],
-  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent, WarningComponent, InfoAlertComponent, ServeUserComponent, ProfileHeaderComponent,HistoryComponent, LocationComponent]
+  providers: [CitiesService, AreaService, BranchService, TicketService, MatSnackBar],
+  exports: [MaterialModule],
+  declarations: [ComapanyListingComponent, UserHeaderComponent, UserLocationComponent, CompanyServicesComponent, CompanyBranchComponent, UserTicketComponent, WarningComponent, InfoAlertComponent, ServeUserComponent, ProfileHeaderComponent, HistoryComponent, LocationComponent, SpinnerComponent]
 
 })
 export class UserModule { }
