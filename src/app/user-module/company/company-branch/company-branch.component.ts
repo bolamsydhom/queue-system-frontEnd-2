@@ -17,8 +17,7 @@ export class CompanyBranchComponent implements OnInit {
   dayOfweek: number;
   companyImagyUrl;
   companyId;
-  area;
-
+  areaId;
 
   constructor(
     private branchService: BranchService,
@@ -28,24 +27,21 @@ export class CompanyBranchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cityId = this.ticketService.getId('city');
+    this.cityId = localStorage.getItem('cityId');
     this.route.params.subscribe(params => {
       this.companyId = params['companyId'];
     });
-    let c = this.ticketService.get('company');
+    let c = JSON.parse(localStorage.getItem('company'));
     this.companyImagyUrl = c.imgUrl;
+    this.areaId = localStorage.getItem('areaId');
+    console.log(this.areaId);
 
-
-    this.area = this.ticketService.get('area');
-
-    if (Object.keys(this.area).length) {
-
+    if (this.areaId != null) {
       this.branchService
         .getBranchesByCityIdAndCompanyIdAndAreaId(
           this.cityId,
           this.companyId,
-
-          this.area._id
+          this.areaId
         )
         .subscribe(data => {
           console.log('areaaa');
@@ -65,14 +61,13 @@ export class CompanyBranchComponent implements OnInit {
           this.dayOfweek = day.getDay();
         });
     }
-
   }
 
   onClickBranch(branch) {
     this.ticketService.postToTicket('branch', branch);
-
     this.ticketService.postToTicketIds('branchId', branch._id);
-
+    localStorage.setItem('branch', JSON.stringify(branch));
+    localStorage.setItem('branchId', branch._id);
     this.router.navigate(['/companyServices', branch._id]);
   }
 }

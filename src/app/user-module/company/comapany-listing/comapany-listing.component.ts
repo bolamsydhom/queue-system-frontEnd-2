@@ -78,9 +78,9 @@ export class ComapanyListingComponent implements OnInit {
   onSubmit() {
     this.inputValueId = this.selectedValue.value._id;
     this.ticketService.postToTicket('company', this.selectedValue.value);
-
+    localStorage.setItem('companyId', this.inputValueId);
+    localStorage.setItem('company', JSON.stringify(this.selectedValue.value));
     this.ticketService.postToTicketIds('companyId', this.inputValueId);
-
     if (this.imgSrc !== '../../../assets/images/Path 34.png') {
       this.router.navigate(['/companyBranch', this.inputValueId]);
     }
@@ -99,11 +99,10 @@ export class ComapanyListingComponent implements OnInit {
 
   onImageClick(company) {
     this.ticketService.postToTicket('company', company);
-
+    localStorage.setItem('companyId', company._id);
+    localStorage.setItem('company', JSON.stringify(company));
     this.ticketService.postToTicketIds('companyId', company._id);
-
     this.companyimgId = company._id;
-    // this.ticketService.postIdToTicket('companyId', this.companyimgId);
     this.router.navigate(['/companyBranch', this.companyimgId]);
   }
 }

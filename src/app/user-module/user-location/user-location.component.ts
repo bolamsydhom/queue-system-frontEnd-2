@@ -70,6 +70,7 @@ export class UserLocationComponent implements OnInit {
     this.cityIdURL = city.id;
     this.cityNameSelectedByInput = city.name;
     this.ticketService.postToTicket('city', city);
+    localStorage.setItem('cityId', city._id);
 
     this.ticketService.postToTicketIds('cityId', city._id);
 
@@ -84,6 +85,8 @@ export class UserLocationComponent implements OnInit {
 
   onSelectByDropdown(area, btn) {
     this.ticketService.postToTicket('area', area);
+    localStorage.setItem('areaId', area._id);
+
 
     this.area = area.name;
     btn.innerHTML = this.area;
