@@ -31,12 +31,22 @@
         alt=""
         loading="lazy"
       />
+      <div class="imgprofile">
+        <img
+          [src]="image || '../../../assets/images/getty_522854574_360091.png'"
+          alt=""
+          loading="lazy"
+        />
+      </div>
 
-      <img
-        src="../../../assets/images/getty_522854574_360091.png"
-        class="imgprofile"
-        alt=""
-        loading="lazy"
+      <input
+        style="position: absolute; left: 38%; z-index: 10; opacity: 0;"
+        type="file"
+        name="pic"
+        #pic
+        id=""
+        [(value)]="img"
+        (change)="imageSelected($event)"
       />
       <button
         mat-mini-fab
@@ -141,7 +151,6 @@
             <input
               matInput
               type="password"
-              formControlName="confirm_password"
               [errorStateMatcher]="parentErrorStateMatcher"
             />
           </mat-form-field>

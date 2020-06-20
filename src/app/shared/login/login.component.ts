@@ -3,7 +3,9 @@ import {
   FormGroup,
   FormBuilder,
   FormControl,
+
   Validators
+
 } from '@angular/forms';
 import { PasswordValidator } from '../validators';
 import { Router } from '@angular/router';
@@ -13,7 +15,7 @@ import { TicketService } from 'src/app/_service/ticket.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -26,6 +28,7 @@ export class LoginComponent implements OnInit {
   loginData = {
     email: '',
     password: ''
+
   };
 
   backendError = false;
@@ -40,13 +43,14 @@ export class LoginComponent implements OnInit {
       {
         type: 'minlength',
         message: 'Password must be at least 5 characters long'
+
       },
       {
         type: 'pattern',
         message:
-          'Your password must contain at least one uppercase, one lowercase, and one number'
-      }
-    ]
+          'Your password must contain at least one uppercase, one lowercase, and one number',
+      },
+    ],
   };
 
   constructor(
@@ -70,6 +74,7 @@ export class LoginComponent implements OnInit {
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
         ])
       )
+
     });
 
     this.passwordForm = this.fb.group({
@@ -87,14 +92,14 @@ export class LoginComponent implements OnInit {
   onEmailLogin(email) {
     this.spinnerEnabled = true;
     this.userServices.emailLogin(email.email).subscribe(
-      data => {
+      (data) => {
         console.log(data);
 
         this.loginData.email = email.email;
         this.currentInput = 'password';
         this.spinnerEnabled = false;
       },
-      error => {
+      (error) => {
         console.log(error);
         this.spinnerEnabled = false;
         this.backendError = true;
@@ -120,6 +125,7 @@ export class LoginComponent implements OnInit {
 
         //Routes based on role
         if (!isAdmin && !isEmployee) {
+
           if (localStorage.getItem('hasTicket')) {
             console.log('aaaaa');
             this.ticketService.postToTicketIds(
@@ -167,8 +173,9 @@ export class LoginComponent implements OnInit {
             });
             this.router.navigate(['/ticket']);
           } else {
-            this.router.navigate(['/userlocation']);
+         this.router.navigate(['userlocation'], { replaceUrl: true });
           }
+
         }
         if (!isAdmin && isEmployee) {
           this.router.navigate(['employee']);
@@ -177,7 +184,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['admin']);
         }
       },
-      error => {
+
+      (error) => {
+
         console.log(error);
         this.spinnerEnabled = false;
         this.backendError = true;
@@ -186,10 +195,11 @@ export class LoginComponent implements OnInit {
   }
 
   goToRegister() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/register']);
   }
 
   onInputChange() {
     this.backendError === true ? (this.backendError = false) : '';
   }
+
 }

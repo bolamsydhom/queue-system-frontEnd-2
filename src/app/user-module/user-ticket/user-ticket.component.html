@@ -1,13 +1,12 @@
 <div class="container">
   <span *ngIf="isLoggedIn" class="nav">
     <span class="toolbar">
-      <span class="nav-link txt" [routerLink]="['./history']"> History </span>
+
+      <span class="nav-link txt" (click)="navigateToHistory()" > History </span>
       <span class="line"></span>
-      <span class="nav-link txt" [routerLink]="['./location']">
-        My Location
-      </span>
+      <span class="nav-link txt" (click)="navigateToLocation()" > My Location </span>
       <span class="line"></span>
-      <span class="nav-link txt" [routerLink]="['./settings']"> Settings </span>
+      <span class="nav-link txt" (click)="navigateToSetting()" > Settings </span>
     </span>
   </span>
   <span *ngIf="!isLoggedIn" class="nav">

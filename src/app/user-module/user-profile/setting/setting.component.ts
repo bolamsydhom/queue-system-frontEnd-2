@@ -18,6 +18,7 @@ import {
   Country,
 } from 'src/app/shared/validators';
 import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/_service/user.service';
 
 // export interface  {
 //   name: string;
@@ -34,6 +35,8 @@ export class SettingComponent implements OnInit {
   hide = true;
   myControl = new FormControl();
   options;
+  img: File;
+  image;
 
   spinnerEnabled = false;
 
@@ -107,7 +110,8 @@ export class SettingComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private citiesService: CitiesService,
-    private http: HttpClient
+    private http: HttpClient,
+    private userServce : User
   ) {}
 
   ngOnInit() {
@@ -197,5 +201,15 @@ export class SettingComponent implements OnInit {
       localStorage['person'] = JSON.stringify(this.localStorageUserInfo);
       this.http.post(`${this.url}/ApiHere`, JSON.parse(localStorage['person']));
     }
+  }
+  imageSelected(event){
+    console.log(event.target.files[0]);
+    this.userServce.imageUpload(event.target.files[0]).subscribe(
+      (respond) =>{this.image = respond;
+      },
+      () => {}
+    )
+    console.log(this.img);
+
   }
 }
