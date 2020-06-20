@@ -14,14 +14,24 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UserTicketComponent implements OnInit {
   //Routing of the navbar
   isLoggedIn = true;
-  ticket = {};
+  ticket: {};
+  company: {};
+  branch: {};
+  time;
+  date;
 
-  constructor(private router: Router, private ticketService: TicketService) { }
+  constructor(private router: Router, private ticketService: TicketService) {}
 
   ngOnInit(): void {
     this.isUserLoggedIn();
-    this.ticket = this.ticketService.getTicket();
+    this.ticket = JSON.parse(localStorage.getItem('ticket'));
     console.log(this.ticket);
+    this.company = JSON.parse(localStorage.getItem('company'));
+    this.branch = JSON.parse(localStorage.getItem('branch'));
+    this.time = localStorage.getItem('time');
+    this.date = localStorage.getItem('date');
+    console.log(this.ticket);
+    console.log(this.date);
   }
 
   isUserLoggedIn() {
@@ -36,4 +46,17 @@ export class UserTicketComponent implements OnInit {
   navigateToLogin() {
     this.router.navigate(['./register']);
   }
+  navigateToHistory() {
+    this.router.navigate(['./profile/history']);
+
+  }
+  navigateToLocation(){
+    this.router.navigate(['./profile/location']);
+
+  }
+  navigateToSetting(){
+    this.router.navigate(['./profile/setting']);
+
+  }
+
 }

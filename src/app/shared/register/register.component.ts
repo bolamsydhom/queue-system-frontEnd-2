@@ -151,6 +151,7 @@ export class RegisterComponent implements OnInit {
       phoneNumber: `20${formData.country_phone.phone}`
     }
 
+
     this.user.generateCode(formData.country_phone.phone).subscribe(
       (response) => {
         this.openDialog(response['id']);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import AOS from 'aos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -11,35 +12,41 @@ export class LandingPageComponent implements OnInit {
   // color: ThemePalette = 'accent';
   checked = false;
   disabled = false;
-  src = "../../../assets/images/without.png";
+  src = '../../../assets/images/without.png';
 
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     AOS.init();
-
   }
-
-
 
   revealingContent(state) {
     this.isClicked = state;
-
-
-
   }
 
   scrolling(event) {
     console.log(event);
-
-
   }
-  toogeled(){
+  toogeled() {
     this.checked = !this.checked;
 
-    this.src = this.checked ? '../../../assets/images/wiht.png' : '../../../assets/images/without.png';
+    this.src = this.checked
+      ? '../../../assets/images/wiht.png'
+      : '../../../assets/images/without.png';
     console.log(this.checked);
-
   }
 
+  login() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+  reserveTicket() {
+    // console.log('Aaaaa');
+    // localStorage.removeItem('person');
+    // localStorage.removeItem('userId');
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('hasTicket');
+    localStorage.clear();
+    this.router.navigate(['/userlocation']);
+  }
 }

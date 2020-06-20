@@ -9,6 +9,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { Modal } from './register/modal.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+
 
 
 
@@ -19,8 +21,11 @@ import { Modal } from './register/modal.component';
     RegisterComponent,
     LandingPageComponent,
     SpinnerComponent,
-    Modal
+    Modal,
+    ErrorPageComponent
   ],
+
+
   imports: [
     CommonModule,
     MaterialModule,
