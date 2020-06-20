@@ -36,4 +36,17 @@ export class UserTicketComponent implements OnInit {
   navigateToLogin() {
     this.router.navigate(['./register']);
   }
+  navigateToHistory() {
+    this.router.navigate(['./profile/history']);
+
+  }
+  navigateToLocation(){
+    this.router.navigate(['./profile/location']);
+
+  }
+  navigateToSetting(){
+    this.router.navigate(['./profile/setting']);
+
+  }
+
 }
