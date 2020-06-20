@@ -11,6 +11,9 @@ import {
 import { User } from 'src/app/_service/user.service';
 import { UserModel } from 'src/app/_model/user';
 
+import { MatDialog } from '@angular/material/dialog'
+import { Modal } from './modal.component'
+
 
 @Component({
   selector: 'app-register',
@@ -30,6 +33,10 @@ export class RegisterComponent implements OnInit {
   country_phone_group: FormGroup;
 
   parentErrorStateMatcher = new ParentErrorStateMatcher();
+
+  userObject: UserModel;
+
+  modalId;
 
   countries = [
     new Country('EG', 'Egypt')
@@ -69,7 +76,7 @@ export class RegisterComponent implements OnInit {
     ]
   }
 
-  constructor(private fb: FormBuilder, private router: Router, private user: User) { }
+  constructor(private fb: FormBuilder, private router: Router, private user: User, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.createForms();
@@ -135,48 +142,75 @@ export class RegisterComponent implements OnInit {
     console.log(formData)
     // const userObject = {
 
-    let userObject: UserModel = {
+    this.userObject = {
       firstName: formData.firstname,
       lastName: formData.lastname,
       email: formData.email,
       password: formData.matching_passwords.password,
       repeatedPassword: formData.matching_passwords.confirm_password,
-      phoneNumber: formData.country_phone.phone
+      phoneNumber: `20${formData.country_phone.phone}`
     }
-    this.user.register(userObject)
-      .subscribe(
-        (response) => {
-          const loginUser = {
-            email: userObject.email,
-            password: userObject.password
-          }
-          this.user.Login(loginUser).subscribe(
-            (response) => {
-              this.spinnerEnabled = false;
 
-              localStorage.setItem('token', response['token']);
-              localStorage.setItem('person', JSON.stringify(response['person']))
-              localStorage.setItem('userId', response['person']._id);
+    this.user.generateCode(formData.country_phone.phone).subscribe(
+      (response) => {
+        this.openDialog(response['id']);
 
-              this.router.navigate(['./userlocation']);
-            },
-            (error) => {
+      },
+      (error) => {
+        console.log(error['error'].message)
+      }
+    )
 
-            }
-          )
+    // this.user.register(this.userObject)
+    //   .subscribe(
+    //     (response) => {
 
-        },
-        (error) => {
-          this.spinnerEnabled = false;
-          console.log(error)
-          console.log('error')
-        }
-      );
+    //       this.openDialog();
+
+    //       const loginUser = {
+    //         email: userObject.email,
+    //         password: userObject.password
+
+    //       }
+    //       this.user.Login(loginUser).subscribe(
+    //         (response) => {
+    //           this.spinnerEnabled = false;
+
+    //           localStorage.setItem('token', response['token']);
+    //           localStorage.setItem('person', JSON.stringify(response['person']))
+    //           localStorage.setItem('userId', response['person']._id);
+
+    //           this.router.navigate(['./userlocation']);
+    //         },
+    //         (error) => {
+
+    //         }
+    //       )
+
+    //     },
+    //     (error) => {
+    //       this.spinnerEnabled = false;
+    //       console.log(error)
+    //       console.log('error')
+    //     }
+    //   );
   }
 
 
   goToLogin() {
     this.router.navigate(['./login']);
+  }
+
+  openDialog(id) {
+    this.dialog.open(Modal, {
+      data: {
+        user: this.userObject,
+        id: id
+      }
+    })
+  }
+  closeDialog() {
+    this.dialog.closeAll();
   }
 
 }
