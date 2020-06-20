@@ -7,7 +7,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Service } from './../../../_model/service';
 import { error } from 'console';
 
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-company-services',
@@ -23,9 +23,7 @@ export class CompanyServicesComponent implements OnInit {
 
   ServiceSelected = '';
 
-
   spinnerEnabled = false;
-
 
   @ViewChild('nextScreen') arrow: ElementRef;
 
@@ -35,7 +33,7 @@ export class CompanyServicesComponent implements OnInit {
     private BranchService: BranchService,
     private ticketService: TicketService,
     private _snackBar: MatSnackBar
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     let c = JSON.parse(localStorage.getItem('company'));
@@ -46,7 +44,6 @@ export class CompanyServicesComponent implements OnInit {
     this.services = branch.services;
   }
   goToTicketOrLogin() {
-
     this.spinnerEnabled = true;
 
     if (Object.keys(this.ServiceSelected).length) {
@@ -57,46 +54,53 @@ export class CompanyServicesComponent implements OnInit {
         );
         this.ticketService.postToTicket('user', localStorage.getItem('person'));
 
+        this.ticketService.goToTicket().subscribe(
+          response => {
+            this.spinnerEnabled = false;
+            localStorage.setItem('ticket', JSON.stringify(response));
+            const customer = response['newCst'];
+            let securityCode = customer.securityCode;
+            let queueNumber = customer.queueNumber;
+            console.log(response['estimaedTime']);
+            let estimatedTime = response['estimaedTime'];
+            if (estimatedTime < 60) {
+              estimatedTime = `${estimatedTime} minutes`;
+            } else {
+              estimatedTime = `${estimatedTime / 60} hours`;
+            }
+            console.log(estimatedTime);
+            this.ticketService.postToTicket('securityCode', securityCode);
+            this.ticketService.postToTicket('queueNumber', queueNumber);
+            this.ticketService.postToTicket('estimatedTime', estimatedTime);
+            //this.ticketService.postToTicket('createdAt', response['createdAt']);
 
-        this.ticketService.goToTicket()
-          .subscribe(
-            (response) => {
-              this.spinnerEnabled = false;
-              localStorage.setItem('ticket', JSON.stringify(response));
-              const customer = response['newCst'];
-              let securityCode = customer.securityCode;
-              let queueNumber = customer.queueNumber;
-              console.log(response['estimaedTime'])
-              let estimatedTime = response['estimaedTime'];
-              if (estimatedTime < 60) {
-                estimatedTime = `${estimatedTime} minutes`
-              } else {
-                estimatedTime = `${estimatedTime / 60} hours`;
+            var today = new Date();
+            var date =
+              today.getDate() +
+              '-' +
+              (today.getMonth() + 1) +
+              '-' +
+              today.getFullYear();
+            var time =
+              today.getHours() +
+              ':' +
+              today.getMinutes() +
+              ':' +
+              today.getSeconds();
+            localStorage.setItem('date', date);
+            localStorage.setItem('time', time);
+            this.ticketService.postToTicket('date', date);
+            this.ticketService.postToTicket('time', time);
 
-              }
-              console.log(estimatedTime)
-              this.ticketService.postToTicket('securityCode', securityCode);
-              this.ticketService.postToTicket('queueNumber', queueNumber);
-              this.ticketService.postToTicket('estimatedTime', estimatedTime);
-              //this.ticketService.postToTicket('createdAt', response['createdAt']);
-
-              var today = new Date();
-              var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-              var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-              this.ticketService.postToTicket('date', date)
-              this.ticketService.postToTicket('time', time)
-
-              this.router.navigate(['/ticket']);
-
-            },
-            (error) => {
-              this.spinnerEnabled = false;
-              const errMsg = error['error'].message;
-              this.openSnackBar(errMsg, '');
-            })
-
-      }
-      else this.router.navigate(['/login']);
+            this.router.navigate(['/ticket']);
+          },
+          error => {
+            this.spinnerEnabled = false;
+            const errMsg = error['error'].message;
+            this.openSnackBar(errMsg, '');
+          }
+        );
+      } else this.router.navigate(['/login']);
     }
     // else {
     //   console.log('else 2')
@@ -113,7 +117,7 @@ export class CompanyServicesComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 2000
     });
   }
 }

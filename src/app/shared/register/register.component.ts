@@ -154,6 +154,7 @@ export class RegisterComponent implements OnInit {
             (response) => {
               this.spinnerEnabled = false;
 
+              localStorage.clear();
               localStorage.setItem('token', response['token']);
               localStorage.setItem('person', JSON.stringify(response['person']))
               localStorage.setItem('userId', response['person']._id);

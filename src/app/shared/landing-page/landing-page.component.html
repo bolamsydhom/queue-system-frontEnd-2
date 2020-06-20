@@ -9,10 +9,14 @@
      <div>
        <a mat-button
           class="nav-bar-link"
-          routerLink="/login"> Login </a>
+          (click)="login()"
+          > Login </a>
        <a mat-button
           class="nav-bar-link"
           routerLink="/register"> Sign up </a>
+          <a mat-button
+          class="nav-bar-link"
+          (click)="reserveTicket()"> Ticket reservation </a>
      </div>
    </mat-toolbar>
 
