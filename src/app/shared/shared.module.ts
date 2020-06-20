@@ -8,7 +8,9 @@ import { User } from '../_service/user.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { Modal } from './register/modal.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+
 
 
 
@@ -19,12 +21,17 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     RegisterComponent,
     LandingPageComponent,
     SpinnerComponent,
-    ErrorPageComponent],
+    Modal,
+    ErrorPageComponent
+  ],
+
+
   imports: [
     CommonModule,
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [User, HttpClientModule, HttpClient]
+  providers: [User, HttpClientModule, HttpClient],
+  entryComponents: [Modal]
 })
 export class SharedModule { }

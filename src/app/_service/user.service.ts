@@ -7,13 +7,15 @@ import { browser } from 'protractor';
 
 @Injectable()
 export class User {
- iceId;
+    iceId;
 
-  url = 'https://queue-sys-backend.herokuapp.com/';
+    verficationNumber;
 
-  constructor(private http: HttpClient) {}
+    url = 'https://queue-sys-backend.herokuapp.com/';
 
-  //private http: HttpClient
+    constructor(private http: HttpClient) { }
+
+    //private http: HttpClient
 
     //private http: HttpClient
     register(user: UserModel) {
@@ -32,10 +34,26 @@ export class User {
         return this.http.post(`${this.url}user/login`, user)
     }
 
-    imageUpload(img){
-      let formData = new FormData();
-      formData.append('photo', img)
-      return this.http.post(`${this.url}user/upload-image`, formData)
+    imageUpload(img) {
+        let formData = new FormData();
+        formData.append('photo', img)
+        return this.http.post(`${this.url}user/upload-image`, formData)
+    }
+
+    generateCode(number) {
+        const phoneNumber = {
+            phone: `20${number}`
+        }
+        return this.http.post(`${this.url}user/generateCode`, phoneNumber)
+    }
+
+    verifyCode(id, token) {
+        console.log('in verify code')
+        const data = {
+            id: id,
+            token: token
+        }
+        return this.http.post(`${this.url}user/verifyCode`, data)
     }
 }
 
