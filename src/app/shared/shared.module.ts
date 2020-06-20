@@ -8,6 +8,7 @@ import { User } from '../_service/user.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -17,7 +18,8 @@ import { AppRoutingModule } from '../app-routing.module';
     LoginComponent,
     RegisterComponent,
     LandingPageComponent,
-    SpinnerComponent],
+    SpinnerComponent,
+    ErrorPageComponent],
   imports: [
     CommonModule,
     MaterialModule,
