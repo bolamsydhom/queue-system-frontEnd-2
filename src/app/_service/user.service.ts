@@ -31,5 +31,11 @@ export class User {
 
         return this.http.post(`${this.url}user/login`, user)
     }
+
+    imageUpload(img){
+      let formData = new FormData();
+      formData.append('photo', img)
+      return this.http.post(`${this.url}user/upload-image`, formData)
+    }
 }
 

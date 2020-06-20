@@ -24,20 +24,20 @@
            alt=""
            loading="lazy" />
 
-      <img src="../../../assets/images/getty_522854574_360091.png"
+      <img [src]="image || '../../../assets/images/getty_522854574_360091.png'"
            class="imgprofile"
            alt=""
            loading="lazy" />
-      <input style="position: absolute;
-    left: 38%;
-    z-index: 10;
-    opacity: 0;"
+      <input style="position: absolute; left: 38%;  z-index: 10; opacity: 0;"
              type="file"
              name="pic"
-             id="">
+             #pic
+             id=""
+             [(value)]="img"
+              (change)="imageSelected($event)">
       <button mat-mini-fab
               class="editIcon"
-              aria-label="Example icon button with a menu icon">
+              aria-label="Example icon button with a menu icon" >
         <mat-icon>edit</mat-icon>
       </button>
       <div class="userinfo">
