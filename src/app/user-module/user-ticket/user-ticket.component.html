@@ -11,13 +11,9 @@
   </span>
   <span *ngIf="!isLoggedIn" class="nav">
     <span class="toolbar">
-
-
-      <span class="nav-link txt" (click)="navigateToLogin()">
-        Login</span>
+      <span class="nav-link txt" (click)="navigateToLogin()"> Login</span>
       <span class="line"></span>
-      <span class="nav-link txt" (click)="navigateToRegister()">
-        Register</span>
+      <span class="nav-link txt" (click)="navigateToRegister()"> Register</span>
     </span>
   </span>
 
@@ -25,25 +21,25 @@
     <span class="background">
       <div class="logo">
         <div class="title">Your Number</div>
-        <div class="number">{{ ticket["queueNumber"] }} </div>
+        <div class="number">{{ ticket["newCst"].queueNumber }}</div>
       </div>
 
       <div class="info">
         <div class="info__securityCode">
           <span class="title">Security Code: </span>
-          <span class="number">{{ ticket["securityCode"] }} </span>
+          <span class="number">{{ ticket["newCst"].securityCode }} </span>
         </div>
         <div class="info__branch">
-          <span class="title">{{ ticket["company"].name }},</span>
-          <span class="address">{{ ticket["branch"].branchName }}</span>
+          <span class="title">{{ company["name"] }},</span>
+          <span class="address">{{ branch["branchName"] }}</span>
         </div>
         <div class="info__waiting">
           <span class="title">You will be served within </span>
-          <span class="number"> {{ticket['estimatedTime']}}</span>
+          <span class="number"> {{ ticket["estimaedTime"] }}</span>
         </div>
         <div class="info__date">
-          <span class="date">{{ ticket['date'] }} </span>
-          <span class="time">{{ticket['time']}}</span>
+          <span class="date">{{ date }} </span>
+          <span class="time">{{ time }}</span>
         </div>
       </div>
     </span>

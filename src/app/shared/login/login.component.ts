@@ -3,11 +3,14 @@ import {
   FormGroup,
   FormBuilder,
   FormControl,
-  Validators,
+
+  Validators
+
 } from '@angular/forms';
 import { PasswordValidator } from '../validators';
 import { Router } from '@angular/router';
 import { User } from 'src/app/_service/user.service';
+import { TicketService } from 'src/app/_service/ticket.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +27,8 @@ export class LoginComponent implements OnInit {
 
   loginData = {
     email: '',
-    password: '',
+    password: ''
+
   };
 
   backendError = false;
@@ -32,13 +36,14 @@ export class LoginComponent implements OnInit {
   account_validation_messages = {
     email: [
       { type: 'required', message: 'Email is required' },
-      { type: 'pattern', message: 'Enter a valid email' },
+      { type: 'pattern', message: 'Enter a valid email' }
     ],
     password: [
       { type: 'required', message: 'Password is required' },
       {
         type: 'minlength',
-        message: 'Password must be at least 5 characters long',
+        message: 'Password must be at least 5 characters long'
+
       },
       {
         type: 'pattern',
@@ -51,11 +56,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private userServices: User
+    private userServices: User,
+    private ticketService: TicketService
   ) {}
 
   ngOnInit(): void {
-    localStorage.clear();
+    // localStorage.clear()
     this.createForms();
   }
 
@@ -65,9 +71,10 @@ export class LoginComponent implements OnInit {
         '',
         Validators.compose([
           Validators.required,
-          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
         ])
-      ),
+      )
+
     });
 
     this.passwordForm = this.fb.group({
@@ -76,9 +83,9 @@ export class LoginComponent implements OnInit {
         Validators.compose([
           Validators.minLength(5),
           Validators.required,
-          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
         ])
-      ),
+      )
     });
   }
 
@@ -103,19 +110,72 @@ export class LoginComponent implements OnInit {
     this.loginData.password = password.password;
     this.spinnerEnabled = true;
     this.userServices.Login(this.loginData).subscribe(
-      (response) => {
+      response => {
         const isAdmin = response['person'].isAdmin;
         const isEmployee = response['person'].isEmployee;
+
+        console.log(localStorage.getItem('cityId'));
 
         localStorage.setItem('token', response['token']);
         localStorage.setItem('person', JSON.stringify(response['person']));
         localStorage.setItem('userId', response['person']._id);
+        console.log(localStorage.getItem('cityId'));
 
         this.spinnerEnabled = false;
+
         //Routes based on role
         if (!isAdmin && !isEmployee) {
-          this.router.navigate(['userlocation'], { replaceUrl: true });
-          //this.router.navigate(['/view'], { replaceUrl: true });
+
+          if (localStorage.getItem('hasTicket')) {
+            console.log('aaaaa');
+            this.ticketService.postToTicketIds(
+              'userId',
+              localStorage.getItem('userId')
+            );
+            this.ticketService.postToTicket(
+              'user',
+              localStorage.getItem('person')
+            );
+            this.ticketService.goToTicket().subscribe(response => {
+              this.spinnerEnabled = false;
+              localStorage.setItem('ticket', JSON.stringify(response));
+              const customer = response['newCst'];
+              let securityCode = customer.securityCode;
+              let queueNumber = customer.queueNumber;
+              console.log(response['estimaedTime']);
+              let estimatedTime = response['estimaedTime'];
+              if (estimatedTime < 60) {
+                estimatedTime = `${estimatedTime} minutes`;
+              } else {
+                estimatedTime = `${estimatedTime / 60} hours`;
+              }
+              console.log(estimatedTime);
+              this.ticketService.postToTicket('securityCode', securityCode);
+              this.ticketService.postToTicket('queueNumber', queueNumber);
+              this.ticketService.postToTicket('estimatedTime', estimatedTime);
+              var today = new Date();
+              var date =
+                today.getDate() +
+                '-' +
+                (today.getMonth() + 1) +
+                '-' +
+                today.getFullYear();
+              var time =
+                today.getHours() +
+                ':' +
+                today.getMinutes() +
+                ':' +
+                today.getSeconds();
+              localStorage.setItem('date', date);
+              localStorage.setItem('time', time);
+              this.ticketService.postToTicket('date', date);
+              this.ticketService.postToTicket('time', time);
+            });
+            this.router.navigate(['/ticket']);
+          } else {
+         this.router.navigate(['userlocation'], { replaceUrl: true });
+          }
+
         }
         if (!isAdmin && isEmployee) {
           this.router.navigate(['employee']);
@@ -124,7 +184,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['admin']);
         }
       },
+
       (error) => {
+
         console.log(error);
         this.spinnerEnabled = false;
         this.backendError = true;
@@ -139,5 +201,5 @@ export class LoginComponent implements OnInit {
   onInputChange() {
     this.backendError === true ? (this.backendError = false) : '';
   }
-  onGo() {}
+
 }
