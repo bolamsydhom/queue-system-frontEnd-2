@@ -32,6 +32,7 @@ export class ComapanyListingComponent implements OnInit {
   imgSrc = '../../../assets/images/Path 34.png';
   cityId;
   noCompanyFound = false;
+  spinnerEnabled = true;
 
   @ViewChild('nextScreen') arrow: ElementRef;
   @ViewChild('selectedValue') selectedValue: MatOption;
@@ -49,6 +50,7 @@ export class ComapanyListingComponent implements OnInit {
     });
     this.copmanyService.getCompaniesByCityId(this.cityId).subscribe(
       data => {
+        this.spinnerEnabled = false;
         this.companies = data;
       },
       error => {

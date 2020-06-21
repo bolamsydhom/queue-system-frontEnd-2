@@ -169,6 +169,15 @@ body::-webkit-scrollbar {
       height: 200px !important;
     }
   }
+  .cta-btn {
+    width: 70% !important;
+    left: 17% !important;
+
+    transition: all 0.25 ease-in-out;
+  }
+  video {
+    width: 98% !important;
+  }
 }
 @keyframes breathing {
   0% {
@@ -475,12 +484,12 @@ body::-webkit-scrollbar {
     }
   }
 }
-mat-form-field{
+mat-form-field {
   width: 100%;
 }
 
-footer{
-position: sticky;
+footer {
+  position: sticky;
   display: flex;
   background-color: #173e43;
   color: beige;
@@ -489,7 +498,85 @@ position: sticky;
   align-content: center;
   height: 10vh;
 
-  .text{
+  .text {
     align-self: center;
+  }
+}
+.cta-nav {
+  color: antiquewhite;
+  &:hover {
+    color: antiquewhite !important;
+  }
+}
+@media (max-width: 670px) {
+  section {
+    grid-template-areas:
+      "h h h h"
+      "l l l l"
+      "r r r r" !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .left {
+    justify-self: center !important;
+    align-self: center;
+    grid-area: l;
+    width: 10rem !important;
+    height: 10rem !important;
+    position: relative !important;
+  }
+  .right {
+    word-wrap: break-word;
+    justify-self: center !important;
+    align-self: center;
+    grid-area: r;
+    p {
+      padding: 0px 1rem !important ;
+    }
+  }
+
+  .banner-head {
+    div {
+      mat-slide-toggle {
+        position: absolute;
+      }
+      .before {
+        left: 23% !important;
+        position: absolute;
+        animation: fade-in 0.35s ease-in-out forwards;
+      }
+      .after {
+        left: 65% !important;
+        animation: fade-in 0.35s ease-in-out forwards;
+
+        position: absolute;
+      }
+    }
+  }
+  .banner-content {
+    transform: scale(0.3) !important;
+    transition: all 1.4s ease-in-out;
+    animation: fade-in 0.5s ease-in-out forwards;
+
+    img {
+      animation: fade-in 0.5s ease-in-out forwards;
+      width: 50rem;
+      height: 100%;
+      transition: all 1.4s ease-in-out;
+    }
+  }
+  .team {
+    display: block !important;
+  }
+  .contact {
+    grid-template-areas:
+      "h h h h"
+      "l l l l"
+      "r r r r" !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  footer {
+    font-size: 0.7rem;
   }
 }

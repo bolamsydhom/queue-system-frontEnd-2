@@ -19,7 +19,9 @@ export class UserTicketComponent implements OnInit {
   branch: {};
   time;
   date;
-
+  timeIsNow = false;
+  person;
+  test;
   constructor(private router: Router, private ticketService: TicketService) {}
 
   ngOnInit(): void {
@@ -32,6 +34,12 @@ export class UserTicketComponent implements OnInit {
     this.date = localStorage.getItem('date');
     console.log(this.ticket);
     console.log(this.date);
+    this.person = JSON.parse(localStorage.getItem('person'));
+
+    setTimeout(() => {
+      this.timeIsNow = true;
+    }, this.ticket["estimaedTime"]*1000);
+
   }
 
   isUserLoggedIn() {
@@ -56,6 +64,12 @@ export class UserTicketComponent implements OnInit {
   }
   navigateToSetting(){
     this.router.navigate(['./profile/setting']);
+
+  }
+
+  hideNotification(flag){
+    this.timeIsNow = flag;
+    console.log(flag);
 
   }
 

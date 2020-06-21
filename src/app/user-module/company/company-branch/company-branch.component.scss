@@ -72,16 +72,19 @@
   font-size: 18px;
   color: #173e43;
   font-weight: 600;
-  width: 23%;
+  width: 100%;
   left: 22%;
+
 }
 
 .selectBranch {
   position: relative;
-  top: 20%;
+  top: 25%;
   left: 35%;
   height: 80%;
   width: 45%;
+  margin-top: 1.5%;
+  margin-left: 3.5%;
 }
 .branches {
   position: relative;
@@ -89,6 +92,7 @@
   overflow-y: scroll;
   height: 52%;
   display: block;
+
 }
 ::-webkit-scrollbar {
   width: 5px;
@@ -101,6 +105,7 @@
 
 tbody tr:hover {
   background-color: #6cc7c4;
+  cursor: pointer;
 }
 
 td {
@@ -180,7 +185,7 @@ td:nth-child(-n + 3) {
     width: 35%;
     text-align: center;
   }
-  
+
 
 }
 

@@ -45,3 +45,9 @@
     </span>
   </section>
 </div>
+
+<app-serve-user (closeModel)='hideNotification($event)'
+                [date]="date"
+                [time]="time"
+                [name]="person['firstName']"
+                *ngIf="timeIsNow"></app-serve-user>

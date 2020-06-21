@@ -1,5 +1,7 @@
 .container {
-  margin: 5% 17%;
+  margin-top: 5%;
+  margin-left: 17%;
+  margin-right: 17%;
   overflow: hidden !important;
 }
 .container::-webkit-scrollbar {
@@ -108,7 +110,7 @@ mat-icon {
 
 .listingContainer {
   width: 70%;
-  height: 470px;
+  height: 53.4rem;
   margin-top: 2.5%;
   display: grid;
   grid-gap: 0.0001rem 0.6rem;
@@ -342,4 +344,8 @@ mat-icon {
     margin-left: 0;
     margin-right: 0;
   }
+}
+app-spinner{
+  position: absolute;
+  top: 0;
 }

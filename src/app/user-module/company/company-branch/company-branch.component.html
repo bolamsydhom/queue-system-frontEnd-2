@@ -26,8 +26,10 @@
         <td>{{ branch.branchName }}</td>
         <td>{{ branch.workingDays[dayOfweek].openShift }}</td>
         <td>{{ branch.workingDays[dayOfweek].endShift }}</td>
-        <td><span *ngIf="branch.isRecommended"
-                class="badge badge-pill badge-warning">recommended</span></td>
+        <td> <mat-icon color="warn" *ngIf="branch.isRecommended">local_activity</mat-icon>
+              <span *ngIf="!branch.isRecommended" style="opacity: 0;"
+                    class="badge badge-pill badge-light"> ...........</span>
+              </td>
       </tr>
     </tbody>
   </table>

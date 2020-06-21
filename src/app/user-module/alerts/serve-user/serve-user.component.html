@@ -3,22 +3,23 @@
         <div class="card__bk">
         </div>
         <div class="card__data">
-            <div class="card__data__title">Hey, Emmi !</div>
+            <div class="card__data__title">Hey, {{name}} !</div>
             <!-- <div class="card__data__body">You</div> -->
             <div class="card__data__body">You will be served within
                 <span>half</span> hour</div>
             <div class="card__data__date">
-                20-05-2020 09:53:22
+                {{date}} {{time}}
             </div>
         </div>
         <!-- <div class="card__diamond"></div> -->
 
         <div class="card__buttons">
-            <button class="ok common">Ok</button>
+            <button class="ok common" (click)="clickHandler()">Ok</button>
 
         </div>
     </section>
-    <div class="close">
+    <div class="close"
+         (click)="clickHandler()">
         x
         <!-- <i class="fas fa-times"></i> -->
     </div>

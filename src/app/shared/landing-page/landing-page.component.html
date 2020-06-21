@@ -14,9 +14,10 @@
        <a mat-button
           class="nav-bar-link"
           routerLink="/register"> Sign up </a>
-          <a mat-button
-          class="nav-bar-link"
-          (click)="reserveTicket()"> Ticket reservation </a>
+          <a mat-flat-button
+             color="primary"
+          class="nav-bar-link cta-nav"
+          (click)="reserveTicket()"> Book Now </a>
      </div>
    </mat-toolbar>
 
@@ -68,6 +69,7 @@
 
        <button mat-raised-button
                class='cta-btn'
+               routerLink="/register"
                color="primary">Join Us Now</button>
 
 
@@ -144,7 +146,7 @@
 
 
      <section style="margin-top: 6rem"
-              class="special"
+              class="special team"
               data-aos="fade-up"
               data-aos-duration="3000">
        <h1 class="headline anim">Meet our team</h1>
@@ -214,7 +216,7 @@
      </section>
 
      <section data-aos="fade-up"
-              data-aos-duration="3000">
+              data-aos-duration="3000" class="contact">
 
        <h1 class="headline"
            data-aos="fade-up"
