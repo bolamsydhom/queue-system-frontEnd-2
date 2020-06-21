@@ -35,7 +35,6 @@ export class CompanyBranchComponent implements OnInit {
     this.companyImagyUrl = c.imgUrl;
     this.areaId = localStorage.getItem('areaId');
     console.log(this.areaId);
-
     if (this.areaId != null) {
       this.branchService
         .getBranchesByCityIdAndCompanyIdAndAreaId(
@@ -59,8 +58,10 @@ export class CompanyBranchComponent implements OnInit {
           this.branches = data;
           const day = new Date();
           this.dayOfweek = day.getDay();
+          console.log(this.dayOfweek);
         });
     }
+
   }
 
   onClickBranch(branch) {

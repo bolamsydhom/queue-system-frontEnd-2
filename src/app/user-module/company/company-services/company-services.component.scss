@@ -1,4 +1,4 @@
-.section1{
+.section1 {
   position: fixed;
   z-index: 90;
 }
@@ -101,7 +101,7 @@
   width: 90%;
   display: inline-block;
   overflow: auto;
-  height: 28%;
+  height: 40vh;
   top: 20%;
 }
 ::-webkit-scrollbar {
@@ -131,8 +131,8 @@
 }
 .arrowDiv {
   display: inline-block;
-  position: relative;
-  top: 12%;
+  position: absolute;
+  top: 50%;
 }
 // .arrow {
 //   cursor: not-allowed;
@@ -262,10 +262,10 @@
   }
 }
 
-.disabled{
-   pointer-events: none;
-    opacity: 0.4;
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
 }
-.arr{
+.arr {
   cursor: pointer;
 }

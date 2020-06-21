@@ -42,7 +42,7 @@ export class User {
 
     generateCode(number) {
         const phoneNumber = {
-            phone: `20${number}`
+            phone: `+20${number}`
         }
         return this.http.post(`${this.url}user/generateCode`, phoneNumber)
     }
