@@ -8,23 +8,24 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
     selector: 'modal',
     template: `
-                  
+
                    <h3>Enter your verfication number to verify your account </h3>
                    <mat-form-field>
                     <!-- <mat-label> </mat-label> -->
                         <input matInput #number required>
-            
+
                     </mat-form-field>
                      <div>
-                        <button id="btn"  mat-raised-button color="primary" (click)="onVerifyNumber(number.value)"> send </button> 
-                      
-                    </div>   
-  
+                        <button id="btn" [mat-dialog-close]="flag" mat-raised-button color="primary" (click)="onVerifyNumber(number.value)"> send </button>
+
+                    </div>
+
                 `,
 
 
 })
 export class Modal implements OnInit {
+  flag=false;
     constructor(private userService: User,
         @Inject(MAT_DIALOG_DATA) private passedData: UserModel,
         private router: Router,
@@ -55,13 +56,14 @@ export class Modal implements OnInit {
                             }
                             this.userService.Login(loginUser).subscribe(
                                 (response) => {
-                                    //this.spinnerEnabled = false;
+                                    // this.spinnerEnabled = false;
                                     console.log('ay7aga')
                                     localStorage.setItem('token', response['token']);
                                     localStorage.setItem('person', JSON.stringify(response['person']))
                                     localStorage.setItem('userId', response['person']._id);
                                     // this.modalClosed = true;
-                                    document.getElementById('id').setAttribute('[mat-dialog-close]', 'true')
+                                    // document.getElementById('id').setAttribute('', 'true')
+                                    this.flag=true;
                                     this.router.navigate(['./userlocation']);
                                 },
                                 (error) => {
