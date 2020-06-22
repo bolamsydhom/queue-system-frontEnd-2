@@ -12,7 +12,8 @@ export class ServeUserComponent implements OnInit {
   date
   @Input()
   time
-
+  @Input()
+  estimated
   @Output() closeModel = new EventEmitter<boolean>();
 
 

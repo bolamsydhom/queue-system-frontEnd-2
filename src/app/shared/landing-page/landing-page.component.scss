@@ -3,6 +3,7 @@ body::-webkit-scrollbar {
 }
 
 .landingPage-container {
+  background-color: white !important;
   height: 89.5vh;
   margin: 0;
   -ms-overflow-style: none;
@@ -70,6 +71,12 @@ body::-webkit-scrollbar {
       }
     }
   }
+}
+
+@media (prefers-color-scheme: dark) {
+.landingPage-container{
+  background-color: white;
+}
 }
 
 .water-mark {

@@ -200,6 +200,11 @@
     text-align: center;
   }
 }
+@media (max-width: 670px) {
+  .services{
+    height: 85% !important;
+  }
+}
 
 @media (max-width: 414px) {
   .circle {
