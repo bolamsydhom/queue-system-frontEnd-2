@@ -80,6 +80,7 @@ body::-webkit-scrollbar {
 }
 
 .water-mark {
+  cursor: pointer;
   position: absolute;
   top: 50%;
   left: 40%;
@@ -93,6 +94,9 @@ body::-webkit-scrollbar {
     width: 400px;
     height: 400px;
     transition: 1s all;
+  }
+  &:hover .mark-img{
+    box-shadow: 1px -20px 30px #004d406e;
   }
 }
 

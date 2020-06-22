@@ -110,10 +110,10 @@ mat-icon {
 
 .listingContainer {
   width: 70%;
-  height: 53.4rem;
+  height: 496px;
   margin-top: 2.5%;
   display: grid;
-  grid-gap: 0.0001rem 0.6rem;
+  grid-gap: 0.00001rem 0.6rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 
   justify-content: space-around;
