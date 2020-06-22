@@ -154,6 +154,7 @@ export class RegisterComponent implements OnInit {
 
     this.user.generateCode(formData.country_phone.phone).subscribe(
       (response) => {
+        localStorage.setItem('phone', formData.country_phone.phone);
         this.openDialog(response['id']);
 
       },
@@ -211,7 +212,23 @@ export class RegisterComponent implements OnInit {
     })
   }
   closeDialog() {
-    this.dialog.closeAll();
+    if (this.user.modalClosed) {
+      console.log("this.user.modalClosed :" , this.user.modalClosed);
+
+      this.dialog.closeAll();
+    }
+    if(this.user.modal){
+      console.log("this.user.modal : ", this.user.modal);
+
+      this.dialog.closeAll();
+    }
+    this.user.modal.subscribe(
+      (respond) => {
+        console.log("respond", respond);
+
+        this.dialog.closeAll();
+      }
+    )
   }
 
 }

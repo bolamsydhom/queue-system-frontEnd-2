@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-    selector: 'modal',
-    template: `
+  selector: 'modal',
+  template: `
 
                    <h3>Enter your verfication number to verify your account </h3>
                    <mat-form-field>
@@ -16,7 +16,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
                     </mat-form-field>
                      <div>
-                        <button id="btn" [mat-dialog-close]="flag" mat-raised-button color="primary" (click)="onVerifyNumber(number.value)"> send </button>
+                        <button id="btn" mat-raised-button color="primary" (click)="onVerifyNumber(number.value)"> send </button>
+                        <button id="btn" mat-raised-button color="primary" (click)="reGenerate()"> Re Genrate Code </button>
 
                     </div>
 
@@ -25,75 +26,88 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 })
 export class Modal implements OnInit {
-  flag=false;
-    constructor(private userService: User,
-        @Inject(MAT_DIALOG_DATA) private passedData: UserModel,
-        private router: Router,
-        private _snackBar: MatSnackBar) { }
+  flag = false;
+  constructor(private userService: User,
+    @Inject(MAT_DIALOG_DATA) private passedData: UserModel,
+    private router: Router,
+    private _snackBar: MatSnackBar) { }
 
-    verficationId;
-    userObject;
-    modalClosed = false;
+  verficationId;
+  userObject;
+  modalClosed = false;
 
-    ngOnInit(): void {
-        console.log(this.passedData['user'])
-        console.log(this.passedData['id'])
-        this.userObject = this.passedData['user'];
-        this.verficationId = this.passedData['id'];
-    }
-    onVerifyNumber(token) {
-        //this.spinnerEnabled = true;
-        console.log(this.verficationId, token)
+  ngOnInit(): void {
+    console.log(this.passedData['user'])
+    console.log(this.passedData['id'])
+    this.userObject = this.passedData['user'];
+    this.verficationId = this.passedData['id'];
+  }
+  onVerifyNumber(token) {
+    //this.spinnerEnabled = true;
+    console.log(this.verficationId, token)
 
-        this.userService.verifyCode(this.verficationId, token).subscribe(
+    this.userService.verifyCode(this.verficationId, token).subscribe(
+      (response) => {
+        this.userService.register(this.userObject)
+          .subscribe(
             (response) => {
-                this.userService.register(this.userObject)
-                    .subscribe(
-                        (response) => {
-                            const loginUser = {
-                                email: this.userObject.email,
-                                password: this.userObject.password
-                            }
-                            this.userService.Login(loginUser).subscribe(
-                                (response) => {
-                                    // this.spinnerEnabled = false;
-                                    console.log('ay7aga')
-                                    localStorage.setItem('token', response['token']);
-                                    localStorage.setItem('person', JSON.stringify(response['person']))
-                                    localStorage.setItem('userId', response['person']._id);
-                                    // this.modalClosed = true;
-                                    // document.getElementById('id').setAttribute('', 'true')
-                                    this.flag=true;
-                                    this.router.navigate(['./userlocation']);
-                                },
-                                (error) => {
+              const loginUser = {
+                email: this.userObject.email,
+                password: this.userObject.password
+              }
+              this.userService.Login(loginUser).subscribe(
+                (response) => {
+                  // this.spinnerEnabled = false;
+                  console.log('ay7aga')
+                  localStorage.setItem('token', response['token']);
+                  localStorage.setItem('person', JSON.stringify(response['person']))
+                  localStorage.setItem('userId', response['person']._id);
+                  // this.modalClosed = true;
+                  // document.getElementById('id').setAttribute('', 'true')
+                  this.userService.modal.next(true);
+                  this.router.navigate(['./userlocation']);
+                },
+                (error) => {
 
-                                }
-                            )
+                }
+              )
 
-                        },
-                        (error) => {
-                            //this.spinnerEnabled = false;
-                            console.log(error)
-                            const errMsg = error['error'].message;
-                            this.openSnackBar(errMsg, '');
-                        }
-                    );
             },
             (error) => {
-                console.log(error);
-                const errMsg = error['error'].message;
-                this.openSnackBar(errMsg, '');
+              //this.spinnerEnabled = false;
+              console.log(error)
+              const errMsg = error['error'].message;
+              this.openSnackBar(errMsg, '');
             }
-        )
-    }
-    onClose() {
+          );
+      },
+      (error) => {
+        console.log(error);
+        const errMsg = error['error'].message;
+        this.openSnackBar(errMsg, '');
+      }
+    )
+  }
+  onClose() {
 
-    }
-    openSnackBar(message: string, action: string) {
-        this._snackBar.open(message, action, {
-            duration: 2000,
-        });
-    }
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
+  reGenerate() {
+    const phone = localStorage.getItem('phone');
+    this.userService.generateCode(phone).subscribe(
+      (response) => {
+        this.verficationId = response['id'];
+        console.log(phone);
+
+      },
+      (error) => {
+        console.log(error['error'].message);
+      },
+    )}
 
 }
