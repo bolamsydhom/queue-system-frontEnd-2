@@ -17,7 +17,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
                     </mat-form-field>
                      <div>
                         <button id="btn" mat-raised-button color="primary" (click)="onVerifyNumber(number.value)"> send </button>
-                        <button id="btn" mat-raised-button color="primary" (click)="reGenerate()"> Re Genrate Code </button>
+                        <button id="btn" style="margin-left: 5%" mat-stroked-button color="primary" (click)="reGenerate()"> Re Genrate Code </button>
 
                     </div>
 
